@@ -1,0 +1,27 @@
+<p>Navbar test</p>
+<nav class="navMainSelection" *ngIf="loggedin">
+    <a routerLink="/">Home</a>
+
+    <!-- if the user isn't logged in (on the login/home page), don't show nav -->
+    <button *ngIf="loggedin" class="navToggler" type="button" onclick="navOpen()">
+        <span>test:<i class="arrow left"></i></span> <!-- check css for the icon details-->
+    </button>
+
+    <div class="navLinks">
+        <button *ngIf="loggedin" class="navToggler" type="button" onclick="navClose()">
+            <span>test:<i class="arrow left"></i></span> <!-- check css for the icon details-->
+        </button>
+        <!-- Training site manager links -->
+        <div *ngIf="isTSM">
+        <ul class="navUL" >
+            <li class="navItem" *ngFor="let link of linksTSM">
+                <a href="#" class="navLink"  [routerLink]="link.fragment">
+                    {{ link.linkName }}
+                </a>
+            </li>
+                <a href="#" class="navLink" (click)="logout()">Logout</a> 
+        </ul>
+        </div>
+    </div>
+
+</nav>
