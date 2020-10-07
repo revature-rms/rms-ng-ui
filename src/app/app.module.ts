@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule }    from '@angular/common/http';
 
+import {MaterialModule} from './material-module';
+
 import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
 
 @NgModule({
@@ -19,6 +21,7 @@ import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
