@@ -2,8 +2,6 @@ import { Injectable } from '@angular/core';
 import {Employee} from "../dtos/Employee";
 import { Observable, of } from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {catchError, tap} from 'rxjs/operators';
-import {MESSAGETEXTS} from '../const/MessageConsts';
 import { MessageService } from './message.service';
 
 
@@ -17,6 +15,8 @@ const httpOptions = {
 })
 export class EmployeeService {
 
+  employee:Employee;
+
   private employeeUrl = 'http://localhost:3000/Employee';
 
   constructor(private http: HttpClient,
@@ -26,32 +26,31 @@ export class EmployeeService {
     return this.http.get(this.employeeUrl);
 }
 
-    // getEmployees(): Observable<Employee[]> {
-    //   return this.http.get<Employee[]>(this.employeeUrl)
-    //   .pipe(
-    //     tap(_ => this.log('fetched success')),
-    //     catchError(this.handleError<Employee[]>('getEmployees', [])));
-    // }
-    
+getEmployeeBy(id) {
+  return this.http.get(`${this.employeeUrl}/${id}`);
+}
+
+create(employee) {
+  return this.http.post(this.employeeUrl, employee);
+}
+
+update(id, employee) {
+  return this.http.put(`${this.employeeUrl}/${id}`, employee);
+}
+
+delete(id) {
+  return this.http.delete(`${this.employeeUrl}/${id}`);
+}
+
+deleteAll() {
+  return this.http.delete(this.employeeUrl);
+}
+
+findByTitle(title) {
+  return this.http.get(`${this.employeeUrl}?title=${title}`);
+}
 
 
-    // private handleError<T>(operation = 'operation', result?: T) {
-    //   return (error: any): Observable<T> => {
-    
-    //     // TODO: send the error to remote logging infrastructure
-    //     console.error(error); // log to console instead
-    
-    //     // TODO: better job of transforming error for user consumption
-    //     this.log(`${operation} failed: ${error.message}`);
-    
-    //     // Let the app keep running by returning an empty result.
-    //     return of(result as T);
-    //   };
-    // }
-
-    // private log(message: string) {
-    //   this.messageService.add(`EmployeeService: ${message}`);
-    // }
 
 
 }

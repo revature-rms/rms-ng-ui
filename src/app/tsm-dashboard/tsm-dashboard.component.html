@@ -1,5 +1,4 @@
-<p>tsm-dashboard works!</p>
-
+<mat-toolbar>TSM Dashboard</mat-toolbar>
 
 
 
@@ -11,7 +10,7 @@
     <!-- Position Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button>{{element.id}} </button></td>
     </ng-container>
   
     <!-- Name Column -->
