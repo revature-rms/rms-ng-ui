@@ -1,6 +1,6 @@
 
 
-export class amenity{
+export class Amenity{
     type:String;
     status:String;
 }

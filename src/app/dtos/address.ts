@@ -1,7 +1,7 @@
 
 
 
-export class address{
+export class Address{
     unitStreet:String;
     city:String;
     state:String;

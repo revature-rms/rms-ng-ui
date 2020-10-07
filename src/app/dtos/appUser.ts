@@ -1,4 +1,4 @@
-export class appUser{
+export class AppUser{
     id:Number;
     username:String;
     password:String;

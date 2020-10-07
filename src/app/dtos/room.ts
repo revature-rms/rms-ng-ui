@@ -1,11 +1,11 @@
-import { batch } from './batch';
+import { Batch } from './batch';
 
-export class room{
+export class Room{
 
     id:Number;
     roomNumber:String;
     maxOccupancy:Number;
     currentStatus:String;
-    batch:batch;
+    batch:Batch;
 
 }

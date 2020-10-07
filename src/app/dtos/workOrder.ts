@@ -1,7 +1,7 @@
-import { employee } from './employee';
+import { Employee } from './employee';
 
 
-export class workOrder{
+export class WorkOrder{
 
     id:Number;
     createdDateTime:String;
@@ -9,8 +9,8 @@ export class workOrder{
     category:String;
     description:String;
     contactEmail:String;
-    creator:employee;
-    resolver:employee;
+    creator:Employee;
+    resolver:Employee;
 
 
 }

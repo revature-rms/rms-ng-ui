@@ -1,13 +1,13 @@
-import { employee } from './employee';
+import { Employee } from './employee';
 
-export class roomStatus{
+export class RoomStatus{
 
     id:Number;
     whiteboardCleaned:Boolean;
     chairsOrdered:Boolean;
     desksCleaned:Boolean;
     submittedDateTime:String;
-    submitter:employee;
+    submitter:Employee;
     otherNotes:String;
 
 
