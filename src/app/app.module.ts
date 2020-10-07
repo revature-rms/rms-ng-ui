@@ -13,11 +13,13 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
+import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
+    TsmDashboardComponent
   ],
   imports: [
     BrowserModule,
@@ -35,6 +37,7 @@ import { MatInputModule } from '@angular/material/input';
   exports: [
     MatButtonModule,
     MatFormFieldModule
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
