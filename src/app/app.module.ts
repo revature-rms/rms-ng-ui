@@ -5,16 +5,21 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { EmployeeDetailViewComponent } from './employee-detail-view/employee-detail-view.component';
+import { HttpClientModule }    from '@angular/common/http';
+
+import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    EmployeeDetailViewComponent
+    EmployeeDetailViewComponent,
+    TsmDashboardComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
