@@ -13,6 +13,8 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 
+import {MaterialModule} from './material-module';
+
 import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
 
 @NgModule({
@@ -25,19 +27,8 @@ import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MatInputModule,
-    HttpClientModule
-  ],
-  exports: [
-    MatButtonModule,
-    MatFormFieldModule
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
