@@ -1,4 +1,4 @@
-import { ResourceMetadata } from './resourceMetadata';
+import { ResourceMetadata } from "../dtos/resourceMetadata";
 
 export class Employee {
 

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
-import {Employee} from '../dtos/Employee';
+import {Employee} from '../dtos/employee';
 import {EmployeeService} from'../services/employee.service';
 
 
