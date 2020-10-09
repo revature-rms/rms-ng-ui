@@ -18,6 +18,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import { MatTableModule } from '@angular/material/table';
 
 
+import {MaterialModule} from './material-module';
+
 import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 
@@ -32,23 +34,8 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    MatButtonModule,
-    MatMenuModule,
-    MatToolbarModule,
-    MatFormFieldModule,
-    ReactiveFormsModule,
-    FormsModule,
-    MatInputModule,
-    MatCardModule,
-    MatIconModule,
-    MatDividerModule,
-    MatTableModule,
-    HttpClientModule
-  ],
-  exports: [
-    MatButtonModule,
-    MatFormFieldModule,
-    HttpClientModule
+    HttpClientModule,
+    MaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]
