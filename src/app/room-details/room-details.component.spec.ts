@@ -6,6 +6,8 @@ import { RoomDetailsComponent } from './room-details.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RoomService } from '../services/room.service';
 import { of } from 'rxjs';
+import data  from  'src/assets/room.json';
+
 
 describe('RoomDetailsComponent', () => {
   let component: RoomDetailsComponent;
@@ -18,32 +20,7 @@ describe('RoomDetailsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ RoomDetailsComponent ],
-      imports: [ RouterTestingModule, HttpClientTestingModule ],
-      providers: [
-        {provide: roomService, useValue: {
-              getRooms: () => of({
-                "room": {
-                    "id": 36,
-                    "roomNumber": "2304",
-                    "maxOccupancy": 30,
-                    "currentStatus": {
-                        "test":"test"
-                    },
-                    "batch": {
-                        "test":"test"
-                    },
-                    "workOrders": [              
-                        {
-                            "test":"test"
-                        }
-                    ],
-                    "resourceMetadata": {
-                        "test":"test"
-                    }
-                }
-            })
-        }}
-      ]      
+      imports: [ RouterTestingModule, HttpClientTestingModule ]   
     })
     .compileComponents();
   });
@@ -70,7 +47,7 @@ describe('RoomDetailsComponent', () => {
 
     component.ngOnInit();
 
-    spyOn(roomService, 'getRooms').and.callThrough();
+    spyOn(roomService, 'getRooms').and.returnValue(Promise.resolve(data));
     console.log(component.rooms);
     
 
