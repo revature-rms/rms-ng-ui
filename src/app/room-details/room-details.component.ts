@@ -13,8 +13,8 @@ import { WorkOrderService } from '../services/work-order.service';
 export class RoomDetailsComponent implements OnInit {
 
   rooms: Room[];
-  currentRoom: Room;
-  roomBatch: Batch;
+  currentRoom: Room = new Room();
+  roomBatch: Batch = new Batch();
   workOrders: WorkOrder[];
   dataSource:any[]=[];
   displayedColumns: string[] = ['id', 'createdDateTime', 'resolvedDateTime', 'category', 'contactEmail', 'creator', 'resolver'];
@@ -23,10 +23,10 @@ export class RoomDetailsComponent implements OnInit {
 
   async ngOnInit() {
 
-    this.roomService.getRooms().subscribe(
+    await this.roomService.getRooms().then(
       res => {
         console.log('get-rooms-successful');
-        this.rooms = res;
+        this.rooms = <Room[]> res;
         this.currentRoom = this.rooms[0];
         this.roomBatch = this.currentRoom.batch;
       },
@@ -34,7 +34,7 @@ export class RoomDetailsComponent implements OnInit {
         console.log(err);
       });
 
-    this.workOrderService.getWorkOrder().subscribe(
+    await this.workOrderService.getWorkOrder().subscribe(
         res => {
           console.log('get-work-orders-successful');
           this.workOrders = res;

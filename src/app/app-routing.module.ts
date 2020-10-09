@@ -5,10 +5,10 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
 import {TsmDashboardComponent} from './tsm-dashboard/tsm-dashboard.component'
 
 const routes: Routes = [
-  {path: '', redirectTo: '/tsm-dashboard', pathMatch: 'full'},
+  {path: '', redirectTo: '/room-details', pathMatch: 'full'},
   {path: 'tsm-dashboard', component: TsmDashboardComponent},
   {path: 'login', component: LoginComponent },
-  {path: 'room-details', component: RoomDetailsComponent }
+  {path: 'room-details', component: RoomDetailsComponent}
 ];
 
 @NgModule({

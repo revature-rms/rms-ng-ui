@@ -20,11 +20,8 @@ export class RoomService {
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
-    getRooms(): Observable<Room[]> {
-      return this.http.get<Room[]>(this.roomUrl)
-      .pipe(
-        tap(_ => this.log('fetched success')),
-        catchError(this.handleError<Room[]>('getRooms', [])));
+    getRooms(): Promise<Room[]> {
+      return this.http.get<Room[]>(this.roomUrl).toPromise();
     }
 
     private handleError<T>(operation = 'operation', result?: T) {
