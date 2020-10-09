@@ -1,12 +1,9 @@
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Employee} from "../dtos/Employee";
 import { Observable, of } from 'rxjs';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {catchError, tap} from 'rxjs/operators';
-import {MESSAGETEXTS} from '../const/MessageConsts';
-// import {Result} from '../dtos/Result';
+import { catchError, tap } from 'rxjs/operators';
+import { Room } from '../dtos/room';
 import { MessageService } from './message.service';
-
 
 const httpOptions = {
   headers: new HttpHeaders({'Content-Type': 'application/json'})
@@ -16,21 +13,19 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeService {
+export class RoomService {
 
-  private employeeUrl = 'http://localhost:3000/Employee';
+  private roomUrl = 'http://localhost:3000/Room';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
-    getEmployees(): Observable<Employee[]> {
-      return this.http.get<Employee[]>(this.employeeUrl)
+    getRooms(): Observable<Room[]> {
+      return this.http.get<Room[]>(this.roomUrl)
       .pipe(
         tap(_ => this.log('fetched success')),
-        catchError(this.handleError<Employee[]>('getEmployees', [])));
+        catchError(this.handleError<Room[]>('getRooms', [])));
     }
-    
-
 
     private handleError<T>(operation = 'operation', result?: T) {
       return (error: any): Observable<T> => {

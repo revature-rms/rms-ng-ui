@@ -12,14 +12,21 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { MatCardModule } from '@angular/material/card';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import { MatTableModule } from '@angular/material/table';
+
 
 import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
+import { RoomDetailsComponent } from './room-details/room-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    TsmDashboardComponent
+    TsmDashboardComponent,
+    RoomDetailsComponent
   ],
   imports: [
     BrowserModule,
@@ -32,11 +39,15 @@ import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
     ReactiveFormsModule,
     FormsModule,
     MatInputModule,
+    MatCardModule,
+    MatIconModule,
+    MatDividerModule,
+    MatTableModule,
     HttpClientModule
   ],
   exports: [
     MatButtonModule,
-    MatFormFieldModule
+    MatFormFieldModule,
     HttpClientModule
   ],
   providers: [],

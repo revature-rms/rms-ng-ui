@@ -1,0 +1,111 @@
+<h1> Room Details </h1>
+<h2>Room Number</h2>
+<div id="wholeDiv">
+<div id="leftDiv">
+    <div>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-content>
+                    {{ this.currentRoom.roomNumber }}
+                    <button mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-content>
+            </mat-card-header>
+        </mat-card>
+    </div>
+    <br>
+    <mat-divider></mat-divider>
+    <h2>Occupancy</h2>
+    <div>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-content>
+                    {{ this.currentRoom.maxOccupancy }}
+                    <button mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-content>
+            </mat-card-header>
+        </mat-card>
+    </div>
+    <br>
+    <mat-divider></mat-divider>
+    <h2>Status</h2>
+    <div>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-content>
+                    {{ this.currentRoom.currentStatus }}
+                    <button mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-content>
+            </mat-card-header>
+        </mat-card>
+    </div>
+    <br>
+    <mat-divider></mat-divider>
+    <h2>Batch</h2>
+    <div>
+        <mat-card>
+            <mat-card-header>
+                <mat-card-content>
+                    {{ this.roomBatch.name }}
+                    <button mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-content>
+            </mat-card-header>
+        </mat-card>
+    </div>
+</div>
+<div id="leftDiv">
+<table mat-table [dataSource]="workOrders" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+    <!-- Position Column -->
+    <ng-container matColumnDef="id">
+      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button>{{element.id}} </button></td>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="createdDateTime">
+      <th mat-header-cell *matHeaderCellDef> Created </th>
+      <td mat-cell *matCellDef="let element"> {{element.createdDateTime}} </td>
+    </ng-container>
+
+    <!-- Weight Column -->
+    <ng-container matColumnDef="resolvedDateTime">
+      <th mat-header-cell *matHeaderCellDef> Resolved </th>
+      <td mat-cell *matCellDef="let element"> {{element.resolvedDateTime}} </td>
+    </ng-container>
+
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Category </th>
+      <td mat-cell *matCellDef="let element"> {{element.category}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="contactEmail">
+        <th mat-header-cell *matHeaderCellDef> Contact Email </th>
+        <td mat-cell *matCellDef="let element"> {{element.contactEmail}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="creator">
+        <th mat-header-cell *matHeaderCellDef> Creator </th>
+        <td mat-cell *matCellDef="let element"> {{element.creator}} </td>
+    </ng-container>  
+
+    <ng-container matColumnDef="resolver">
+        <th mat-header-cell *matHeaderCellDef> Resolver </th>
+        <td mat-cell *matCellDef="let element"> {{element.resolver}} </td>
+    </ng-container>  
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+</div>
+</div>

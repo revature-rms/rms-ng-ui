@@ -1,35 +1,27 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import {Employee} from "../dtos/Employee";
 import { Observable, of } from 'rxjs';
-import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
-import {catchError, tap} from 'rxjs/operators';
-import {MESSAGETEXTS} from '../const/MessageConsts';
-// import {Result} from '../dtos/Result';
+import { tap, catchError } from 'rxjs/operators';
+import { Room } from '../dtos/room';
+import { WorkOrder } from '../dtos/workOrder';
 import { MessageService } from './message.service';
-
-
-const httpOptions = {
-  headers: new HttpHeaders({'Content-Type': 'application/json'})
-};
-
 
 @Injectable({
   providedIn: 'root'
 })
-export class EmployeeService {
+export class WorkOrderService {
 
-  private employeeUrl = 'http://localhost:3000/Employee';
+  private workUrl = 'http://localhost:3000/workOrder';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
-    getEmployees(): Observable<Employee[]> {
-      return this.http.get<Employee[]>(this.employeeUrl)
+    getWorkOrder(): Observable<WorkOrder[]> {
+      return this.http.get<WorkOrder[]>(this.workUrl)
       .pipe(
         tap(_ => this.log('fetched success')),
-        catchError(this.handleError<Employee[]>('getEmployees', [])));
+        catchError(this.handleError<WorkOrder[]>('getWorkOrder', [])));
     }
-    
 
 
     private handleError<T>(operation = 'operation', result?: T) {
@@ -52,3 +44,5 @@ export class EmployeeService {
 
 
 }
+
+
