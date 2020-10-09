@@ -37,7 +37,7 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
     HttpClientModule,
     MaterialModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
