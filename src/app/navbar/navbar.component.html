@@ -1,27 +1,23 @@
-<p>Navbar test</p>
-<nav class="navMainSelection" *ngIf="loggedin">
-    <a routerLink="/">Home</a>
-
-    <!-- if the user isn't logged in (on the login/home page), don't show nav -->
-    <button *ngIf="loggedin" class="navToggler" type="button" onclick="navOpen()">
-        <span>test:<i class="arrow left"></i></span> <!-- check css for the icon details-->
-    </button>
-
-    <div class="navLinks">
-        <button *ngIf="loggedin" class="navToggler" type="button" onclick="navClose()">
-            <span>test:<i class="arrow left"></i></span> <!-- check css for the icon details-->
+<div *ngIf="loggedin">
+<!-- if the user isn't logged in (on the login/home page), don't show nav -->
+    <a *ngIf="loggedin" class="navToggler" id="navOpener" mat-raised-button color="primary" (click)="navOpen()">
+        <span>Open Nav (dev)</span>   <!--<i class="arrow right"></i>-->
+    </a>
+    <div class="sidebarCard" id="navLinks" >
+        <!-- nav closer -->
+        <button *ngIf="loggedin" class="navToggler" id="navCloser" mat-raised-button color="primary" (click)="navClose()">
+            <span>Close Nav (dev)</span> <!-- check css for the icon details <i class="arrow left"></i>-->
         </button>
-        <!-- Training site manager links -->
-        <div *ngIf="isTSM">
-        <ul class="navUL" >
-            <li class="navItem" *ngFor="let link of linksTSM">
-                <a href="#" class="navLink"  [routerLink]="link.fragment">
-                    {{ link.linkName }}
-                </a>
-            </li>
-                <a href="#" class="navLink" (click)="logout()">Logout</a> 
-        </ul>
-        </div>
+        <!-- Debug links for development -->
+        <nav>
+            <ul class="navUL" >
+                <li class="navItem" *ngFor="let link of linksDebug">
+                    <a href="#" class="navLink"  [routerLink]="link.fragment">
+                        {{ link.linkName }}
+                    </a>
+                </li>
+            </ul>
+        </nav>
+        <button (click)="logout()" mat-raised-button color="primary">Logout</button>
     </div>
-
-</nav>
+</div>

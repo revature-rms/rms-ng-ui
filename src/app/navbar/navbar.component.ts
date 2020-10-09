@@ -1,5 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+// import { link } from 'fs';
+import { Subscription } from 'rxjs';
+import { Principal } from '../dtos/principal';
+import { AuthService } from '../services/auth.service';
 
 
 @Component({
@@ -13,40 +17,48 @@ export class NavbarComponent implements OnDestroy {
   isADMN: boolean = false; //Admin
   isTRNR: boolean = false; //Training manager
   loggedin: boolean = true; //default:false
-  // currentUser: Principal = null;
-  // currentUserSub: Subscription = null;
+  currentUser: Principal = null;
+  currentUserSub: Subscription = null;
+  navFocused: boolean = false;
 
-  constructor(private router: Router) { 
-    let loggedin = true;
+  constructor(private router: Router, private authService: AuthService) { 
 
+    this.currentUserSub = this.authService.currentUser$.subscribe(user => {
+      this.currentUser = user;
+      // Roles:
+        // Admin
+        // Training Site Manager
+        // Building Manager
+        // Trainer
+        // Locked
+      
+      if(user){
+        console.log("Current user role: "+ this.currentUser.role);
+        this.loggedin=true;
+        console.log("Logged in: "+this.loggedin);
 
-    //Following code handles navbar link logic:
-
-    // this.currentUserSub = this.authService.currentUser$.subscribe(user => {
-    //   this.currentUser = user;
-    //   //this is all within the subscription, so should be updated anytime user info is updated
-    //   if(user){
-    //     console.log("Current user role: "+ this.currentUser.role);
-    //     this.loggedin=true;
-    //     console.log("Logged in: "+this.loggedin);
-        
-    //     //include logic for navbar links within this parent if statement
-    //       //otherwise typescript will cry, cry, cry about null pointers like a baby
-    //         //thank you typescript
-    //     if(this.currentUser.role=="User"){
-    //       this.isUser=true;
-    //       console.log("Is User: "+this.isUser);
-    //     } 
-    //     if(this.currentUser.role=="Admin"){
-    //       this.isAdmin=true;
-    //       console.log("Is Admin: "+this.isAdmin);
-    //     } 
-    //     if(this.currentUser.role=="Manager"){
-    //       this.isManager=true;
-    //       console.log("Is Manager: "+this.isManager);
-    //     } 
-    //   } 
-    // });
+        switch(this.currentUser.role){
+          case "Admin": 
+                        this.isADMN=true;
+                        console.log("Is Admin: "+this.isADMN);
+                        // break; // NO BREAKS: a user can have multiple roles
+          case "Training Site Manager": 
+                        this.isTSM=true;
+                        console.log("Is TSM: "+this.isTSM);
+          case "Building Manager":
+                        this.isBMNGR=true;
+                        console.log("Is BMNGR: "+this.isBMNGR);
+          case "Trainer":
+                        this.isTRNR=true;
+                        console.log("Is Trainer: "+this.isTRNR);
+          case "Locked":
+                        this.loggedin=false; //force logout to invalidate session
+                        console.log("Is Locked: "+this.loggedin);
+                        console.log("Logging out... ");
+                        // this.authService.logout(); // un-comment this once auth service is done
+        }
+      } 
+    });
 
 
   }
@@ -101,10 +113,16 @@ export class NavbarComponent implements OnDestroy {
 
   navOpen() {
     document.getElementById("navLinks").style.display = "block";
+    document.getElementById("navOpener").style.display = "none";
+    document.getElementById("navCloser").style.display = "block";
+    this.navFocused=true;
   }
   
   navClose() {
     document.getElementById("navLinks").style.display = "none";
+    document.getElementById("navOpener").style.display = "block";
+    document.getElementById("navCloser").style.display = "none";
+    this.navFocused=false;
   }
 
   //========== Misc methods =================
