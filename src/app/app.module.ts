@@ -22,13 +22,15 @@ import {MaterialModule} from './material-module';
 
 import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
+import { RoomEditComponent } from './room-edit/room-edit.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     TsmDashboardComponent,
-    RoomDetailsComponent
+    RoomDetailsComponent,
+    RoomEditComponent
   ],
   imports: [
     BrowserModule,
