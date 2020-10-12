@@ -47,7 +47,7 @@ describe('RoomDetailsComponent', () => {
 
     component.ngOnInit();
 
-    spyOn(roomService, 'getRooms').and.returnValue(Promise.resolve(data));
+    // spyOn(roomService, 'getRooms').and.returnValue(Promise.resolve(data));
     console.log(component.rooms);
     
 
