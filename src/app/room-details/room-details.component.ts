@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Batch } from '../dtos/batch';
 import { Room } from '../dtos/room';
+import { RoomStatus } from '../dtos/roomStatus';
 import { WorkOrder } from '../dtos/workOrder';
 import { RoomService } from '../services/room.service';
 import { WorkOrderService } from '../services/work-order.service';
@@ -15,6 +16,7 @@ export class RoomDetailsComponent implements OnInit {
   rooms: Room[];
   currentRoom: Room = new Room();
   roomBatch: Batch = new Batch();
+  currentRoomStatus: RoomStatus = new RoomStatus();
   workOrders: WorkOrder[];
   dataSource:any[]=[];
   displayedColumns: string[] = ['id', 'createdDateTime', 'resolvedDateTime', 'category', 'contactEmail', 'creator', 'resolver'];
@@ -28,6 +30,8 @@ export class RoomDetailsComponent implements OnInit {
         console.log('get-rooms-successful');
         this.rooms = <Room[]> res;
         this.currentRoom = this.rooms[0];
+        this.currentRoomStatus = <RoomStatus> this.currentRoom.currentStatus;
+        console.log(this.currentRoomStatus.otherNotes);
         this.roomBatch = this.currentRoom.batch;
       },
       err => {
