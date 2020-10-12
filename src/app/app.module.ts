@@ -16,12 +16,14 @@ import { MatInputModule } from '@angular/material/input';
 import {MaterialModule} from './material-module';
 
 import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
+import { BuildingDetailsComponent } from './building-details/building-details.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
-    TsmDashboardComponent
+    TsmDashboardComponent,
+    BuildingDetailsComponent
   ],
   imports: [
     BrowserModule,
