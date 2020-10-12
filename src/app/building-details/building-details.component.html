@@ -1,2 +1,88 @@
 <p>building-details works!</p>
 <h1>Building Details</h1>
+<div id="wholeDiv">
+    <div id="leftDiv">
+
+        <h2>Name</h2>
+        <div>
+            <mat-card>
+                <mat-card-content id="name">
+                    {{ this.currentBuilding.name }}
+                    <button mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>AbbrvName</h2>
+        <div>
+            <mat-card>
+                <mat-card-content id="AbbrvName">
+                    {{ this.currentBuilding.abbrName }}
+                    <button mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Physical Address</h2>
+        <div>
+            <mat-card>
+                <mat-card-content id="Address">
+                    {{ this.currentBuilding.physicalAddress }}
+                    <button mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Training Lead</h2>
+        <div>
+            <mat-card>
+                <mat-card-content id="trainingLead">
+                    {{ this.currentBuilding.trainingLead }}
+                    <button mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <div>
+
+            <h2>tabless</h2>
+            <h2>Rooms</h2>
+
+
+            <table mat-table [dataSource]="rooms" class="mat-elevation-z8">
+
+                <!-- Position Column -->
+                <ng-container matColumnDef="roomNumber">
+                    <th mat-header-cell *matHeaderCellDef> No. </th>
+                    <td mat-cell *matCellDef="let element"> {{element.roomNumber}} </td>
+                </ng-container>
+                <!-- Name Column -->
+                <ng-container matColumnDef="maxOccupancy">
+                    <th mat-header-cell *matHeaderCellDef> max Occupancy </th>
+                    <td mat-cell *matCellDef="let element"> {{element.maxOccupancy}} </td>
+                </ng-container>
+
+                <!-- Weight Column -->
+                <ng-container matColumnDef="currentStatus">
+                    <th mat-header-cell *matHeaderCellDef> Status </th>
+                    <td mat-cell *matCellDef="let element"> {{element.currentStatus}} </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+            </table>
+
+        </div>
+
+    </div>
+</div>
