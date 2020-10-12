@@ -12,6 +12,7 @@ import { MatMenuModule } from '@angular/material/menu';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { NavbarComponent } from './navbar/navbar.component';
 
 import {MaterialModule} from './material-module';
 
@@ -21,7 +22,8 @@ import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
   declarations: [
     AppComponent,
     LoginComponent,
-    TsmDashboardComponent
+    TsmDashboardComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
