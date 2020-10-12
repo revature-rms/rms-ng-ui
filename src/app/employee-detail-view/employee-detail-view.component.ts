@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Employee } from '../dtos/employee';
+import { EmployeeService } from '../services/employee.service';
 
 @Component({
   selector: 'app-employee-detail-view',
@@ -7,9 +9,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeDetailViewComponent implements OnInit {
 
-  constructor() { }
+  currentEmployee: Employee = new Employee();
 
-  ngOnInit(): void {
+  constructor(private employeeService: EmployeeService) { }
+
+  async ngOnInit() {
+
+    await this.employeeService.getEmployeeBy(14).subscribe(
+      res => {
+        console.log('get-employee-successful');
+        this.currentEmployee = <Employee> res;
+      },
+      err => {
+        console.log(err);
+      });
+
   }
 
 }
