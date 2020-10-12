@@ -5,6 +5,9 @@ import { Employee } from '../dtos/Employee';
 import { BuildingService } from '../services/building.service';
 import { Room } from '../dtos/room';
 import { RoomService } from '../services/room.service';
+import { Amenity } from '../dtos/amenity';
+import { AmenityService } from '../services/amenity.service';
+
 
 
 
@@ -22,13 +25,16 @@ export class BuildingDetailsComponent implements OnInit {
   currentBuilding: Building = new Building();
   rooms: Room[];
   address: Address[];
+  amenities: Amenity[];
 
   dataSource: any[] = [];
   displayedColumns: string[] = ['roomNumber', 'maxOccupancy', 'currentStatus'];
+  displayedColumnsAmenities: string[] = ['type', 'status'];
 
 
 
-  constructor(private buildingService: BuildingService, private roomService: RoomService) { }
+
+  constructor(private buildingService: BuildingService, private roomService: RoomService, private amenityService: AmenityService) { }
 
   async ngOnInit() {
 
@@ -54,6 +60,16 @@ export class BuildingDetailsComponent implements OnInit {
       err => {
         console.log(err);
       });
+
+      await this.amenityService.getAmenities().then(
+        res => {
+          console.log('get-amenities-successful');
+          this.amenities = res;
+          this.dataSource = this.amenities;
+        },
+        err => {
+          console.log(err);
+        });
 
   }
 
