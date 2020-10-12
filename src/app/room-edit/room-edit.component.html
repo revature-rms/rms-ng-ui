@@ -1,7 +1,13 @@
 <h1> Room Details </h1>
-<h2>Room Number</h2>
+
 <div id="wholeDiv">
 <div id="leftDiv">
+    <button mat-raised-button color="primary">Save Room</button>
+    <br>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
+    <h2>Room Number</h2>
     <div>
         <mat-card>
             <mat-card-header>
@@ -10,9 +16,9 @@
                         <mat-label>Room Number</mat-label>
                         <input matInput value="{{ this.currentRoom.roomNumber }}">
                     </mat-form-field>
-                    <button mat-icon-button>
+                    <!-- <button mat-icon-button>
                         <mat-icon>save</mat-icon>
-                    </button>
+                    </button> -->
                 </mat-card-content>
             </mat-card-header>
         </mat-card>
@@ -28,9 +34,9 @@
                         <mat-label>Occupancy</mat-label>
                         <input matInput value="{{ this.currentRoom.maxOccupancy }}">
                     </mat-form-field>
-                    <button mat-icon-button>
+                    <!-- <button mat-icon-button>
                         <mat-icon>save</mat-icon>
-                    </button>
+                    </button> -->
                 </mat-card-content>
             </mat-card-header>
         </mat-card>
@@ -43,9 +49,9 @@
             <mat-card-header>
                 <mat-card-content>
                     {{ this.currentRoom.currentStatus }}
-                    <button mat-icon-button>
+                    <!-- <button mat-icon-button>
                         <mat-icon>edit</mat-icon>
-                    </button>
+                    </button> -->
                 </mat-card-content>
             </mat-card-header>
         </mat-card>
@@ -59,20 +65,23 @@
                 <mat-card-content>
                     
                     <mat-label>Batch</mat-label>
-                        <mat-select>
+                        <mat-select appearance="fill">
                              <mat-option>  <!-- *ngFor="let batch of batches" [value]="food.value"> -->
                                 {{ this.roomBatch.name }}
                             </mat-option>
                         </mat-select>
-                        <button mat-icon-button>
-                            <mat-icon>save</mat-icon>
-                        </button>
                 </mat-card-content>
             </mat-card-header>
         </mat-card>
     </div>
 </div>
-<div id="leftDiv">
+
+<div id="rightDiv">
+    <button mat-raised-button color="primary">Edit Work Orders</button>
+    <br>
+    <br>
+    <mat-divider></mat-divider>
+    <br>
 <table mat-table [dataSource]="workOrders" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
