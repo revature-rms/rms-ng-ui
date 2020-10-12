@@ -4,38 +4,35 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule }    from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatToolbarModule } from '@angular/material/toolbar';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { MatInputModule } from '@angular/material/input';
-import { MatCardModule } from '@angular/material/card';
-import {MatIconModule} from '@angular/material/icon';
-import {MatDividerModule} from '@angular/material/divider';
-import { MatTableModule } from '@angular/material/table';
 
+import { NavbarComponent } from './navbar/navbar.component';
 
 import {MaterialModule} from './material-module';
 
 import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
+import { EmployeeDetailViewComponent } from './employee-detail-view/employee-detail-view.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    EmployeeDetailViewComponent,
     LoginComponent,
     TsmDashboardComponent,
-    RoomDetailsComponent
+    RoomDetailsComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    HttpClientModule,
-    MaterialModule
+    MaterialModule,
+    ReactiveFormsModule,
+    FormsModule,
+    HttpClientModule
   ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
