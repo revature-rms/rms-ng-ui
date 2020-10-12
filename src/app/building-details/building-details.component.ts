@@ -42,6 +42,7 @@ export class BuildingDetailsComponent implements OnInit {
 
       res => {
         console.log('get-buildings-successful');
+        console.log(this.currentBuilding.trainingLead)
         this.buildings = <Building[]>res;
         this.currentBuilding = this.buildings[0];
 
