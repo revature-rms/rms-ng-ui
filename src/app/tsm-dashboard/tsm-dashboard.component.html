@@ -1,7 +1,51 @@
 <mat-toolbar>TSM Dashboard</mat-toolbar>
+<mat-nav-list>
+<div class="profile-card">
+  <div class="header">
+      <h2>Hello! User</h2>
+      <h4>example@email.com</h4>
+  </div>
+  <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
+</div>
+</mat-nav-list>
+
+
+<br>
+
+<mat-divider></mat-divider>
+
+<br>
+
+<div *ngFor="let item of campuses let num = index">
+<mat-card class="example-card">
+  <mat-card-header>
+    <div mat-card-avatar class="example-header-image"></div>
+    <mat-card-title>{{item.name}}</mat-card-title>
+    <mat-card-subtitle>School ID:{{item.id}}</mat-card-subtitle>
+  </mat-card-header>
+  <img mat-card-image src="https://200727-java-ng-usf-gu.s3.us-east-2.amazonaws.com/usf.jpg
+  " alt="Photo ofSchool">
+  <mat-card-content>
+    <p>
+      The University of South Florida is a high-impact, global research university dedicated 
+      to student success serving Tampa, St. Petersburg and Sarasota-Manatee.
+    </p>
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button  color="warn">Click for Detail</button>
+  </mat-card-actions>
+</mat-card>
+</div>
+
+<br>
+
+<mat-divider></mat-divider>
+
+<br>
 
 
 
+<mat-toolbar>All Employees </mat-toolbar>
 <table mat-table [dataSource]="employees" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
@@ -34,4 +78,5 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
   </table>
+
 

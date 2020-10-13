@@ -1,0 +1,26 @@
+<div *ngIf="loggedin" class="navContainer">
+<!-- if the user isn't logged in (on the login/home page), don't show nav -->
+
+    <div class="sidebarCard" id="navLinks" >
+        <!-- Debug links for development -->
+        <nav>
+            <ul class="navUL" >
+                <li class="navItem" *ngFor="let link of linksDebug">
+                    <a href="#" class="navLink"  [routerLink]="link.fragment">
+                        {{ link.linkName }}
+                    </a>
+                </li>
+                <li><a href="#" (click)="logout()" >Logout</a></li>
+            </ul>
+        </nav>
+        
+    </div>
+</div>
+
+<!-- <a *ngIf="loggedin" class="navToggler" id="navOpener" mat-raised-button color="primary" (click)="navOpen()">
+<span>Open Nav (dev)</span>
+</a> -->
+
+<!-- <button *ngIf="loggedin" class="navToggler" id="navCloser" mat-raised-button color="primary" (click)="navClose()">
+<span>Close Nav (dev)</span>
+</button> -->
