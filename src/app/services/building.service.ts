@@ -25,4 +25,5 @@ export class BuildingService {
     getBuildings(): Promise<Building[]>{
       return this.http.get<Building[]>(this.buildingUrl).toPromise();
     }
+    
 }
