@@ -18,6 +18,7 @@ import {MaterialModule} from './material-module';
 
 import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
 import { EmployeeDetailViewComponent } from './employee-detail-view/employee-detail-view.component';
+import { CampusDetailViewComponent } from './campus-detail-view/campus-detail-view.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { EmployeeDetailViewComponent } from './employee-detail-view/employee-det
     EmployeeDetailViewComponent,
     LoginComponent,
     TsmDashboardComponent,
-    NavbarComponent
+    NavbarComponent,
+    CampusDetailViewComponent
   ],
   imports: [
     BrowserModule,
