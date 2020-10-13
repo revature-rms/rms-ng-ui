@@ -1,8 +1,14 @@
+@import './employee-detail-view/employee-detail-view.component.scss';
+@import './tsm-dashboard/tsm-dashboard.component.scss';
+@import './navbar/navbar.component.scss';
+@import '../color';
+
+
 .Row {
     display: table;
     width: 100%; /*Optional*/
     table-layout: fixed; /*Optional*/
-    border-spacing: 10px; /*Optional*/
+    //border-spacing: 10px; /*Optional*/
 }
 .Column {
     display: table-cell;
@@ -12,5 +18,6 @@
 }
 
 .sideNav {
-    width: 10%;
+    width: 7rem;
+    color: $orange;
 }

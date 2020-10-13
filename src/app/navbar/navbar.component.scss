@@ -4,6 +4,8 @@
 //change fonts, size, color
 // rounded edges to div?
 
+@import '../../color';
+
 .navToggler{
     width: 100px;
     height: 30px;
@@ -19,21 +21,21 @@
     height:100%;
     border:1px;
     // display:inline-block;
-    border-color: black;
+    // border-color: black;
     border-style: solid;
-    background-color: orangered;
+    background-color: $orange;
     color:white;
 }
 
-//stuff for arrows:
-.arrow {
-    border: solid black;
-    border-width: 0 3px 3px 0;
-    display: inline-block;
-    padding: 3px;
-    width: 1rem;
-    height: 1rem;
-  }
+// stuff for arrows:
+// .arrow {
+//     border: solid black;
+//     border-width: 0 3px 3px 0;
+//     display: inline-block;
+//     padding: 3px;
+//     width: 1rem;
+//     height: 1rem;
+//   }
   
 .left {
     transform: rotate(135deg);
