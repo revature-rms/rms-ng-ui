@@ -6,7 +6,7 @@ export class Room{
     id:Number;
     roomNumber:String;
     maxOccupancy:Number;
-    currentStatus:RoomStatus;
+    currentStatus:String;
     batch:Batch;
 
 }

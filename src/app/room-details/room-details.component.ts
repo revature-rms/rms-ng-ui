@@ -30,7 +30,7 @@ export class RoomDetailsComponent implements OnInit {
         console.log('get-rooms-successful');
         this.rooms = <Room[]> res;
         this.currentRoom = this.rooms[0];
-        this.currentRoomStatus = <RoomStatus> this.currentRoom.currentStatus;
+        // this.currentRoomStatus = <RoomStatus> this.currentRoom.currentStatus;
         console.log(this.currentRoomStatus.otherNotes);
         this.roomBatch = this.currentRoom.batch;
       },
@@ -38,7 +38,7 @@ export class RoomDetailsComponent implements OnInit {
         console.log(err);
       });
 
-    await this.workOrderService.getWorkOrder().subscribe(
+    await this.workOrderService.getWorkOrder().then(
         res => {
           console.log('get-work-orders-successful');
           this.workOrders = res;
