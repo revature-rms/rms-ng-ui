@@ -10,10 +10,11 @@
 </div> -->
 
 <mat-sidenav-container>
-    <mat-sidenav  opened>
+    <mat-sidenav  mode = "side" [(opened)]="opened">
         <app-navbar></app-navbar>
     </mat-sidenav>
     <mat-sidenav-content>
+        <button  (click)="opened=!opened">Toggle Open</button>
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>
