@@ -34,15 +34,15 @@ export class RoomEditComponent implements OnInit {
         console.log(err);
       });
 
-    await this.workOrderService.getWorkOrder().subscribe(
-        res => {
-          console.log('get-work-orders-successful');
-          this.workOrders = res;
-          this.dataSource = this.workOrders;
-        },
-        err => {
-          console.log(err);
-        });
+  //   await this.workOrderService.getWorkOrder().subscribe(
+  //       res => {
+  //         console.log('get-work-orders-successful');
+  //         this.workOrders = res;
+  //         this.dataSource = this.workOrders;
+  //       },
+  //       err => {
+  //         console.log(err);
+  //       });
   
   }
 
