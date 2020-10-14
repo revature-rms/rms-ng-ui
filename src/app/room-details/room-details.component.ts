@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Batch } from '../dtos/batch';
 import { Room } from '../dtos/room';
 import { RoomStatus } from '../dtos/roomStatus';
@@ -21,6 +22,7 @@ export class RoomDetailsComponent implements OnInit {
   dataSource:any[]=[];
   displayedColumns: string[] = ['id', 'createdDateTime', 'resolvedDateTime', 'category', 'contactEmail', 'creator', 'resolver'];
   displayedColumnsA: string[] = ['id', 'whiteboardCleaned', 'chairsOrdered', 'submittedDateTime', 'submitter', 'otherNotes'];
+
 
   constructor(private roomService: RoomService, private workOrderService: WorkOrderService) { }
 

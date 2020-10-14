@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, Validators } from '@angular/forms';
 import { Batch } from '../dtos/batch';
 import { Room } from '../dtos/room';
 import { RoomStatus } from '../dtos/roomStatus';
@@ -23,6 +24,10 @@ export class RoomEditComponent implements OnInit {
   dataSource:any[]=[];
   displayedColumns: string[] = ['id', 'createdDateTime', 'resolvedDateTime', 'category', 'contactEmail', 'creator', 'resolver'];
   displayedColumnsA: string[] = ['id', 'whiteboardCleaned', 'chairsOrdered', 'submittedDateTime', 'submitter', 'otherNotes'];
+  
+  occupancy = new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]);
+  roomNumber = new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]);
+
   constructor(private roomService: RoomService, private workOrderService: WorkOrderService) { }
 
   async ngOnInit() {
@@ -53,7 +58,9 @@ export class RoomEditComponent implements OnInit {
   }
 
   updateRoom() {
-
+    console.log(this.currentRoom.roomNumber);
+    console.log(this.currentRoom.maxOccupancy);
+    
   }
 
   
