@@ -14,8 +14,10 @@ import {MaterialModule} from './material-module';
 
 import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
+
 import { EmployeeDetailViewComponent } from './employee-detail-view/employee-detail-view.component';
 import { CampusDetailViewComponent } from './campus-detail-view/campus-detail-view.component';
+import { RoomEditComponent } from './room-edit/room-edit.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +26,7 @@ import { CampusDetailViewComponent } from './campus-detail-view/campus-detail-vi
     LoginComponent,
     TsmDashboardComponent,
     RoomDetailsComponent,
+    RoomEditComponent,
     NavbarComponent,
     CampusDetailViewComponent
   ],
