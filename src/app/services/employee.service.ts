@@ -25,8 +25,8 @@ export class EmployeeService {
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
-    getemployees(){
-    return this.http.get(this.employeeUrl);
+getemployees(){
+  return this.http.get(this.employeeUrl);
 }
 
 getEmployeeBy(id) {

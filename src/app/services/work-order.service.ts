@@ -11,17 +11,17 @@ import { MessageService } from './message.service';
 })
 export class WorkOrderService {
 
-  private workUrl = 'http://localhost:3000/workOrder';
+  workUrl = 'http://localhost:3000/workOrder';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
-    getWorkOrder(): Observable<WorkOrder[]> {
-      return this.http.get<WorkOrder[]>(this.workUrl)
-      .pipe(
-        tap(_ => this.log('fetched success')),
-        catchError(this.handleError<WorkOrder[]>('getWorkOrder', [])));
-    }
+    // getWorkOrder(): Promise<WorkOrder[]> {
+    //   return this.http.get<WorkOrder[]>(this.workUrl)
+    //   .pipe(
+    //     tap(_ => this.log('fetched success')),
+    //     catchError(this.handleError<WorkOrder[]>('getWorkOrder', []))).toPromise();
+    // }
 
 
     private handleError<T>(operation = 'operation', result?: T) {

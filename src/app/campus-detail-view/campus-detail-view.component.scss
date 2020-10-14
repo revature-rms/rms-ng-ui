@@ -1,4 +1,13 @@
-table {
+.example-card {
+    max-width: 600px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://200727-java-ng-usf-gu.s3.us-east-2.amazonaws.com/school.png');
+    background-size: cover;
+  }
+
+  table {
     width: 100%;
   }
 
@@ -17,15 +26,5 @@ table {
         border-radius: 50%;
       }
     }
-  }
-
-  
-  .example-card {
-    max-width: 250px;
-  }
-  
-  .example-header-image {
-    background-image: url('https://200727-java-ng-usf-gu.s3.us-east-2.amazonaws.com/school.png');
-    background-size: cover;
   }
   

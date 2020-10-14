@@ -209,7 +209,17 @@
     "roomNumber": "2304",
     "maxOccupancy": 30,
     "currentStatus": {
-      "test":"test"
+      "roomStatus": [{
+        "id": 2734,
+        "whiteboardCleaned": true,
+        "chairsOrdered": true,
+        "desksCleaned": true,
+        "submittedDateTime": "2020-02-21T17:10:23+00.00",
+        "submitter": {
+          "test":"test"
+        },
+        "otherNotes": "An associate summoned the dark lords of programmers past. The desk is ruined."
+      }]
     },
     "batch": {
       "test":"test"

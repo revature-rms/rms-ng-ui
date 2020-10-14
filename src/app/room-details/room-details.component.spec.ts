@@ -18,16 +18,12 @@ describe('RoomDetailsComponent', () => {
   let content: HTMLElement;
 
   beforeEach(async () => {
+
     await TestBed.configureTestingModule({
       declarations: [ RoomDetailsComponent ],
       imports: [ RouterTestingModule, HttpClientTestingModule ]   
     })
     .compileComponents();
-  });
-
-  beforeEach(async () => {
-
-    TestBed.configureTestingModule({});
     fixture = TestBed.createComponent(RoomDetailsComponent);
     component = fixture.componentInstance;
 
@@ -57,4 +53,5 @@ describe('RoomDetailsComponent', () => {
     fixture.detectChanges();
     expect(content.textContent).toContain('2304');
   })
+  
 });
