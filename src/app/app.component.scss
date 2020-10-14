@@ -34,8 +34,13 @@ mat-sidenav {
     
 }
 
- mat-sidenav-content {
+ router-outlet {
      padding: 2rem;
+ }
+
+ button {
+    position: fixed;
+    z-index:1;
  }
 
 //.mat-drawer-inner-container {
