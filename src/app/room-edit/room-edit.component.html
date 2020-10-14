@@ -15,7 +15,10 @@
                 <mat-card-content id="number">
                     <mat-form-field>
                         <mat-label>Room Number</mat-label>
-                        <input matInput value="{{ this.currentRoom.roomNumber }}">
+                        <input matInput 
+                        type="text" class="form-control" id="roomNumber"
+                        required
+                        [(ngModel)]="this.currentRoom.roomNumber">
                     </mat-form-field>
                     <!-- <button mat-icon-button>
                         <mat-icon>save</mat-icon>
@@ -33,7 +36,8 @@
                 <mat-card-content>
                     <mat-form-field>
                         <mat-label>Occupancy</mat-label>
-                        <input matInput value="{{ this.currentRoom.maxOccupancy }}">
+                        <input matInput type="text"  class="form-control" id="occupancy"
+                        [(ngModel)]="this.currentRoom.maxOccupancy">
                     </mat-form-field>
                     <!-- <button mat-icon-button>
                         <mat-icon>save</mat-icon>
@@ -51,8 +55,11 @@
                 <mat-card-content>
                     <mat-form-field appearance="fill">
                         <mat-label>Batch</mat-label>
-                        <mat-select value="this.roomBatch.name">
-                            <mat-option value="this.roomBatch.name">  <!-- *ngFor="let batch of batches" > -->
+                        <mat-select class="form-control"  id="batchName"
+                        required
+                        [(ngModel)]="this.roomBatch.name">
+
+                            <mat-option *ngFor="let batch of this.allBatchNames" [value]="this.roomBatch.name">  <!-- *ngFor="let batch of batches" > -->
                                 {{ this.roomBatch.name }}
                             </mat-option>
                         </mat-select>

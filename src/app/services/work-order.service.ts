@@ -15,22 +15,12 @@ export class WorkOrderService {
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
-<<<<<<< HEAD
     // getWorkOrder(): Promise<WorkOrder[]> {
     //   return this.http.get<WorkOrder[]>(this.workUrl)
     //   .pipe(
     //     tap(_ => this.log('fetched success')),
     //     catchError(this.handleError<WorkOrder[]>('getWorkOrder', []))).toPromise();
     // }
-=======
-    getWorkOrders(): Promise<WorkOrder[]> {
-      //might need to add an "open" qualifier
-      return this.http.get<WorkOrder[]>(this.workUrl)
-      .pipe(
-        tap(_ => this.log('fetched success')),
-        catchError(this.handleError<WorkOrder[]>('getWorkOrder', []))).toPromise();
-    }
->>>>>>> beceebda9e22e651a18c690e568fdf907153f4a6
 
     // TO BE IMPLEMENTED = OPEN + RESOLVE WORK ORDERS
 

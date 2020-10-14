@@ -28,8 +28,8 @@ export class RoomService {
       return this.http.get(`${this.roomUrl}/id/${id}`);
     }
 
-    update(id, room) {
-      return this.http.put(`${this.roomUrl}`, room);
+    update(room) {
+      return this.http.put('http://localhost:100001/campuses/rooms', room);
     }
     
     //  this is not accurate to the MSA controllers, need more info

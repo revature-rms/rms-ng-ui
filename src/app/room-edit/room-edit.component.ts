@@ -16,8 +16,10 @@ export class RoomEditComponent implements OnInit {
   rooms: Room[];
   currentRoom: Room = new Room();
   roomBatch: Batch = new Batch();
-  workOrders: WorkOrder[];
+  // workOrders: WorkOrder[];
   currentRoomStatus: RoomStatus[];
+  allBatchNames: String[]=[];
+
   dataSource:any[]=[];
   displayedColumns: string[] = ['id', 'createdDateTime', 'resolvedDateTime', 'category', 'contactEmail', 'creator', 'resolver'];
   displayedColumnsA: string[] = ['id', 'whiteboardCleaned', 'chairsOrdered', 'submittedDateTime', 'submitter', 'otherNotes'];
@@ -33,6 +35,7 @@ export class RoomEditComponent implements OnInit {
         this.currentRoomStatus = <RoomStatus[]> <unknown> this.currentRoom.currentStatus;
         console.log(this.currentRoomStatus);
         this.roomBatch = this.currentRoom.batch;
+        this.allBatchNames.push(this.roomBatch.name);
       },
       err => {
         console.log(err);
@@ -49,6 +52,9 @@ export class RoomEditComponent implements OnInit {
   
   }
 
+  updateRoom() {
+
+  }
 
   
 }
