@@ -7,13 +7,17 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule }    from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+
 import { NavbarComponent } from './navbar/navbar.component';
 
 import {MaterialModule} from './material-module';
 
 import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
+import { RoomDetailsComponent } from './room-details/room-details.component';
+
 import { EmployeeDetailViewComponent } from './employee-detail-view/employee-detail-view.component';
 import { CampusDetailViewComponent } from './campus-detail-view/campus-detail-view.component';
+import { RoomEditComponent } from './room-edit/room-edit.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +25,8 @@ import { CampusDetailViewComponent } from './campus-detail-view/campus-detail-vi
     EmployeeDetailViewComponent,
     LoginComponent,
     TsmDashboardComponent,
+    RoomDetailsComponent,
+    RoomEditComponent,
     NavbarComponent,
     CampusDetailViewComponent
   ],
@@ -33,7 +39,7 @@ import { CampusDetailViewComponent } from './campus-detail-view/campus-detail-vi
     FormsModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

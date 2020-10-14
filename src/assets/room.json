@@ -1,0 +1,22 @@
+
+{
+    "room": {
+        "id": 36,
+        "roomNumber": "2304",
+        "maxOccupancy": 30,
+        "currentStatus": {
+            "test":"test"
+        },
+        "batch": {
+            "test":"test"
+        },
+        "workOrders": [              
+            {
+                "test":"test"
+            }
+        ],
+        "resourceMetadata": {
+            "test":"test"
+        }
+    }
+}
