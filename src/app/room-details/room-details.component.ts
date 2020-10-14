@@ -16,10 +16,11 @@ export class RoomDetailsComponent implements OnInit {
   rooms: Room[];
   currentRoom: Room = new Room();
   roomBatch: Batch = new Batch();
-  currentRoomStatus: RoomStatus = new RoomStatus();
+  currentRoomStatus: RoomStatus[];
   workOrders: WorkOrder[];
   dataSource:any[]=[];
   displayedColumns: string[] = ['id', 'createdDateTime', 'resolvedDateTime', 'category', 'contactEmail', 'creator', 'resolver'];
+  displayedColumnsA: string[] = ['id', 'whiteboardCleaned', 'chairsOrdered', 'submittedDateTime', 'submitter', 'otherNotes'];
 
   constructor(private roomService: RoomService, private workOrderService: WorkOrderService) { }
 
@@ -30,23 +31,23 @@ export class RoomDetailsComponent implements OnInit {
         console.log('get-rooms-successful');
         this.rooms = <Room[]> res;
         this.currentRoom = this.rooms[0];
-        // this.currentRoomStatus = <RoomStatus> this.currentRoom.currentStatus;
-        console.log(this.currentRoomStatus.otherNotes);
+        this.currentRoomStatus = <RoomStatus[]> <unknown> this.currentRoom.currentStatus;
+        console.log(this.currentRoomStatus);
         this.roomBatch = this.currentRoom.batch;
       },
       err => {
         console.log(err);
       });
 
-    await this.workOrderService.getWorkOrder().then(
-        res => {
-          console.log('get-work-orders-successful');
-          this.workOrders = res;
-          this.dataSource = this.workOrders;
-        },
-        err => {
-          console.log(err);
-        });
+    // await this.workOrderService.getWorkOrder().then(
+    //     res => {
+    //       console.log('get-work-orders-successful');
+    //       this.workOrders = res;
+    //       this.dataSource = this.workOrders;
+    //     },
+    //     err => {
+    //       console.log(err);
+    //     });
   
   }
 

@@ -15,13 +15,13 @@ const httpOptions = {
 })
 export class RoomService {
 
-  private roomUrl = 'http://localhost:3000/Room';
+  private roomUrl = 'http://localhost:10000/search/rooms';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
     getRooms(): Promise<Room[]> {
-      return this.http.get<Room[]>(this.roomUrl).toPromise();
+      return this.http.get<Room[]>(this.roomUrl, httpOptions).toPromise();
     }
 
     private handleError<T>(operation = 'operation', result?: T) {

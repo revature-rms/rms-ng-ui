@@ -15,6 +15,7 @@ import {MaterialModule} from './material-module';
 import { TsmDashboardComponent } from './tsm-dashboard/tsm-dashboard.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 import { EmployeeDetailViewComponent } from './employee-detail-view/employee-detail-view.component';
+import { CampusDetailViewComponent } from './campus-detail-view/campus-detail-view.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { EmployeeDetailViewComponent } from './employee-detail-view/employee-det
     LoginComponent,
     TsmDashboardComponent,
     RoomDetailsComponent,
-    NavbarComponent
+    NavbarComponent,
+    CampusDetailViewComponent
   ],
   imports: [
     BrowserModule,

@@ -16,12 +16,12 @@ export class WorkOrderService {
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
-    getWorkOrder(): Promise<WorkOrder[]> {
-      return this.http.get<WorkOrder[]>(this.workUrl)
-      .pipe(
-        tap(_ => this.log('fetched success')),
-        catchError(this.handleError<WorkOrder[]>('getWorkOrder', []))).toPromise();
-    }
+    // getWorkOrder(): Promise<WorkOrder[]> {
+    //   return this.http.get<WorkOrder[]>(this.workUrl)
+    //   .pipe(
+    //     tap(_ => this.log('fetched success')),
+    //     catchError(this.handleError<WorkOrder[]>('getWorkOrder', []))).toPromise();
+    // }
 
 
     private handleError<T>(operation = 'operation', result?: T) {
