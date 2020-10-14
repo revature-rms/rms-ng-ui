@@ -39,6 +39,7 @@ export class RoomDetailsComponent implements OnInit {
         console.log(err);
       });
 
+<<<<<<< HEAD
     // await this.workOrderService.getWorkOrder().then(
     //     res => {
     //       console.log('get-work-orders-successful');
@@ -48,6 +49,17 @@ export class RoomDetailsComponent implements OnInit {
     //     err => {
     //       console.log(err);
     //     });
+=======
+    await this.workOrderService.getWorkOrders().then(
+        res => {
+          console.log('get-work-orders-successful');
+          this.workOrders = res;
+          this.dataSource = this.workOrders;
+        },
+        err => {
+          console.log(err);
+        });
+>>>>>>> beceebda9e22e651a18c690e568fdf907153f4a6
   
   }
 

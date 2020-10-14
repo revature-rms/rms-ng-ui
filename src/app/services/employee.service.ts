@@ -33,25 +33,25 @@ getEmployeeBy(id) {
   return this.http.get(`${this.employeeUrl}/${id}`);
 }
 
-create(employee) {
-  return this.http.post(this.employeeUrl, employee);
-}
-
 update(id, employee) {
   return this.http.put(`${this.employeeUrl}/${id}`, employee);
 }
 
-delete(id) {
-  return this.http.delete(`${this.employeeUrl}/${id}`);
-}
+// create(employee) {
+//   return this.http.post(this.employeeUrl, employee);
+// }
 
-deleteAll() {
-  return this.http.delete(this.employeeUrl);
-}
+// delete(id) {
+//   return this.http.delete(`${this.employeeUrl}/${id}`);
+// }
 
-findByTitle(title) {
-  return this.http.get(`${this.employeeUrl}?title=${title}`);
-}
+// deleteAll() {
+//   return this.http.delete(this.employeeUrl);
+// }
+
+// findByTitle(title) {
+//   return this.http.get(`${this.employeeUrl}?title=${title}`);
+// }
 
 
 

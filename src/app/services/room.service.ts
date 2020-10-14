@@ -23,6 +23,32 @@ export class RoomService {
     getRooms(): Promise<Room[]> {
       return this.http.get<Room[]>(this.roomUrl, httpOptions).toPromise();
     }
+    
+    getRoomById(id) {
+      return this.http.get(`${this.roomUrl}/id/${id}`);
+    }
+
+    update(id, room) {
+      return this.http.put(`${this.roomUrl}`, room);
+    }
+    
+    //  this is not accurate to the MSA controllers, need more info
+    // assignBatchToRoom(name) {
+    //   return this.http.get(`${this.roomUrl}?title=${name}`);
+    // }
+    
+    
+    delete(id) {
+      return this.http.delete(`${this.roomUrl}/${id}`);
+    }
+    
+    deleteAll() {
+      return this.http.delete(this.roomUrl);
+    }
+    
+    
+
+
 
     private handleError<T>(operation = 'operation', result?: T) {
       return (error: any): Observable<T> => {
