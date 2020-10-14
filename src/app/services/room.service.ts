@@ -28,8 +28,8 @@ export class RoomService {
       return this.http.get(`${this.roomUrl}/id/${id}`);
     }
 
-    update(room) {
-      return this.http.put('http://localhost:100001/campuses/rooms', room);
+    update(room): Promise<Room> {
+      return this.http.put<Room>('http://localhost:100001/campuses/rooms', room).toPromise();
     }
     
     //  this is not accurate to the MSA controllers, need more info

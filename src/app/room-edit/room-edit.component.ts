@@ -15,7 +15,7 @@ import { WorkOrderService } from '../services/work-order.service';
 export class RoomEditComponent implements OnInit {
 
   rooms: Room[];
-  currentRoom: Room = new Room();
+  currentRoom: Room;
   roomBatch: Batch = new Batch();
   // workOrders: WorkOrder[];
   currentRoomStatus: RoomStatus[];
@@ -60,7 +60,16 @@ export class RoomEditComponent implements OnInit {
   updateRoom() {
     console.log(this.currentRoom.roomNumber);
     console.log(this.currentRoom.maxOccupancy);
-    
+
+    let updatedRoom = new Room(this.currentRoom.id, this.currentRoom.roomNumber, this.currentRoom.maxOccupancy, this.currentRoom.currentStatus, this.currentRoom.batch);
+
+      this.roomService.update(updatedRoom).then(
+        res => {
+          console.log('update-rooms-successful');
+        },
+        err => {
+          console.log(err);
+        });
   }
 
   
