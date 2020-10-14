@@ -1,16 +1,51 @@
+@import './employee-detail-view/employee-detail-view.component.scss';
+@import './tsm-dashboard/tsm-dashboard.component.scss';
+@import './navbar/navbar.component.scss';
+@import '../color';
+
+
 .Row {
     display: table;
     width: 100%; /*Optional*/
     table-layout: fixed; /*Optional*/
-    border-spacing: 10px; /*Optional*/
+    //border-spacing: 10px; /*Optional*/
 }
 .Column {
     display: table-cell;
-    height: 100vh;
-    vertical-align: top;
+    //height: 100vh;
+    //vertical-align: top;
     // background-color: red; /*Optional*/
 }
 
 .sideNav {
-    width: 10%;
+    width: 100%;
+    color: $orange;
+    // height: 30px;
+    //position: fixed;
+
+
 }
+
+mat-sidenav {
+    width: 10rem;
+    position: fixed;
+    //border: 0px;
+    height: 100vh;
+    
+}
+
+
+ button {
+    z-index: 1;
+    position: fixed;
+    background-color: Transparent;
+    background-repeat:no-repeat;
+    border: none;
+    cursor:pointer;
+    overflow: hidden;
+    outline:none;;
+ }
+
+//.mat-drawer-inner-container {
+//    overflow: hidden;
+//}
