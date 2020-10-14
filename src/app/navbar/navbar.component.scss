@@ -6,29 +6,33 @@
 
 @import '../../color';
 
-.navToggler{
-    width: 100px;
-    height: 30px;
-}
+//.navToggler{
+    //width: 100px;
+    //height: 30px;
+//}
 
 .navContainer {
     height:100%;
 }
 
 .sidebarCard{
-    float:left;
+    //float:left;
     width:100%;
     height:100%;
-    border:1px;
+    //border:1px;
     // display:inline-block;
     // border-color: black;
-    border-style: solid;
+    //border-style: solid;
     background-color: $orange;
     color:white;
 }
 
+mat-nav-list {
+    border:20px;
+}
+
 // stuff for arrows:
-// .arrow {
+// .arrow 
 //     border: solid black;
 //     border-width: 0 3px 3px 0;
 //     display: inline-block;
@@ -37,11 +41,11 @@
 //     height: 1rem;
 //   }
   
-.left {
-    transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-}
-.right {
-    transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-}
+// .left {
+//     transform: rotate(135deg);
+//     -webkit-transform: rotate(135deg);
+// }
+// .right {
+//     transform: rotate(-45deg);
+//     -webkit-transform: rotate(-45deg);
+// }
