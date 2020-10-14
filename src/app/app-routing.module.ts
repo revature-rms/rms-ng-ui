@@ -10,9 +10,9 @@ import { EmployeeDetailViewComponent } from './employee-detail-view/employee-det
 // Routes: Rename components as needed
 const routes: Routes = [
   {path: '', redirectTo: '/tsm-dashboard', pathMatch: 'full'},
-  {path: 'tsm-dashboard', component: TsmDashboardComponent} , 
-  {path: 'building-details', component: BuildingDetailsComponent} ,
-  {path: 'tsm-employee-details', component: EmployeeDetailViewComponent}
+  // {path: 'tsm-dashboard', component: TsmDashboardComponent} , 
+  // {path: 'building-details', component: BuildingDetailsComponent} ,
+  // {path: 'tsm-employee-details', component: EmployeeDetailViewComponent}
   // {path: 'admn-dashboard', component: AdmnDashboardComponent}, //admin dashboard
   // {path: 'bmngr-dashboard', component: BmngrDashboardComponent}, //building manager dashboard
   // {path: 'trnr-dashboard', component: TrnrDashboardComponent}, //trainer dashboard
