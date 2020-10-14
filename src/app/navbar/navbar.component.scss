@@ -25,11 +25,21 @@
     //border-style: solid;
     background-color: $orange;
     color:white;
+    //padding: 1rem;
 }
 
-mat-nav-list {
-    border:20px;
+nav {
+    padding: 1rem;
 }
+
+.mat-list-base {
+    padding: 0.5rem;
+    //display: block;
+    //-webkit-tap-highlight-color: transparent;
+}
+
+
+
 
 // stuff for arrows:
 // .arrow 
