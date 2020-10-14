@@ -5,7 +5,7 @@
         <!-- Debug links for development -->
         <nav>
             <!-- <ul class="navUL" > -->
-                    <mat-nav-list matRipple [matRippleColor]=white *ngFor="let link of linksDebug">
+                    <mat-nav-list matRipple *ngFor="let link of linksDebug">
                         <a href="#" class="navLink"  [routerLink]="link.fragment">
                             {{ link.linkName }}
                         </a>
