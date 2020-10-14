@@ -38,7 +38,7 @@ export class RoomDetailsComponent implements OnInit {
         console.log(err);
       });
 
-    await this.workOrderService.getWorkOrder().then(
+    await this.workOrderService.getWorkOrders().then(
         res => {
           console.log('get-work-orders-successful');
           this.workOrders = res;
