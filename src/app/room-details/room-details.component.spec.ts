@@ -8,6 +8,8 @@ import { RoomService } from '../services/room.service';
 import { defer, of } from 'rxjs';
 import data  from  'src/assets/room.json';
 import { Room } from '../dtos/room';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { MaterialModule } from '../material-module';
 
 
 describe('RoomDetailsComponent', () => {
@@ -17,32 +19,9 @@ describe('RoomDetailsComponent', () => {
   let httpTestingController: HttpTestingController;
   let content: HTMLElement;
   let httpClientSpy: { get: jasmine.Spy, put: jasmine.Spy, post: jasmine.Spy, delete: jasmine.Spy };
-  let mockRoomService;
+  let mockRoomService: jasmine.SpyObj<RoomService>;
 
-  beforeEach(async () => {
-    
-    await TestBed.configureTestingModule({
-      declarations: [ RoomDetailsComponent ],
-      imports: [ RouterTestingModule, HttpClientTestingModule ]   ,
-      providers: [ { provide: RoomService, useValue: mockRoomService } ]
-    })
-    .compileComponents();
-    fixture = TestBed.createComponent(RoomDetailsComponent);
-    component = fixture.componentInstance;
-    
-    // Inject the http service and test controller for each test
-    // httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    // httpClient = TestBed.inject(HttpClient);
-    // httpTestingController = TestBed.inject(HttpTestingController);
-    mockRoomService = jasmine.createSpyObj(['getRooms']);
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-
-  it('should display room info', () => {
+  beforeEach(() => {
     var expectedData: Room[] =
     [{
       id: 36,
@@ -165,16 +144,35 @@ describe('RoomDetailsComponent', () => {
         }
       }
   }]
-  
-    component.ngOnInit();
-    mockRoomService.getRooms.and.returnValue(expectedData);
-    fixture.detectChanges();
-    console.log(component.rooms);
+    mockRoomService = jasmine.createSpyObj(['getRooms']);
+    mockRoomService.getRooms.and.returnValue(Promise.resolve(expectedData));
+    TestBed.configureTestingModule({
+      schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
+      declarations: [ RoomDetailsComponent, ],
+      imports: [ RouterTestingModule, HttpClientTestingModule, MaterialModule ],
+      providers: [ { provide: RoomService, useValue: mockRoomService } ],
+      
+    })
+    .compileComponents();
+    fixture = TestBed.createComponent(RoomDetailsComponent);
+    component = fixture.componentInstance;
     
+    // Inject the http service and test controller for each test
+    // httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    // httpClient = TestBed.inject(HttpClient);
+    // httpTestingController = TestBed.inject(HttpTestingController);
+    
+    fixture.detectChanges();
+  });
 
+  it('should create', () => {
+    expect(component).toBeTruthy();
+  });
+
+  it('should display room info', () => {
+    component.ngOnInit();
     
     content = fixture.nativeElement.querySelector("#number");
-    fixture.detectChanges();
     expect(content.textContent).toContain('2304');
   })
   
