@@ -13,10 +13,11 @@ import {CampusDetailViewComponent} from './campus-detail-view/campus-detail-view
 
 // Routes: Rename components as needed
 const routes: Routes = [
-  // {path: 'tsm-dashboard', component: TsmDashboardComponent},
-  // {path: '', redirectTo: '/tsm-dashboard', pathMatch: 'full'},
-  // {path: 'login', component: LoginComponent },
+  {path: '', redirectTo: '/tsm-dashboard', pathMatch: 'full'},
+  {path: 'tsm-dashboard', component: TsmDashboardComponent},
   {path: 'building-details', component: BuildingDetailsComponent} ,
+  // {path: 'login', component: LoginComponent },
+  
   // {path: 'room-details', component: RoomDetailsComponent},
   // {path: 'room-edit', component: RoomEditComponent},
   // {path: 'tsm-employee-details', component: EmployeeDetailViewComponent},
