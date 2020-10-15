@@ -15,7 +15,7 @@ import { WorkOrderService } from '../services/work-order.service';
 export class RoomDetailsComponent implements OnInit {
 
   rooms: Room[];
-  currentRoom: Room = new Room();
+  currentRoom: Room ;
   roomBatch: Batch = new Batch();
   currentRoomStatus: RoomStatus[];
   workOrders: WorkOrder[];
