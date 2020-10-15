@@ -7,18 +7,13 @@ import { HttpClientTestingModule, HttpTestingController } from '@angular/common/
 describe('AuthService', () => {
   let service: AuthService;                                           //needed?
 
-
-  //BEFORES
-  // beforeEach(() => {
-  //   // TestBed.configureTestingModule({});
-  //   // service = TestBed.inject(AuthService);
-  // });
-
   beforeEach(() => {
-    TestBed.configureTestingModule({});
+    TestBed.configureTestingModule({
+      imports: [HttpClientTestingModule],
+      providers: [AuthService]
+    });
     let httpClientSpy: { get: jasmine.Spy };                          //init spy
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    service = TestBed.inject(AuthService);
     service = new AuthService(httpClientSpy as any);                  //mock service
   });
 
@@ -28,7 +23,7 @@ describe('AuthService', () => {
     expect(service).toBeTruthy();
   });
 
-
+  //current auth service incomplete
 
 
 });
