@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Building } from '../dtos/building';
-import { Observable, of } from 'rxjs';
+import { observable, Observable, of } from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import { MessageService } from './message.service';
 
@@ -22,8 +22,17 @@ export class BuildingService {
   constructor(private http: HttpClient , 
     private messageService: MessageService) { }
 
-    getBuildings(): Promise<Building[]>{
-      return this.http.get<Building[]>(this.buildingUrl).toPromise();
-    }
-    
+  getBuildings(): Promise<Building[]>{
+    return this.http.get<Building[]>(this.buildingUrl).toPromise();
+  }
+
+  getBuildingById(id): Promise<Building[]>{
+    return this.http.get<Building[]>(`${this.buildingUrl}/id/${id}`).toPromise();
+  }
+
+  editBuilding(Building): Promise<Building>{
+    return this.http.put<Building>(this.buildingUrl, Building).toPromise();
+  }
+
+
 }

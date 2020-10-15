@@ -16,13 +16,40 @@ const httpOptions = {
 export class RoomService {
 
   private roomUrl = 'http://localhost:3000/Room';
+  // private roomUrl = 'http://localhost:10000/search/rooms';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
     getRooms(): Promise<Room[]> {
-      return this.http.get<Room[]>(this.roomUrl).toPromise();
+      return this.http.get<Room[]>(this.roomUrl, httpOptions).toPromise();
     }
+    
+    getRoomById(id) {
+      return this.http.get(`${this.roomUrl}/id/${id}`);
+    }
+
+    update(room): Promise<Room> {
+      return this.http.put<Room>('http://localhost:100001/campuses/rooms', room).toPromise();
+    }
+    
+    //  this is not accurate to the MSA controllers, need more info
+    // assignBatchToRoom(name) {
+    //   return this.http.get(`${this.roomUrl}?title=${name}`);
+    // }
+    
+    
+    delete(id) {
+      return this.http.delete(`${this.roomUrl}/${id}`);
+    }
+    
+    deleteAll() {
+      return this.http.delete(this.roomUrl);
+    }
+    
+    
+
+
 
     private handleError<T>(operation = 'operation', result?: T) {
       return (error: any): Observable<T> => {

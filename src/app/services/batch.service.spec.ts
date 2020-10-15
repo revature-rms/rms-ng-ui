@@ -3,10 +3,10 @@ import { HttpTestingController, HttpClientTestingModule } from '@angular/common/
 import { TestBed } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 
-import { BuildingService } from './building.service';
+import { BatchService } from './batch.service';
 
-describe('BuildingService', () => {
-  let service: BuildingService;
+describe('BatchService', () => {
+  let service: BatchService;
   let httpClient: HttpClient;
   let httpMock: HttpTestingController; 
   
@@ -21,7 +21,7 @@ describe('BuildingService', () => {
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(BuildingService);
+    service = TestBed.inject(BatchService);
     httpClient = TestBed.inject(HttpClient);
     httpMock = TestBed.inject(HttpTestingController);
   });

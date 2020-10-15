@@ -2,6 +2,9 @@ import { Injectable } from '@angular/core';
 import {Employee} from "../dtos/employee";
 import { Observable, of } from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
+import {catchError, tap} from 'rxjs/operators';
+import {MESSAGETEXTS} from '../const/MessageConsts';
+// import {Result} from '../dtos/Result';
 import { MessageService } from './message.service';
 
 
@@ -30,25 +33,25 @@ getEmployeeBy(id) {
   return this.http.get(`${this.employeeUrl}/${id}`);
 }
 
-create(employee) {
-  return this.http.post(this.employeeUrl, employee);
-}
-
 update(id, employee) {
   return this.http.put(`${this.employeeUrl}/${id}`, employee);
 }
 
-delete(id) {
-  return this.http.delete(`${this.employeeUrl}/${id}`);
-}
+// create(employee) {
+//   return this.http.post(this.employeeUrl, employee);
+// }
 
-deleteAll() {
-  return this.http.delete(this.employeeUrl);
-}
+// delete(id) {
+//   return this.http.delete(`${this.employeeUrl}/${id}`);
+// }
 
-findByTitle(title) {
-  return this.http.get(`${this.employeeUrl}?title=${title}`);
-}
+// deleteAll() {
+//   return this.http.delete(this.employeeUrl);
+// }
+
+// findByTitle(title) {
+//   return this.http.get(`${this.employeeUrl}?title=${title}`);
+// }
 
 
 
