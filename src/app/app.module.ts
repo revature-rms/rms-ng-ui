@@ -7,6 +7,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { HttpClientModule }    from '@angular/common/http';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { BuildingDetailsComponent } from './building-details/building-details.component';
 
 import { NavbarComponent } from './navbar/navbar.component';
 
@@ -26,6 +27,7 @@ import { RoomEditComponent } from './room-edit/room-edit.component';
     LoginComponent,
     TsmDashboardComponent,
     RoomDetailsComponent,
+    BuildingDetailsComponent  ,
     RoomEditComponent,
     NavbarComponent,
     CampusDetailViewComponent
