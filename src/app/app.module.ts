@@ -18,6 +18,7 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
 import { EmployeeDetailViewComponent } from './employee-detail-view/employee-detail-view.component';
 import { CampusDetailViewComponent } from './campus-detail-view/campus-detail-view.component';
 import { RoomEditComponent } from './room-edit/room-edit.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { RoomEditComponent } from './room-edit/room-edit.component';
     FormsModule,
     HttpClientModule
   ],
+  exports: [ MaterialModule ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
