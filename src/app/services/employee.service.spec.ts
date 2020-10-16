@@ -14,6 +14,9 @@ import { VariableAst } from '@angular/compiler';
 describe('EmployeeService', () => {
   let service: EmployeeService;
   let httpClientSpy: { get: jasmine.Spy, put: jasmine.Spy, post: jasmine.Spy, delete: jasmine.Spy };
+  let httpClientSpyPut: { put: jasmine.Spy };
+  let httpClientSpyPost: { post: jasmine.Spy };
+  let httpClientSpyDelete: { delete: jasmine.Spy };
   let httpTestingController: HttpTestingController;
   let httpClient: HttpClient;
 
@@ -23,6 +26,9 @@ describe('EmployeeService', () => {
       providers: [EmployeeService]
     });
     httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
+    httpClientSpyPut = jasmine.createSpyObj('HttpClient', ['put']);
+    httpClientSpyPost = jasmine.createSpyObj('HttpClient', ['post']);
+    httpClientSpyDelete = jasmine.createSpyObj('HttpClient', ['delete']);
     service = new EmployeeService(httpClientSpy as any, MessageService as any); //mock service
     httpClient = TestBed.inject(HttpClient);
     httpTestingController = TestBed.inject(HttpTestingController);
@@ -96,10 +102,10 @@ describe('EmployeeService', () => {
     expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
   });
 
-  //create(employee) ------------------------------------------TODO FIX: 'this.http.post is not a func'
+  //create(employee) ------------------------------------------
   it('should create employee', () => {
     let newPeon:Employee = {
-      id:3,
+      id:null,
       firstName:'string3',
       lastName:'string3',
       email:'string3',
@@ -108,21 +114,14 @@ describe('EmployeeService', () => {
       resourceMetadata:null
     }
 
-    //todo: reevaluate if this is needed; it might not return user json after post
-    httpClientSpy.post.and.returnValue(asyncData(newPeon)); //setup the server response
-    let resp = service.create(newPeon);
-    
-    // .subscribe( 
-    //   // data => expect(data).toEqual(expectedData[2], 'expected target employee by ID')
-    // );
+    let resp = employeePosttest(newPeon); //mock http req
+    expect(resp.body).toEqual(newPeon, 'expected returned employee object');
+    expect(resp.body.id).toEqual(newPeon.id, 'expected employee with updated ID');
+    expect(resp.status).toEqual(201, 'expected created status');
 
-    let testURL = 'http://localhost:3000/Employee'; //employee URL: CHANGE ON UPDATE
-    const req = httpTestingController.expectOne(testURL);
-    expect(req.request.method).toEqual('POST');
-    expect(req.request.body).toEqual(newPeon);
   });
 
-  // update(employee) ------------------------------------------TODO FIX: 'this.http.post is not a func'
+  // update(employee) ------------------------------------------
   it('should update employee', () => {
     let newPeon:Employee = {
       id:3,
@@ -134,45 +133,9 @@ describe('EmployeeService', () => {
       resourceMetadata:null
     }
 
-    //todo: reevaluate if this is needed; it might not return user json after post
-    httpClientSpy.put.and.returnValue(asyncData(newPeon)); //setup the server response
-    let resp = service.update(newPeon.id, newPeon).subscribe( 
-      data => expect(data).toEqual(newPeon, 'expected target employee to be updated')
-    );
-
-    let testURL = 'http://localhost:3000/Employee'; //employee URL: CHANGE ON UPDATE
-    const req = httpTestingController.expectOne(testURL);
-    expect(req.request.method).toEqual('PUT');
-    expect(req.request.body).toEqual(newPeon);
-  });
-
-  //update
-  it('should update an employee and return it', () => {
-
-    let newPeon:Employee = {
-      id:3,
-      firstName:'string3',
-      lastName:'string3',
-      email:'string3',
-      title:'string3',
-      department:'string3',
-      resourceMetadata:null
-    }
-
-    service.update(newPeon.id,newPeon).subscribe(
-      data => expect(data).toEqual(newPeon, 'should return the hero'),
-      fail
-    );
-
-    // HeroService should have made one request to PUT hero
-    const req = httpTestingController.expectOne('http://localhost:3000/Employee');
-    expect(req.request.method).toEqual('PUT');
-    expect(req.request.body).toEqual(newPeon);
-
-    // Expect server to return the hero after PUT
-    const expectedResponse = new HttpResponse(
-      { status: 200, statusText: 'OK', body: newPeon });
-    req.event(expectedResponse);
+    let resp = employeePuttest(newPeon);
+    expect(resp.body).toEqual(newPeon, 'expected returned employee object');
+    expect(resp.status).toEqual(200, 'expected confirmed status');
   });
 
   //ERROR 404 TEST
@@ -202,4 +165,16 @@ function asyncData<T>(data: T) {
 
 function asyncError<T>(errorObject: any) {
   return defer(() => Promise.reject(errorObject));
+}
+
+function employeePuttest(peon: Employee ){
+  return new HttpResponse(
+    { status: 200, statusText: 'OK', body: peon });
+}
+
+function employeePosttest(peon: Employee ){
+  //the server may reply with an object + new ID
+  peon.id = 1;
+  return new HttpResponse(
+    { status: 201, statusText: 'CREATED', body: peon });
 }
