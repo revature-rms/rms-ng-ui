@@ -1,31 +1,28 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { RoomDetailsComponent } from './room-details.component';
 import { RouterTestingModule } from '@angular/router/testing';
 import { RoomService } from '../services/room.service';
 import { defer, of } from 'rxjs';
-import data  from  'src/assets/room.json';
 import { Room } from '../dtos/room';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { MaterialModule } from '../material-module';
+import {MatTableModule} from '@angular/material/table';
+import {CdkTableModule} from '@angular/cdk/table';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 describe('RoomDetailsComponent', () => {
   let component: RoomDetailsComponent;
   let fixture: ComponentFixture<RoomDetailsComponent>;
-  let httpClient: HttpClient;
-  let httpTestingController: HttpTestingController;
   let content: HTMLElement;
-  let httpClientSpy: { get: jasmine.Spy, put: jasmine.Spy, post: jasmine.Spy, delete: jasmine.Spy };
   let mockRoomService: jasmine.SpyObj<RoomService>;
 
   beforeEach(() => {
     var expectedData: Room[] =
     [{
       id: 36,
-      roomNumber: "2304",
+      roomNumber: "2734543",
       maxOccupancy: 30,
       currentStatus: {
           id: 2734,
@@ -144,24 +141,19 @@ describe('RoomDetailsComponent', () => {
         }
       }
   }]
-    mockRoomService = jasmine.createSpyObj(['getRooms']);
+    mockRoomService = jasmine.createSpyObj('mockRoomService', ['getRooms']);
     mockRoomService.getRooms.and.returnValue(Promise.resolve(expectedData));
     TestBed.configureTestingModule({
       schemas: [ CUSTOM_ELEMENTS_SCHEMA ],
       declarations: [ RoomDetailsComponent, ],
-      imports: [ RouterTestingModule, HttpClientTestingModule, MaterialModule ],
-      providers: [ { provide: RoomService, useValue: mockRoomService } ],
+      imports: [ RouterTestingModule, HttpClientTestingModule, MaterialModule, BrowserAnimationsModule, MatTableModule, CdkTableModule ],
+      providers: [ { provide: RoomService, useValue: mockRoomService } ]
       
     })
     .compileComponents();
     fixture = TestBed.createComponent(RoomDetailsComponent);
     component = fixture.componentInstance;
-    
-    // Inject the http service and test controller for each test
-    // httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    // httpClient = TestBed.inject(HttpClient);
-    // httpTestingController = TestBed.inject(HttpTestingController);
-    
+    // httpTestingController = TestBed.inject(mockRoomService);
     fixture.detectChanges();
   });
 
@@ -170,10 +162,12 @@ describe('RoomDetailsComponent', () => {
   });
 
   it('should display room info', () => {
-    component.ngOnInit();
+    fixture.detectChanges();
+      fixture.whenStable().then(() => {
+        content = fixture.nativeElement.querySelector("#number");
+        expect(content.textContent).toContain('2304');
+      })
     
-    content = fixture.nativeElement.querySelector("#number");
-    expect(content.textContent).toContain('2304');
   })
   
 });

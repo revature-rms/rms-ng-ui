@@ -40,6 +40,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     FormsModule,
     HttpClientModule
   ],
+  exports: [ MaterialModule ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
