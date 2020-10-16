@@ -1,4 +1,11 @@
-<h1>Building Details</h1>
+<br>
+<br>
+<mat-toolbar>Building Details</mat-toolbar>
+<button mat-icon-button>
+    <mat-icon><a routerLink="/building-edit" routerLinkActive="active">edit</a></mat-icon>
+</button>
+<mat-divider></mat-divider>
+
 <div id="wholeDiv">
     <div id="leftDiv">
 
@@ -7,9 +14,7 @@
             <mat-card>
                 <mat-card-content id="name">
                     {{ this.currentBuilding.name }}
-                    <button mat-icon-button>
-                        <mat-icon>edit</mat-icon>
-                    </button>
+
                 </mat-card-content>
             </mat-card>
         </div>
@@ -20,9 +25,7 @@
             <mat-card>
                 <mat-card-content id="AbbrvName">
                     {{ this.currentBuilding.abbrName }}
-                    <button mat-icon-button>
-                        <mat-icon>edit</mat-icon>
-                    </button>
+
                 </mat-card-content>
             </mat-card>
         </div>
@@ -33,9 +36,7 @@
             <mat-card>
                 <mat-card-content id="Address">
                     {{ this.currentBuilding.physicalAddress.address }}
-                    <button mat-icon-button>
-                        <mat-icon>edit</mat-icon>
-                    </button>
+
                 </mat-card-content>
             </mat-card>
         </div>
@@ -46,15 +47,13 @@
             <mat-card>
                 <mat-card-content id="trainingLead">
                     {{ this.currentBuilding.trainingLead.username }}
-                    <button mat-icon-button>
-                        <mat-icon>edit</mat-icon>
-                    </button>
+
                 </mat-card-content>
             </mat-card>
         </div>
 
     </div>
-    
+
     <div id="tables">
 
         <h2>Rooms</h2>
@@ -65,7 +64,7 @@
             <!-- Position Column -->
             <ng-container matColumnDef="roomNumber">
                 <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element"> {{element.roomNumber}} </td>
+                <td mat-cell *matCellDef="let element"> <button mat-raised-button>{{element.id}} </button></td>
             </ng-container>
             <!-- Name Column -->
             <ng-container matColumnDef="maxOccupancy">
@@ -85,9 +84,9 @@
 
 
         <br>
-    
+
         <h2>Amenities</h2>
-        
+
         <table mat-table [dataSource]="amenities" class="mat-elevation-z8">
 
             <!-- Position Column -->
@@ -101,10 +100,10 @@
                 <td mat-cell *matCellDef="let element"> {{element.status}} </td>
             </ng-container>
 
-            
+
 
             <tr mat-header-row *matHeaderRowDef="displayedColumnsAmenities"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumnsAmenities;"></tr>
         </table>
-        </div>
+    </div>
 </div>

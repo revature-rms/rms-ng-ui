@@ -19,6 +19,7 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
 import { EmployeeDetailViewComponent } from './employee-detail-view/employee-detail-view.component';
 import { CampusDetailViewComponent } from './campus-detail-view/campus-detail-view.component';
 import { RoomEditComponent } from './room-edit/room-edit.component';
+import { BuildingEditComponent } from './building-edit/building-edit.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import { RoomEditComponent } from './room-edit/room-edit.component';
     BuildingDetailsComponent  ,
     RoomEditComponent,
     NavbarComponent,
-    CampusDetailViewComponent
+    CampusDetailViewComponent,
+    BuildingEditComponent
   ],
   imports: [
     BrowserModule,
