@@ -33,8 +33,8 @@ export class RoomDetailsComponent implements OnInit {
         console.log('get-rooms-successful');
         this.rooms = <Room[]> res;
         this.currentRoom = this.rooms[0];
+        console.log(this.currentRoom);
         this.currentRoomStatus = <RoomStatus[]> <unknown> this.currentRoom.currentStatus;
-        console.log(this.currentRoomStatus);
         this.roomBatch = this.currentRoom.batch;
       },
       err => {
