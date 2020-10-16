@@ -38,7 +38,12 @@
         <div>
             <mat-card>
                 <mat-card-content id="Address">
-                    {{ this.currentBuilding.physicalAddress.address }}
+                    {{ this.currentBuilding.physicalAddress.unitStreet }}
+                    {{ this.currentBuilding.physicalAddress.city }}
+                    {{ this.currentBuilding.physicalAddress.state }}
+                    {{ this.currentBuilding.physicalAddress.zip }}
+                    {{ this.currentBuilding.physicalAddress.country }}
+
                     <!-- this will most likely change when we talk to the backend -->
                 </mat-card-content>
             </mat-card>
@@ -49,9 +54,24 @@
         <div>
             <mat-card>
                 <mat-card-content id="trainingLead">
-                    {{ this.currentBuilding.trainingLead.username }}
+                    {{ this.currentBuilding.trainingLead.firstName }}
+                    {{ this.currentBuilding.trainingLead.lastName }}
                     <!-- this will most likely change when we talk to the backend -->
 
+                </mat-card-content>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Resource Meta data</h2>
+        <div>
+            <mat-card>
+                <mat-card-content id="metaData">
+                    {{ this.currentBuilding.resourceMetadata.resourceCreationDateTime }}
+
+                    <button mat-icon-button>
+                        <mat-icon>edit</mat-icon>
+                    </button>
                 </mat-card-content>
             </mat-card>
         </div>
