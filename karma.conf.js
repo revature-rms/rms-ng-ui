@@ -36,7 +36,8 @@ module.exports = function (config) {
       'text/x-typescript': ['ts','tsx']
     },
     files: [
-      { pattern: './node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css', watched: false, included: true },
+      { pattern: './node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css', watched: false, included: true }
+
     ],
     client: {
       clearContext: false // leave Jasmine Spec Runner output visible in browser
