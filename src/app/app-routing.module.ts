@@ -4,15 +4,21 @@ import { LoginComponent } from './login/login.component';
 import { RoomDetailsComponent } from './room-details/room-details.component';
 import { RoomEditComponent } from './room-edit/room-edit.component';
 import { EmployeeDetailViewComponent } from './employee-detail-view/employee-detail-view.component';
-import {TsmDashboardComponent} from './tsm-dashboard/tsm-dashboard.component'
+import { BuildingDetailsComponent } from './building-details/building-details.component';
+import { BuildingEditComponent } from './building-edit/building-edit.component';
+
+import {TsmDashboardComponent} from './tsm-dashboard/tsm-dashboard.component';
+
 import {CampusDetailViewComponent} from './campus-detail-view/campus-detail-view.component';
 
 
 
 // Routes: Rename components as needed
 const routes: Routes = [
-  {path: 'tsm-dashboard', component: TsmDashboardComponent},
   {path: '', redirectTo: '/tsm-dashboard', pathMatch: 'full'},
+  {path: 'tsm-dashboard', component: TsmDashboardComponent},
+  {path: 'building-details', component: BuildingDetailsComponent} ,
+  {path: 'building-edit', component: BuildingEditComponent},
   {path: 'login', component: LoginComponent },
   {path: 'room-details', component: RoomDetailsComponent},
   {path: 'room-edit', component: RoomEditComponent},
