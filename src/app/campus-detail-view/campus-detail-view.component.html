@@ -9,9 +9,9 @@
   <img mat-card-image src="https://200727-java-ng-usf-gu.s3.us-east-2.amazonaws.com/usf.jpg
   " alt="Photo ofSchool">
   <mat-card-content>
-    <p>abbrName: {{item.abbrName}}</p>
-    <p>shippingAddress: {{item.shippingAddress.test}}</p>
-    <p>trainingManager: {{item.trainingManager.test}}</p>
+    <p>Abreviated Name: {{item.abbrName}}</p>
+    <p>Shipping Address: <br> {{item.shippingAddress.unitStreet}} <br> {{item.shippingAddress.city}} <br> {{item.shippingAddress.state}} <br> {{item.shippingAddress.zip}}</p>
+    <p>Training Manager: {{item.trainingManager.firstName}} {{item.trainingManager.lastName}}</p>
   </mat-card-content>
 </mat-card>
 </div>
@@ -25,7 +25,7 @@
 
 
 <mat-toolbar>All Buildings </mat-toolbar>
-<table mat-table  class="mat-elevation-z8">
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->

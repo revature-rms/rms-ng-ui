@@ -16,7 +16,7 @@ export class CampusService {
 
   campus:Campus;
 
-  private campusUrl = 'http://localhost:3000/campus';
+  private campusUrl = 'http://localhost:10000/search/campuses';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }

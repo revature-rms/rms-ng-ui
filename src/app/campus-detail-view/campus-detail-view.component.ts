@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Building } from '../dtos/building';
 import {Campus} from '../dtos/campus'
 import {CampusService} from '../services/campus.service';
 
@@ -9,7 +10,7 @@ import {CampusService} from '../services/campus.service';
 })
 export class CampusDetailViewComponent implements OnInit {
 
-   dataSource:any[]=[];
+   dataSource:Building[]=[];
    campuses:Campus[]=[];
 
   constructor(private campusService:CampusService) { }
@@ -24,6 +25,7 @@ export class CampusDetailViewComponent implements OnInit {
       (response)=>
       {
         this.campuses = response as Campus[];
+        this.dataSource = this.campuses[0].buildings;
         console.log("this is campus detail")
         console.log(this.campuses);
         console.log(this.dataSource);
@@ -33,6 +35,6 @@ export class CampusDetailViewComponent implements OnInit {
   
   }
 
-  displayedColumns: string[] = ['id', 'build1', 'build2', 'build3'];
+  displayedColumns: string[] = ['name', 'address', 'trainingLead', 'amenities', 'rooms'];
 
 }

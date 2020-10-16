@@ -22,28 +22,28 @@ export class TsmDashboardComponent implements OnInit {
 
   ngOnInit(): void {
 
-        this.getEmployees();
+        // this.getEmployees();
         this.getCampus();
         
   }
 
 
 
-async getEmployees(){
-  await this.employeeService.getemployees().subscribe
-  (
-    (response)=>
-    {
-      this.employees = response as Employee[];
-      this.dataSource = this.employees;
-      console.log("this is dashboard")
-      console.log(this.employees);
-      console.log(this.dataSource);
-    },
-    (error) => console.log(error)
-  )
+// async getEmployees(){
+//   await this.employeeService.getemployees().subscribe
+//   (
+//     (response)=>
+//     {
+//       this.employees = response as Employee[];
+//       this.dataSource = this.employees;
+//       console.log("this is dashboard")
+//       console.log(this.employees);
+//       console.log(this.dataSource);
+//     },
+//     (error) => console.log(error)
+//   )
 
-}
+// }
 
 async getCampus(){
   await this.campusService.getCampus().subscribe
