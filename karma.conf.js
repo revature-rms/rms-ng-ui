@@ -32,9 +32,6 @@ module.exports = function (config) {
       require('karma-coverage-istanbul-reporter'),
       require('@angular-devkit/build-angular/plugins/karma')
     ],
-    mime: {
-      'text/x-typescript': ['ts','tsx']
-    },
     files: [
       { pattern: './node_modules/@angular/material/prebuilt-themes/deeppurple-amber.css', watched: false, included: true }
 
