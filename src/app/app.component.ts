@@ -37,10 +37,10 @@ getRouteTitle(route){
        return 'Campuses'; 
     } 
     case '/tsm-dashboard': { 
-       return 'Tsm Dashboard'
+       return 'TSM Dashboard'
     }
     case '/employee-details': { 
-      return 'Employe Details'
+      return 'Employee Details'
     } 
     case '/room-details': { 
       return 'Room Details'
