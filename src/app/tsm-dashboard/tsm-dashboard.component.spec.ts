@@ -21,6 +21,11 @@ describe('TsmDashboardComponent', () => {
     .compileComponents();
   });
 
+  it('should create the component',() => {
+    expect(component).toBeTruthy();
+    console.log(component);
+  });
+
   beforeEach(() => {
     fixture = TestBed.createComponent(TsmDashboardComponent);
     component = fixture.componentInstance;

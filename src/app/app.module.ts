@@ -18,6 +18,7 @@ import { RoomDetailsComponent } from './room-details/room-details.component';
 import { EmployeeDetailViewComponent } from './employee-detail-view/employee-detail-view.component';
 import { CampusDetailViewComponent } from './campus-detail-view/campus-detail-view.component';
 import { RoomEditComponent } from './room-edit/room-edit.component';
+import { BatchDetailViewComponent } from './batch-detail-view/batch-detail-view.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
@@ -29,7 +30,8 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     RoomDetailsComponent,
     RoomEditComponent,
     NavbarComponent,
-    CampusDetailViewComponent
+    CampusDetailViewComponent,
+    BatchDetailViewComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,50 @@
+<mat-toolbar>Batch Details</mat-toolbar>
+
+<div id="wholeDiv" class="inner-content">
+    <h2>Batch ID</h2>
+    <div id="leftDiv">
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content id="number">
+                        {{ this.currentBatch.id }}
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Batch name</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        {{ this.currentBatch.name }}
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Trainer name</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        Trainer Name
+                        <button mat-icon-button>
+                            <mat-icon>edit</mat-icon>
+                        </button>
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        </div>
+    </div>
+
