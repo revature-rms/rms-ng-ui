@@ -30,7 +30,6 @@ router.events.subscribe((url:any) => {
   };
   });
 
-
 }
 
 getRouteTitle(route){
@@ -48,7 +47,7 @@ getRouteTitle(route){
       return 'Employe Details'
    } 
     default: { 
-       return 'Unknown Route';
+       return 'Unknown Route Title';
     } 
  } 
   
