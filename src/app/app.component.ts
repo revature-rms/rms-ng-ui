@@ -21,11 +21,8 @@ constructor(private router: Router ) {
 router.events.subscribe((url:any) => {
 
   if(url instanceof NavigationEnd){
-    console.log("router url "+router.url);
     this.route = router.url;
-    console.log("route " + this.route)
     this.pageTitle = this.getRouteTitle(this.route);
-    console.log("pageTitle " + this.pageTitle);
 
   };
   });
@@ -34,8 +31,7 @@ router.events.subscribe((url:any) => {
 
 getRouteTitle(route){
 
-  console.log(route + " route in getRouteTitle");
-
+  
   switch(route) { 
     case '/campuses': { 
        return 'Campuses'; 
@@ -43,9 +39,19 @@ getRouteTitle(route){
     case '/tsm-dashboard': { 
        return 'Tsm Dashboard'
     }
-    case '/tsm-employee-details': { 
+    case '/employee-details': { 
       return 'Employe Details'
-   } 
+    } 
+    case '/room-details': { 
+      return 'Room Details'
+    }
+    case '/login': { 
+        return 'Login'
+    }
+    case '/room-edit': { 
+      return 'Edit Room'
+    } 
+
     default: { 
        return 'Unknown Route Title';
     } 
