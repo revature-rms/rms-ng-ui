@@ -182,7 +182,9 @@
     "title": "Manager of Technology",
     "department": "Training",
     "resourceMetadata": {
-      "test":"test"
+      "test":"test value",
+      "test2":"test value 2",
+      "text3":""
     }
   }],
 
@@ -230,7 +232,8 @@
         }
     ],
     "resourceMetadata": {
-      "test":"test"
+      "test":"test value",
+      "test2":"test value"
     }
   }],
 
