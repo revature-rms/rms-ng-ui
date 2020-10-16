@@ -38,7 +38,6 @@ export class RoomEditComponent implements OnInit {
         this.rooms = <Room[]> res;
         this.currentRoom = this.rooms[0];
         this.currentRoomStatus = <RoomStatus[]> <unknown> this.currentRoom.currentStatus;
-        console.log(this.currentRoomStatus);
         this.roomBatch = this.currentRoom.batch;
         this.allBatchNames.push(this.roomBatch.name);
       },

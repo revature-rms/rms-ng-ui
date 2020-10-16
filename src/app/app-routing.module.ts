@@ -19,13 +19,11 @@ const routes: Routes = [
   {path: 'tsm-dashboard', component: TsmDashboardComponent},
   {path: 'building-details', component: BuildingDetailsComponent} ,
   {path: 'building-edit', component: BuildingEditComponent},
-
-  // {path: 'login', component: LoginComponent },
-  
-  // {path: 'room-details', component: RoomDetailsComponent},
-  // {path: 'room-edit', component: RoomEditComponent},
-  // {path: 'tsm-employee-details', component: EmployeeDetailViewComponent},
-  // {path: 'campuses', component:CampusDetailViewComponent}
+  {path: 'login', component: LoginComponent },
+  {path: 'room-details', component: RoomDetailsComponent},
+  {path: 'room-edit', component: RoomEditComponent},
+  {path: 'employee-details', component: EmployeeDetailViewComponent},
+  {path: 'campuses', component:CampusDetailViewComponent}
   // {path: 'admn-dashboard', component: AdmnDashboardComponent}, //admin dashboard
   // {path: 'bmngr-dashboard', component: BmngrDashboardComponent}, //building manager dashboard
   // {path: 'trnr-dashboard', component: TrnrDashboardComponent}, //trainer dashboard

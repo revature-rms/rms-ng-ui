@@ -1,1 +1,23 @@
 [1013/161202.227:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/130607.482:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/142554.656:ERROR:process_reader_win.cc(151)] SuspendThread: Access is denied. (0x5)
+[1015/142554.657:ERROR:exception_snapshot_win.cc(99)] thread ID 3632 not found in process
+[1015/142554.657:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1015/144215.034:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/145536.091:ERROR:process_memory_win.cc(73)] ReadMemory at 0x2771f84b8b0 of 72 bytes failed: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[1015/145536.092:WARNING:pe_image_annotations_reader.cc(135)] could not read annotations list object in C:\Program Files (x86)\Google\Chrome\Application\86.0.4240.75\chrome_elf.dll
+[1015/145536.092:ERROR:process_memory_win.cc(73)] ReadMemory at 0x2771f88c6d0 of 72 bytes failed: Only part of a ReadProcessMemory or WriteProcessMemory request was completed. (0x12B)
+[1015/145536.093:WARNING:pe_image_annotations_reader.cc(135)] could not read annotations list object in C:\Program Files (x86)\Google\Chrome\Application\86.0.4240.75\chrome.dll
+[1015/150553.536:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/162224.406:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1015/165306.000:ERROR:process_info.cc(329)] VirtualQueryEx: Access is denied. (0x5)
+[1015/165306.001:ERROR:process_info.cc(556)] ReadMemoryInfo failed
+[1015/165306.001:ERROR:scoped_process_suspend.cc(40)] NtResumeProcess: An attempt was made to access an exiting process. (0xc000010a)
+[1015/170323.240:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1016/002802.847:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[1016/002802.851:ERROR:file_io.cc(90)] ReadExactly: expected 40, observed 0
+[1016/002802.894:ERROR:registration_protocol_win.cc(131)] TransactNamedPipe: The pipe has been ended. (0x6D)
+[1016/002802.895:ERROR:file_io.cc(90)] ReadExactly: expected 40, observed 0
+[1016/111819.684:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1016/115154.775:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)
+[1016/125948.806:ERROR:directory_reader_win.cc(43)] FindFirstFile: The system cannot find the path specified. (0x3)

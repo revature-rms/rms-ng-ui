@@ -20,6 +20,8 @@ import { EmployeeDetailViewComponent } from './employee-detail-view/employee-det
 import { CampusDetailViewComponent } from './campus-detail-view/campus-detail-view.component';
 import { RoomEditComponent } from './room-edit/room-edit.component';
 import { BuildingEditComponent } from './building-edit/building-edit.component';
+import { BatchDetailViewComponent } from './batch-detail-view/batch-detail-view.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { BuildingEditComponent } from './building-edit/building-edit.component';
     RoomEditComponent,
     NavbarComponent,
     CampusDetailViewComponent,
-    BuildingEditComponent
+    BuildingEditComponent ,
+    BatchDetailViewComponent
   ],
   imports: [
     BrowserModule,
@@ -43,6 +46,7 @@ import { BuildingEditComponent } from './building-edit/building-edit.component';
     FormsModule,
     HttpClientModule
   ],
+  exports: [ MaterialModule ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
