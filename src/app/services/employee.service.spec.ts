@@ -102,7 +102,9 @@ describe('EmployeeService', () => {
     expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
   });
 
-  //create(employee) ------------------------------------------
+
+  //Check notes at end of file for 
+  //create(employee) ------------------------------------------TODO: find a better solution
   it('should create employee', () => {
     let newPeon:Employee = {
       id:null,
@@ -121,7 +123,7 @@ describe('EmployeeService', () => {
 
   });
 
-  // update(employee) ------------------------------------------
+  // update(employee) ------------------------------------------TODO: find a better solution
   it('should update employee', () => {
     let newPeon:Employee = {
       id:3,
@@ -152,7 +154,7 @@ describe('EmployeeService', () => {
       error  => expect(error.message).toContain('404 Not Found')
     );
     
-    expect(1).toEqual(1); //just to help jasmine to stop crying about no expect statements
+    expect(1).toEqual(1);
   });
 
 });

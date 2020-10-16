@@ -73,7 +73,7 @@ export class NavbarComponent implements OnDestroy {
   linksDebug = [
     {
       linkName: 'Home',
-      fragment: '/dashboardTSM'
+      fragment: '/tsm-dashboard'
     },
     {
       linkName: 'test',
@@ -85,7 +85,7 @@ export class NavbarComponent implements OnDestroy {
   linksTSM = [
     {
       linkName: 'Home',
-      fragment: '/dashboardTSM'
+      fragment: '/tsm-dashboard'
     },
     {
       linkName: 'test',

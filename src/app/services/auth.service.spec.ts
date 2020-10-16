@@ -1,24 +1,29 @@
+import { HttpClient } from '@angular/common/http';
+import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
+import { RoomService } from './room.service';
 
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
 
 describe('AuthService', () => {
-  let service: AuthService;                                           //needed?
-
+  let service: AuthService;
+  let httpClient: HttpClient;
+  let httpTestingController: HttpTestingController;
+  
   beforeEach(() => {
     TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule],
-      providers: [AuthService]
+      imports: [ HttpClientTestingModule ]
     });
-    let httpClientSpy: { get: jasmine.Spy };                          //init spy
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    service = new AuthService(httpClientSpy as any);                  //mock service
+
+
+    TestBed.configureTestingModule({});
+    httpClient = TestBed.inject(HttpClient);
+    httpTestingController = TestBed.inject(HttpTestingController);
+    service = TestBed.inject(AuthService);
   });
 
-
-  //TESTS
   it('should be created', () => {
     expect(service).toBeTruthy();
   });

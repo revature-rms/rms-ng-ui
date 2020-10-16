@@ -4,14 +4,17 @@
     <div class="sidebarCard" id="navLinks" >
         <!-- Debug links for development -->
         <nav>
-            <ul class="navUL" >
-                <li class="navItem" *ngFor="let link of linksDebug">
-                    <a href="#" class="navLink"  [routerLink]="link.fragment">
-                        {{ link.linkName }}
-                    </a>
-                </li>
-                <li><a href="#" (click)="logout()" >Logout</a></li>
-            </ul>
+            <!-- <ul class="navUL" > -->
+                    <mat-nav-list matRipple *ngFor="let link of linksDebug">
+                        <a href="#" class="navLink"  [routerLink]="link.fragment">
+                            {{ link.linkName }}
+                        </a>
+                    </mat-nav-list>
+
+                   <mat-nav-list matRipple>
+                   <a href="#" (click)="logout()" >Logout</a>
+                   </mat-nav-list>
+            <!-- </ul> -->
         </nav>
         
     </div>

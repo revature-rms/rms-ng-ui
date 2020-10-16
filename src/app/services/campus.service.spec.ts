@@ -1,4 +1,8 @@
+import { HttpClient } from '@angular/common/http';
+import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
+import { RouterTestingModule } from '@angular/router/testing';
+
 import { CampusService } from './campus.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { MessageService } from './message.service';
@@ -8,19 +12,23 @@ import { HttpErrorResponse } from '@angular/common/http';
 
 describe('CampusService', () => {
   let service: CampusService;
-  let httpClientSpy: { get: jasmine.Spy };
+  let httpClient: HttpClient;
+  let httpMock: HttpTestingController; 
+  
+
+  beforeEach(async () => {
+    await TestBed.configureTestingModule({
+      declarations: [ ],
+      imports: [ RouterTestingModule, HttpClientTestingModule ]
+    })
+    .compileComponents();
+  });
 
   beforeEach(() => {
-    TestBed.configureTestingModule({
-      // imports: [HttpClientModule],
-      // providers: [FlexSearchService]
-      imports: [HttpClientTestingModule],
-      providers: [CampusService]
-    });
-    // httpClientSpy: { get: jasmine.Spy }; //init spy
-    httpClientSpy = jasmine.createSpyObj('HttpClient', ['get']);
-    // service = TestBed.inject(AuthService);
-    service = new CampusService(httpClientSpy as any, MessageService as any); //mock service
+    TestBed.configureTestingModule({});
+    service = TestBed.inject(CampusService);
+    httpClient = TestBed.inject(HttpClient);
+    httpMock = TestBed.inject(HttpTestingController);
   });
 
   //TESTS

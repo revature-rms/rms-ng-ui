@@ -1,6 +1,6 @@
-<h1>Employee Details</h1>
-<h2>ID</h2>
-<div id="wholeDiv">
+
+<div id="wholeDiv" class="inner-content">
+    <h2>ID</h2>
     <div id="leftDiv">
         <div>
             <mat-card>
@@ -16,7 +16,7 @@
         </div>
         <br>
         <mat-divider></mat-divider>
-        <h2>first name</h2>
+        <h2>First name</h2>
         <div>
             <mat-card>
                 <mat-card-header>
@@ -31,7 +31,7 @@
         </div>
         <br>
         <mat-divider></mat-divider>
-        <h2>last name</h2>
+        <h2>Last name</h2>
         <div>
             <mat-card>
                 <mat-card-header>
@@ -46,7 +46,7 @@
         </div>
         <br>
         <mat-divider></mat-divider>
-        <h2>email</h2>
+        <h2>Email</h2>
         <div>
             <mat-card>
                 <mat-card-header>
@@ -59,7 +59,9 @@
                 </mat-card-header>
             </mat-card>
         </div>
-        <h2>title</h2>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Title</h2>
         <div>
             <mat-card>
                 <mat-card-header>
@@ -72,7 +74,9 @@
                 </mat-card-header>
             </mat-card>
         </div>
-        <h2>department</h2>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Department</h2>
         <div>
             <mat-card>
                 <mat-card-header>
@@ -85,6 +89,22 @@
                 </mat-card-header>
             </mat-card>
         </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Additional Information</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        <div  *ngFor="let item of this.currentEmployee.resourceMetadata | keyvalue">
+                            <mat-card-title>{{item.key}}</mat-card-title>
+                            <mat-card-content>{{item.value}}</mat-card-content>
+                            <br>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
     </div>
 </div>
-
