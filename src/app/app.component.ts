@@ -10,24 +10,50 @@ import { NavigationEnd, Router } from '@angular/router';
 
 export class AppComponent {
 
+  title = 'rms-ng-ui';
+  opened = true;
+  route;
+  pageTitle;
+
+
 constructor(private router: Router ) {
 
-  router.events.subscribe((url:any) => {
-  
-  
-  if(url instanceof NavigationEnd){
-    console.log('yaay');
-    console.log(router.url);
-  };
-  
-  //console.log(Event + "<- THE EVENT " + url + "this this the url?" + router.url);
+router.events.subscribe((url:any) => {
 
+  if(url instanceof NavigationEnd){
+    console.log("router url "+router.url);
+    this.route = router.url;
+    console.log("route " + this.route)
+    this.pageTitle = this.getRouteTitle(this.route);
+    console.log("pageTitle " + this.pageTitle);
+
+  };
   });
+
 
 }
 
-  title = 'rms-ng-ui';
-  opened = true;
+getRouteTitle(route){
+
+  console.log(route + " route in getRouteTitle");
+
+  switch(route) { 
+    case '/campuses': { 
+       return 'Campuses'; 
+    } 
+    case '/tsm-dashboard': { 
+       return 'Tsm Dashboard'
+    }
+    case '/tsm-employee-details': { 
+      return 'Employe Details'
+   } 
+    default: { 
+       return 'Unknown Route';
+    } 
+ } 
+  
+
+}
 
 
 }
