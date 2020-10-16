@@ -17,8 +17,8 @@ import {CampusDetailViewComponent} from './campus-detail-view/campus-detail-view
 const routes: Routes = [
   {path: '', redirectTo: '/tsm-dashboard', pathMatch: 'full'},
   {path: 'tsm-dashboard', component: TsmDashboardComponent},
-  // {path: 'building-details', component: BuildingDetailsComponent} ,
-  // {path: 'building-edit', component: BuildingEditComponent},
+  {path: 'building-details', component: BuildingDetailsComponent} ,
+  {path: 'building-edit', component: BuildingEditComponent},
 
   // {path: 'login', component: LoginComponent },
   

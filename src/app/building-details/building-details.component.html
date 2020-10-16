@@ -1,6 +1,8 @@
 <br>
 <br>
 <mat-toolbar>Building Details</mat-toolbar>
+
+<!-- this is the link for editing a building -->
 <button mat-icon-button>
     <mat-icon><a routerLink="/building-edit" routerLinkActive="active">edit</a></mat-icon>
 </button>
@@ -9,12 +11,13 @@
 <div id="wholeDiv">
     <div id="leftDiv">
 
+        <!-- these are material cards for the building details -->
         <h2>Name</h2>
         <div>
             <mat-card>
                 <mat-card-content id="name">
                     {{ this.currentBuilding.name }}
-
+                    
                 </mat-card-content>
             </mat-card>
         </div>
@@ -36,7 +39,7 @@
             <mat-card>
                 <mat-card-content id="Address">
                     {{ this.currentBuilding.physicalAddress.address }}
-
+                    <!-- this will most likely change when we talk to the backend -->
                 </mat-card-content>
             </mat-card>
         </div>
@@ -47,6 +50,7 @@
             <mat-card>
                 <mat-card-content id="trainingLead">
                     {{ this.currentBuilding.trainingLead.username }}
+                    <!-- this will most likely change when we talk to the backend -->
 
                 </mat-card-content>
             </mat-card>
@@ -61,6 +65,7 @@
 
         <table mat-table [dataSource]="rooms" class="mat-elevation-z8">
 
+            <!-- column names here are irrelevant. they come from angular tutorial on material tables -->
             <!-- Position Column -->
             <ng-container matColumnDef="roomNumber">
                 <th mat-header-cell *matHeaderCellDef> No. </th>
