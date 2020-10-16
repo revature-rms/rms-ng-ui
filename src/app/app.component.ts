@@ -50,7 +50,10 @@ getRouteTitle(route){
     }
     case '/room-edit': { 
       return 'Edit Room'
-    } 
+    }
+    // case '/batch-details': { 
+    //   return 'Batch Details'
+    // }
 
     default: { 
        return 'Unknown Route Title';
