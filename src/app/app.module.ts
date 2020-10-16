@@ -19,6 +19,7 @@ import { EmployeeDetailViewComponent } from './employee-detail-view/employee-det
 import { CampusDetailViewComponent } from './campus-detail-view/campus-detail-view.component';
 import { RoomEditComponent } from './room-edit/room-edit.component';
 import { BatchDetailViewComponent } from './batch-detail-view/batch-detail-view.component';
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 @NgModule({
   declarations: [
@@ -41,6 +42,7 @@ import { BatchDetailViewComponent } from './batch-detail-view/batch-detail-view.
     FormsModule,
     HttpClientModule
   ],
+  exports: [ MaterialModule ],
   providers: [HttpClientModule],
   bootstrap: [AppComponent]
 })
