@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Building } from '../dtos/building';
 import { Address } from '../dtos/address';
-import { Employee } from '../dtos/employee';
 import { BuildingService } from '../services/building.service';
 import { Room } from '../dtos/room';
 import { RoomStatus } from '../dtos/roomStatus';
