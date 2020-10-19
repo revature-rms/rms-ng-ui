@@ -15,7 +15,8 @@ const httpOptions = {
 })
 export class RoomService {
 
-  private roomUrl = 'http://localhost:10000/search/rooms';
+  private roomUrl = 'http://localhost:3000/Room';
+  // private roomUrl = 'http://localhost:10000/search/rooms';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }

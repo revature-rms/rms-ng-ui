@@ -34,5 +34,9 @@ export class BuildingService {
     return this.http.put<Building>(this.buildingUrl, Building).toPromise();
   }
 
+  update(building): Promise<Building> {
+    return this.http.put<Building>('http://localhost:10001/campuses/buildings', building).toPromise();
+  }
+
 
 }
