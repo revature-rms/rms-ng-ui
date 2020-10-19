@@ -30,35 +30,52 @@ router.events.subscribe((url:any) => {
 }
 
 getRouteTitle(route){
-
   
-  switch(route) { 
-    case '/campuses': { 
-       return 'Campuses'; 
-    } 
-    case '/tsm-dashboard': { 
-       return 'TSM Dashboard'
+  const routes = ['/campus-details', '/building-details', '/building-edit', '/room-details', '/room-edit', '/employee-details', '/login']
+
+  var rCd = /\/campus-details([0-9])*/g
+  var rBd = /\/building-details([0-9])*/g
+  var rBe = /\/building-edit([0-9])*/g
+  var rRd = /\/room-details([0-9])*/g
+  var rRe = /\/room-edit([0-9])*/g
+  var rEd = /\/employee-details([0-9])*/g
+  var login = 'login';
+  var dashboard = '/tsm-dashboard';
+  
+
+switch (true) { 
+    case rBd.test(route): {
+      return 'Building Details'
     }
-    case '/employee-details': { 
-      return 'Employee Details'
+    case rCd.test(route): { 
+      return 'Campus Details'; 
     } 
-    case '/room-details': { 
+    case (route == dashboard): { 
+      return 'TSM Dashboard'
+    }
+    case (route == login): { 
+      return 'Login'
+    } 
+    case rRd.test(route): { 
       return 'Room Details'
     }
-    case '/login': { 
-        return 'Login'
+    case rBe.test(route): {
+        return 'Edit Building'
     }
-    case '/room-edit': { 
+    case rRe.test(route): { 
       return 'Edit Room'
+    }
+    case rEd.test(route): {
+      return 'Employee Details'
     }
     // case '/batch-details': { 
     //   return 'Batch Details'
     // }
 
     default: { 
-       return 'Unknown Route Title';
+      return 'Unknown Route Title';
     } 
- } 
+} 
   
 
 }

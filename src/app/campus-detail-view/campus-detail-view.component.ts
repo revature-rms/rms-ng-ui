@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Building } from '../dtos/building';
 import {Campus} from '../dtos/campus'
 import {CampusService} from '../services/campus.service';
+import { Router, ActivatedRoute, ParamMap } from '@angular/router';
+import { Observable } from 'rxjs';
+import { switchMap } from 'rxjs/operators';
 
 @Component({
   selector: 'app-campus-detail-view',
@@ -10,22 +13,26 @@ import {CampusService} from '../services/campus.service';
 })
 export class CampusDetailViewComponent implements OnInit {
 
-   dataSource:Building[]=[];
-   campuses:Campus[]=[];
+  dataSource:Building[]=[];
+  campuses:Campus;
+  buildingId: Number;
 
-  constructor(private campusService:CampusService) { }
-
-  ngOnInit(): void {
-    this.getCampus();
+  constructor(private route: ActivatedRoute, private campusService:CampusService) {
+    this.route.params.subscribe(param => this.getCampus(param['id']));
   }
 
-  async getCampus(){
-    await this.campusService.getCampus().subscribe
+  ngOnInit(): void {
+
+
+  }
+
+  async getCampus(id: number){
+    await this.campusService.getCampusById(id).subscribe
     (
       (response)=>
       {
-        this.campuses = response as Campus[];
-        this.dataSource = this.campuses[0].buildings;
+        this.campuses = response as Campus;
+        this.dataSource = this.campuses.buildings;
         console.log("this is campus detail")
         console.log(this.campuses);
         console.log(this.dataSource);
@@ -35,6 +42,6 @@ export class CampusDetailViewComponent implements OnInit {
   
   }
 
-  displayedColumns: string[] = ['name', 'address', 'trainingLead', 'amenities', 'rooms'];
+  displayedColumns: string[] = ['id', 'name', 'address', 'trainingLead', 'build3', 'build4'];
 
 }

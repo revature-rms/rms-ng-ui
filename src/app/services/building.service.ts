@@ -16,7 +16,7 @@ export class BuildingService {
 
   building:Building;
 
-  private buildingUrl='http://localhost:10001/campuses/buildings';
+  private buildingUrl='http://localhost:10000/search/buildings/';
 
 
   constructor(private http: HttpClient , 
@@ -26,7 +26,11 @@ export class BuildingService {
     return this.http.get<Building[]>(this.buildingUrl).toPromise();
   }
 
-  getBuildingById(id): Promise<Building[]>{
+  getBuildingById(id): Promise<Building>{
+    return this.http.get<Building>(`${this.buildingUrl}/id/${id}`).toPromise();
+  }
+
+  getBuildingsByCampusId(id): Promise<Building[]>{
     return this.http.get<Building[]>(`${this.buildingUrl}/id/${id}`).toPromise();
   }
 

@@ -1,6 +1,6 @@
 
     <button mat-icon-button>
-        <mat-icon><a routerLink="/room-edit" routerLinkActive="active">edit</a></mat-icon>
+        <mat-icon><a routerLink="/room-edit/{{this.currentRoom.id}}" routerLinkActive="active">edit</a></mat-icon>
     </button>
 <mat-divider></mat-divider>
 <div id="wholeDiv"  class="inner-content">
@@ -51,7 +51,7 @@
     <!-- Position Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> <button mat-raised-button>{{element.id}} </button></td>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button> {{element.id}} </button></td>
     </ng-container>
 
     <!-- Name Column -->
@@ -74,7 +74,7 @@
 
     <ng-container matColumnDef="submitter">
         <th mat-header-cell *matHeaderCellDef> Submitter </th>
-        <td mat-cell *matCellDef="let element"> {{element.submitter}} </td>
+        <td mat-cell *matCellDef="let element"> {{element.submitter.firstName}} </td>
     </ng-container>
 
     <ng-container matColumnDef="otherNotes">

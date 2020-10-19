@@ -17,6 +17,7 @@ export class CampusService {
   campus:Campus;
 
   private campusUrl = 'http://localhost:10000/search/campuses';
+  private campusByIdUrl = 'http://localhost:10000/search/campuses/id/';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
@@ -24,5 +25,9 @@ export class CampusService {
 
     getCampus(){
       return this.http.get(this.campusUrl);
+    }
+
+    getCampusById(id: number){
+      return this.http.get(`${this.campusByIdUrl}${id}`);
     }
 }

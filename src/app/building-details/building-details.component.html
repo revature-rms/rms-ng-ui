@@ -4,7 +4,7 @@
 
 <!-- this is the link for editing a building -->
 <button mat-icon-button>
-    <mat-icon><a routerLink="/building-edit" routerLinkActive="active">edit</a></mat-icon>
+    <mat-icon><a routerLink="/building-edit/{{this.currentBuilding.id}}" routerLinkActive="active">edit</a></mat-icon>
 </button>
 <mat-divider></mat-divider> 
 
@@ -38,11 +38,11 @@
         <div>
             <mat-card>
                 <mat-card-content id="Address">
-                    {{ this.currentBuilding.physicalAddress.unitStreet }}
-                    {{ this.currentBuilding.physicalAddress.city }}
-                    {{ this.currentBuilding.physicalAddress.state }}
-                    {{ this.currentBuilding.physicalAddress.zip }}
-                    {{ this.currentBuilding.physicalAddress.country }}
+                    {{ this.currentBuilding.address.unitStreet }}
+                    {{ this.currentBuilding.address.city }}
+                    {{ this.currentBuilding.address.state }}
+                    {{ this.currentBuilding.address.zip }}
+                    {{ this.currentBuilding.address.country }}
 
                     <!-- this will most likely change when we talk to the backend -->
                 </mat-card-content>
@@ -68,10 +68,6 @@
             <mat-card>
                 <mat-card-content id="metaData">
                     {{ this.currentBuilding.resourceMetadata.resourceCreationDateTime }}
-
-                    <button mat-icon-button>
-                        <mat-icon>edit</mat-icon>
-                    </button>
                 </mat-card-content>
             </mat-card>
         </div>
@@ -89,7 +85,7 @@
             <!-- Position Column -->
             <ng-container matColumnDef="roomNumber">
                 <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element"> <button mat-raised-button>{{element.id}} </button></td>
+                <td mat-cell *matCellDef="let element"> <button mat-raised-button routerLink="/room-details/{{element.id}}" routerLinkActive="active">{{element.id}} </button></td>
             </ng-container>
             <!-- Name Column -->
             <ng-container matColumnDef="maxOccupancy">

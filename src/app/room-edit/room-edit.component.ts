@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Batch } from '../dtos/batch';
 import { Room } from '../dtos/room';
 import { RoomStatus } from '../dtos/roomStatus';
@@ -28,33 +29,37 @@ export class RoomEditComponent implements OnInit {
   occupancy = new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]);
   roomNumber = new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]);
 
-  constructor(private roomService: RoomService, private workOrderService: WorkOrderService) { }
+  constructor (private route: ActivatedRoute, private roomService: RoomService, private workOrderService: WorkOrderService) { 
+    this.route.params.subscribe(param => this.getRoom(param['id']));
+  }
 
   async ngOnInit() {
 
-    await this.roomService.getRooms().then(
-      res => {
-        console.log('get-rooms-successful');
-        this.rooms = <Room[]> res;
-        this.currentRoom = this.rooms[0];
-        this.currentRoomStatus = <RoomStatus[]> <unknown> this.currentRoom.currentStatus;
-        this.roomBatch = this.currentRoom.batch;
-        this.allBatchNames.push(this.roomBatch.name);
-      },
-      err => {
-        console.log(err);
-      });
-  //   await this.workOrderService.getWorkOrder().subscribe(
-  //       res => {
-  //         console.log('get-work-orders-successful');
-  //         this.workOrders = res;
-  //         this.dataSource = this.workOrders;
-  //       },
-  //       err => {
-  //         console.log(err);
-  //       });
-  
   }
+
+async getRoom(id) {
+  await this.roomService.getRoomsById(id).then(
+    res => {
+      console.log('get-rooms-successful');
+      this.currentRoom = <Room> res;
+      this.currentRoomStatus = <RoomStatus[]> <unknown> this.currentRoom.currentStatus;
+      this.roomBatch = this.currentRoom.batch;
+      this.allBatchNames.push(this.roomBatch.name);
+    },
+    err => {
+      console.log(err);
+    });
+//   await this.workOrderService.getWorkOrder().subscribe(
+//       res => {
+//         console.log('get-work-orders-successful');
+//         this.workOrders = res;
+//         this.dataSource = this.workOrders;
+//       },
+//       err => {
+//         console.log(err);
+//       });
+}
+
 
   updateRoom() {
     console.log(this.currentRoom.roomNumber);

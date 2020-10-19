@@ -30,7 +30,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     LoginComponent,
     TsmDashboardComponent,
     RoomDetailsComponent,
-    BuildingDetailsComponent  ,
+    BuildingDetailsComponent,
     RoomEditComponent,
     NavbarComponent,
     CampusDetailViewComponent,

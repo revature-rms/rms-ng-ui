@@ -9,7 +9,7 @@ export class Building{
     id:Number;
     name:String;
     abbrName:String;
-    physicalAddress:Address;
+    address:Address;
     trainingLead:Employee; //or user
     amenities:Array<Amenity>; //of strings?
     rooms:Array<Room>; //of rooms?

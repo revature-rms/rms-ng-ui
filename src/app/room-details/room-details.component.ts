@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
 import { Batch } from '../dtos/batch';
 import { Room } from '../dtos/room';
 import { RoomStatus } from '../dtos/roomStatus';
@@ -24,15 +25,19 @@ export class RoomDetailsComponent implements OnInit {
   displayedColumnsA: string[] = ['id', 'whiteboardCleaned', 'chairsOrdered', 'submittedDateTime', 'submitter', 'otherNotes'];
 
 
-  constructor(private roomService: RoomService, private workOrderService: WorkOrderService) { }
+  constructor(private route: ActivatedRoute, private roomService: RoomService, private workOrderService: WorkOrderService) { 
+    this.route.params.subscribe(param => this.getRooms(param['id']));
+  }
 
   async ngOnInit() {
+  
+  }
 
-    await this.roomService.getRooms().then(
+  async getRooms(id: Number) {
+    await this.roomService.getRoomsById(id).then(
       res => {
         console.log('get-rooms-successful');
-        this.rooms = <Room[]> res;
-        this.currentRoom = this.rooms[0];
+        this.currentRoom = <Room> res;
         console.log(this.currentRoom);
         this.currentRoomStatus = <RoomStatus[]> <unknown> this.currentRoom.currentStatus;
         this.roomBatch = this.currentRoom.batch;
@@ -50,9 +55,7 @@ export class RoomDetailsComponent implements OnInit {
     //     err => {
     //       console.log(err);
     //     });
-  
   }
-
 
 
 

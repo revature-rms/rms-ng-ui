@@ -1,18 +1,18 @@
 
-<div *ngFor="let item of campuses let num = index" class="inner-content">
+<div class="inner-content">
 <mat-card class="example-card">
   <mat-card-header>
     <div mat-card-avatar class="example-header-image"></div>
-    <mat-card-title>{{item.name}}</mat-card-title>
-    <mat-card-subtitle>School ID:{{item.id}}</mat-card-subtitle>
+    <mat-card-title>{{this.campuses.name}}</mat-card-title>
+    <mat-card-subtitle>School ID:{{this.campuses.id}}</mat-card-subtitle>
   </mat-card-header>
   <img mat-card-image src="https://200727-java-ng-usf-gu.s3.us-east-2.amazonaws.com/usf.jpg
   " alt="Photo ofSchool">
   <mat-card-content>
-    <p>Abreviated Name: {{item.abbrName}}</p>
-    <p>Shipping Address: <br> {{item.shippingAddress.unitStreet}} <br> {{item.shippingAddress.city}} <br> {{item.shippingAddress.state}} <br> {{item.shippingAddress.zip}}</p>
-    <p>Training Manager: {{item.trainingManager.firstName}} {{item.trainingManager.lastName}}</p>
-  </mat-card-content>
+    <p>Abreviated Name: {{this.campuses.abbrName}}</p>
+    <p>Shipping Address: <br> {{this.campuses.shippingAddress.unitStreet}} <br> {{this.campuses.shippingAddress.city}} <br> {{this.campuses.shippingAddress.state}} <br> {{this.campuses.shippingAddress.zip}}</p>
+    <p>Training Manager: {{this.campuses.trainingManager.firstName}} {{this.campuses.trainingManager.lastName}}</p>
+  </mat-card-content>    
 </mat-card>
 </div>
 
@@ -29,29 +29,37 @@
 
     <!--- Note that these columns can be defined in any order.
           The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Position Column -->
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> build No. </th>
-      <td mat-cell *matCellDef="let element"> <button mat-raised-button>build #1  </button></td>
+      <th mat-header-cell *matHeaderCellDef> Building id </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button routerLink="/building-details/{{element.id}}" routerLinkActive="active">{{element.id}}</button></td>
+    </ng-container>
+    <!-- Position Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Building Name </th>
+      <td mat-cell *matCellDef="let element">  {{element.name}} </td>
     </ng-container>
   
     <!-- Name Column -->
-    <ng-container matColumnDef="build1">
-      <th mat-header-cell *matHeaderCellDef> build name </th>
-      <td mat-cell *matCellDef="let element"> build </td>
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef> address </th>
+      <td mat-cell *matCellDef="let element"> {{element.address.unitStreet}} </td>
     </ng-container>
   
     <!-- Weight Column -->
-    <ng-container matColumnDef="build2">
-      <th mat-header-cell *matHeaderCellDef> build </th>
-      <td mat-cell *matCellDef="let element"> build </td>
+    <ng-container matColumnDef="trainingLead">
+      <th mat-header-cell *matHeaderCellDef> Training Lead </th>
+      <td mat-cell *matCellDef="let element"> {{element.trainingLead.firstName}} </td>
     </ng-container>
-  
+   
     <!-- Symbol Column -->
     <ng-container matColumnDef="build3">
-      <th mat-header-cell *matHeaderCellDef> build </th>
-      <td mat-cell *matCellDef="let element"> build </td>
+      <th mat-header-cell *matHeaderCellDef> Amenities </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button routerLink="/building-details/{{element.id}}" routerLinkActive="active">Amenities</button> </td>
+    </ng-container>
+
+    <ng-container matColumnDef="build4">
+      <th mat-header-cell *matHeaderCellDef> Rooms </th>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button routerLink="/building-details/{{element.id}}" routerLinkActive="active">Rooms</button> </td>
     </ng-container>
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
