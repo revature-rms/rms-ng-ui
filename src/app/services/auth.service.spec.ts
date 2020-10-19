@@ -4,8 +4,6 @@ import { TestBed } from '@angular/core/testing';
 import { AuthService } from './auth.service';
 import { RoomService } from './room.service';
 
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
-
 
 describe('AuthService', () => {
   let service: AuthService;

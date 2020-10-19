@@ -105,7 +105,7 @@ describe('BatchService', () => {
 
     //some of the services are returning promises, use .then, rather than .subscribe
     service.getBatchById(1).then( 
-      data => expect(data).toEqual(expectedData, 'expected batch data')
+      data => expect(data).toEqual(expectedData[0], 'expected batch data')
     ); //check to make sure they're the same
 
     //TODO: include test to ensure URL is correct. ez
