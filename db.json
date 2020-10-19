@@ -254,12 +254,8 @@
         "test": "test"
       }
     }
-  ] ,
-
-
-
-
-"building": [
+  ],
+  "building": [
     {
       "id": 5,
       "name": "Bama College of Business",
@@ -289,7 +285,12 @@
         }
       ],
       "resourceMetadata": {
-        "resourceCreationDateTime": "created on tuesday"
+        "resourceCreator": "Employee",
+        "resourceCreationDateTime": "monday",
+        "lastModifier": "Employee",
+        "lastModifiedDateTime": "tuesday",
+        "resourceOwner": "Employee",
+        "currentlyActive": "True"
       }
     }
   ]

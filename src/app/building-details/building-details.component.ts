@@ -28,10 +28,14 @@ export class BuildingDetailsComponent implements OnInit {
   RoomStatus: RoomStatus[];
   address: Address[];
   amenities: Amenity[];
+  
+  
 
   dataSource: any[] = [];
   displayedColumns: string[] = ['roomNumber', 'maxOccupancy', 'currentStatus'];
   displayedColumnsAmenities: string[] = ['type', 'status'];
+  displayedColumnsMetaData: string[] = ['resourceCreator', 'resourceCreationDateTime' , 'lastModifier' , 'lastModifiedDateTime' , 'resourceOwner' , 'currentlyActive'];
+
 
 
 
