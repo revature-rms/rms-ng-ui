@@ -5,16 +5,13 @@ import { EmployeeService } from './employee.service';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { HttpClient, HttpResponse, HttpErrorResponse } from '@angular/common/http';
 import { MessageService } from './message.service';
-import { Campus } from '../dtos/campus';
 import { defer } from 'rxjs';
-// import { HttpErrorResponse } from '@angular/common/http';
 import { Employee } from '../dtos/employee';
-import { VariableAst } from '@angular/compiler';
 
 describe('EmployeeService', () => {
   let service: EmployeeService;
-  let httpClientSpy: { get: jasmine.Spy, put: jasmine.Spy, post: jasmine.Spy, delete: jasmine.Spy };
-  let httpClientSpyPut: { put: jasmine.Spy };
+  let httpClientSpy: { get: jasmine.Spy };
+  let httpClientSpyPut: { put: jasmine.Spy }; //originally for debugging; doesn't work
   let httpClientSpyPost: { post: jasmine.Spy };
   let httpClientSpyDelete: { delete: jasmine.Spy };
   let httpTestingController: HttpTestingController;
@@ -98,12 +95,12 @@ describe('EmployeeService', () => {
       data => expect(data).toEqual(expectedData[0], 'expected target employee by ID')
     );
 
-    //some bonus check to see how many http calls went through
+    //bonus check to see how many http calls went through
     expect(httpClientSpy.get.calls.count()).toBe(1, 'one call');
   });
 
 
-  //Check notes at end of file for 
+  //Check notes at end of file for explanations
   //create(employee) ------------------------------------------TODO: find a better solution
   it('should create employee', () => {
     let newPeon:Employee = {
@@ -160,7 +157,7 @@ describe('EmployeeService', () => {
 });
 
 
-// helper functions
+// helper functions      ------------------------------
 function asyncData<T>(data: T) {
   return defer(() => Promise.resolve(data));
 }
@@ -168,8 +165,12 @@ function asyncData<T>(data: T) {
 function asyncError<T>(errorObject: any) {
   return defer(() => Promise.reject(errorObject));
 }
+//mocking service methods------------------------------
+  //since this.http.post is apparently not a thing,
+    //and that somehow it was an illusion all along
 
 function employeePuttest(peon: Employee ){
+  //reevaluate based on backend response json
   return new HttpResponse(
     { status: 200, statusText: 'OK', body: peon });
 }
@@ -180,3 +181,15 @@ function employeePosttest(peon: Employee ){
   return new HttpResponse(
     { status: 201, statusText: 'CREATED', body: peon });
 }
+
+//NOTES:
+
+//httpClientSpy.post.and.returnValue(asyncData(expectedData)); //this.http.post is not a function
+//For some reason, the post/put/delete methods don't work in the same way the get methods do
+//for the time being, we're just using a function to return the expected data
+  //which was already what the httpclientspy was doing in the first place
+    //only jasmine cries about it just a little bit less
+//Referenced with following angular examples:
+  //https://stackblitz.com/angular/dmjlxyljaqm?file=src%2Fapp%2Fmodel%2Ftesting%2Ftest-hero.service.ts
+  //https://stackblitz.com/angular/oembpkqkdje?file=src%2Ftesting%2Fhttp-client.spec.ts
+    //fun fact: these examples implement spy get methods, but not post/put
