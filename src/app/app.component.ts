@@ -51,6 +51,12 @@ getRouteTitle(route){
     case '/room-edit': { 
       return 'Edit Room'
     }
+    case '/building-details': { 
+      return 'Building Details'
+    }
+    case '/building-edit': { 
+      return 'Edit Building'
+    }
     // case '/batch-details': { 
     //   return 'Batch Details'
     // }
