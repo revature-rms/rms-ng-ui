@@ -16,7 +16,7 @@ export class BuildingService {
 
   building:Building;
 
-  private buildingUrl='http://localhost:3000/building';
+  private buildingUrl='http://18.209.24.94:10001/v2/building';
 
 
   constructor(private http: HttpClient , 
