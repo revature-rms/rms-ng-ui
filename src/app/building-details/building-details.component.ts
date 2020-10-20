@@ -49,50 +49,7 @@ export class BuildingDetailsComponent implements OnInit {
 
   }
 
-<<<<<<< HEAD
   async ngOnInit() {
-=======
-    await this.buildingService.getBuildings().then(
-
-      res => {
-        console.log('get-buildings-successful');
-        
-
-        this.buildings = <Building[]>res;
-        this.currentBuilding = this.buildings[0];
-        console.log(this.currentBuilding.trainingLead.firstName);
-        console.log(this.currentBuilding.physicalAddress);
-
-
-      },
-      err => {
-        console.log(err);
-      });
-
-
-    await this.roomService.getRooms().then(
-      res => {
-        console.log('get-rooms-successful');
-        console.log(this.currentBuilding.rooms);
-        console.log(this.currentBuilding.amenities)
-        this.rooms = res;
-        
-        this.dataSource = this.rooms;
-      },
-      err => {
-        console.log(err);
-      });
-
-      await this.amenityService.getAmenities().then(
-        res => {
-          console.log('get-amenities-successful');
-          this.amenities = res;
-          this.dataSource = this.amenities;
-        },
-        err => {
-          console.log(err);
-        });
->>>>>>> 0f3916036cc596488099cdc0a9c3c5f15bb71d43
 
   }
 
