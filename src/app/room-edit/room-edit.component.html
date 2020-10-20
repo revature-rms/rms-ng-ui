@@ -56,10 +56,9 @@
                 <mat-card-content>
                     <mat-form-field appearance="fill">
                         <mat-label>Batch</mat-label>
-                        <mat-select class="form-control"  id="batchName"
-                        required
-                        [(ngModel)]="this.roomBatch.name" name="batchName">
-                            <mat-option *ngFor="let batch of this.allBatchNames" [value]="this.roomBatch.name">  <!-- *ngFor="let batch of batches" > -->
+                        <mat-select id="batchName"
+                        [(value)]="this.roomBatch.name" name="batchName">
+                            <mat-option *ngFor="let batch of this.allBatchNames" value="{{this.roomBatch.name}}">  <!-- *ngFor="let batch of batches" > -->
                                 {{ this.roomBatch.name }}
                             </mat-option>
                         </mat-select>

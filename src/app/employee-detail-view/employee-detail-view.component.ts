@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Employee } from '../dtos/employee';
 import { EmployeeService } from '../services/employee.service';
 
@@ -11,11 +12,16 @@ export class EmployeeDetailViewComponent implements OnInit {
 
   currentEmployee: Employee = new Employee();
 
-  constructor(private employeeService: EmployeeService) { }
+  constructor(private employeeService: EmployeeService, private route: ActivatedRoute) {
+    this.route.params.subscribe(param => this.getEmployeeByID(param['id']));
+  }
 
   async ngOnInit() {
 
-    await this.employeeService.getEmployeeBy(14).subscribe(
+  }
+
+  async getEmployeeByID(id) {
+    await this.employeeService.getEmployeeById(id).then(
       res => {
         console.log('get-employee-successful');
         this.currentEmployee = <Employee> res;
@@ -23,7 +29,5 @@ export class EmployeeDetailViewComponent implements OnInit {
       err => {
         console.log(err);
       });
-
   }
-
 }

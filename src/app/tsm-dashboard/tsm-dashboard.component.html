@@ -56,7 +56,7 @@
     <!-- Position Column -->
     <ng-container matColumnDef="id">
       <th mat-header-cell *matHeaderCellDef> No. </th>
-      <td mat-cell *matCellDef="let element"> <button mat-raised-button>{{element.id}} </button></td>
+      <td mat-cell *matCellDef="let element"> <button mat-raised-button  routerLink="/employee-details/{{element.id}}" routerLinkActive="active">{{element.id}} </button></td>
     </ng-container>
   
     <!-- Name Column -->

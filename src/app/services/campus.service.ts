@@ -24,7 +24,7 @@ export class CampusService {
 
 
     getCampus(){
-      return this.http.get(this.campusUrl);
+      return this.http.get(this.campusUrl).toPromise();
     }
 
     getCampusById(id: number){

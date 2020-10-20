@@ -39,6 +39,7 @@ getRouteTitle(route){
   var rRd = /\/room-details([0-9])*/g
   var rRe = /\/room-edit([0-9])*/g
   var rEd = /\/employee-details([0-9])*/g
+  var rEe = /\/employee-edit([0-9])*/g
   var login = 'login';
   var dashboard = '/tsm-dashboard';
   
@@ -67,6 +68,9 @@ switch (true) {
     }
     case rEd.test(route): {
       return 'Employee Details'
+    }
+    case rEe.test(route): {
+      return 'Employee Edit'
     }
     // case '/batch-details': { 
     //   return 'Batch Details'

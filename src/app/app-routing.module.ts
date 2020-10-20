@@ -10,6 +10,7 @@ import { BuildingEditComponent } from './building-edit/building-edit.component';
 import {TsmDashboardComponent} from './tsm-dashboard/tsm-dashboard.component';
 
 import {CampusDetailViewComponent} from './campus-detail-view/campus-detail-view.component';
+import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 
 
 
@@ -23,6 +24,7 @@ const routes: Routes = [
   {path: 'room-details/:id', component: RoomDetailsComponent},
   {path: 'room-edit/:id', component: RoomEditComponent},
   {path: 'employee-details/:id', component: EmployeeDetailViewComponent},
+  {path: 'employee-edit/:id', component: EmployeeEditComponent},
   {path: 'campus-details/:id', component:CampusDetailViewComponent},
   {path: '**', redirectTo: '/tsm-dashboard', pathMatch: 'full'}
   // {path: 'admn-dashboard', component: AdmnDashboardComponent}, //admin dashboard

@@ -74,10 +74,6 @@ export class NavbarComponent implements OnDestroy {
     {
       linkName: 'Home',
       fragment: '/tsm-dashboard'
-    },
-    {
-      linkName: 'test',
-      fragment: '/somelink404'
     }
   ];
 
@@ -86,10 +82,6 @@ export class NavbarComponent implements OnDestroy {
     {
       linkName: 'Home',
       fragment: '/tsm-dashboard'
-    },
-    {
-      linkName: 'test',
-      fragment: '/somelink404'
     }
   ];
 
@@ -97,7 +89,7 @@ export class NavbarComponent implements OnDestroy {
   //========== Link Methods =================
 
   logout() { //todo: link with authService
-    alert("Logout works!")
+    alert("Logging out!")
     // this.loggedin = !this.authService.logout();
     // if(!this.loggedin){
     //   this.isUser=false;
