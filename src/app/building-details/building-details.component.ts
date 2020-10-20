@@ -63,6 +63,7 @@ export class BuildingDetailsComponent implements OnInit {
       res => {
         console.log('get-rooms-successful');
         console.log(this.currentBuilding.rooms);
+        console.log(this.currentBuilding.amenities)
         this.rooms = res;
         
         this.dataSource = this.rooms;
@@ -82,7 +83,7 @@ export class BuildingDetailsComponent implements OnInit {
         });
 
   }
-
+  
 
 }
 
