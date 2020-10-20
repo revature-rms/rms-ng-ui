@@ -120,7 +120,7 @@ describe('BatchService', () => {
   it('should return an error when the server returns a 404', () => {
     const errorResponse = new HttpErrorResponse({
       error: 'test 404 error',
-      status: 404, statusText: 'Not Found'
+      status: 404, statusText: 'test 404 error'
     });
   
     httpClientSpy.get.and.returnValue(asyncError(errorResponse));

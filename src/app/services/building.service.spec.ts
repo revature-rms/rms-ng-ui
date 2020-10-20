@@ -73,7 +73,7 @@ describe('BuildingService', () => {
   it('should return an error when the server returns a 404', () => {
     const errorResponse = new HttpErrorResponse({
       error: 'test 404 error',
-      status: 404, statusText: 'Not Found'
+      status: 404, statusText: 'test 404 error'
     });
   
     httpClientSpy.get.and.returnValue(asyncError(errorResponse));
@@ -112,12 +112,12 @@ describe('BuildingService', () => {
       ];
 
     //setup the server response
-    httpClientSpy.get.and.returnValue(asyncData(expectedData[0]));
+    httpClientSpy.get.and.returnValue(asyncData(expectedData));
 
 
     //some of the services are returning promises, use .then, rather than .subscribe
     service.getBuildingById(1).then( 
-      data => expect(data).toEqual(expectedData, 'expected building data')
+      data => expect(data[0]).toEqual(expectedData[0], 'expected building data')
     ); //check to make sure they're the same
 
     //some bonus check to see how many http calls went through
@@ -129,7 +129,7 @@ describe('BuildingService', () => {
   it('should return an error when the server returns a 404', () => {
     const errorResponse = new HttpErrorResponse({
       error: 'test 404 error',
-      status: 404, statusText: 'Not Found'
+      status: 404, statusText: 'test 404 error'
     });
 
     httpClientSpy.get.and.returnValue(asyncError(errorResponse));

@@ -86,21 +86,21 @@ describe('RoomService', () => {
 
 
   //create(room) ------------------------------------------TODO: find a better solution
-  xit('should create a room', () => { //disabled, as we don't have a create method in service (?)
-    let newRoom:Room = {
-      id:null,
-      roomNumber:'String',
-      maxOccupancy:22,
-      currentStatus:null,
-      batch:null
-    }
+  // xit('should create a room', () => { //disabled, as we don't have a create method in service (?)
+  //   let newRoom:Room = {
+  //     id:null,
+  //     roomNumber:'String',
+  //     maxOccupancy:22,
+  //     currentStatus:null,
+  //     batch:null
+  //   }
 
-    let resp = roomPosttest(newRoom); //mock http req
-    expect(resp.body).toEqual(newRoom, 'expected returned room object');
-    expect(resp.body.id).toEqual(newRoom.id, 'expected room with updated ID');
-    expect(resp.status).toEqual(201, 'expected created status');
+  //   let resp = roomPosttest(newRoom); //mock http req
+  //   expect(resp.body).toEqual(newRoom, 'expected returned room object');
+  //   expect(resp.body.id).toEqual(newRoom.id, 'expected room with updated ID');
+  //   expect(resp.status).toEqual(201, 'expected created status');
 
-  });
+  // });
 
   // update(room) ------------------------------------------TODO: find a better solution
   it('should update a room', () => {

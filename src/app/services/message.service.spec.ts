@@ -22,6 +22,6 @@ describe('MessageService', () => {
 
   it('should be clear message array', () => {
     service.clear();
-    expect(service.messages).toEqual(null); //forgot that arrays were falsy
+    expect(service.messages).toEqual([]);
   });
 });
