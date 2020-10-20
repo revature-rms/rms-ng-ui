@@ -63,7 +63,10 @@ async getCampus(){
 
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'title'];
   displayedColumns2: string[] = ['id', 'name', 'abbrName'];
-  
-
+  columns = ['id', 'firstName', 'lastName', 'title'];
+  data = this.employees;
+  options = {
+    filterType: 'checkbox',
+  };
 
 }

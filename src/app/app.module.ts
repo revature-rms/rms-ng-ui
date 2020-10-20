@@ -23,6 +23,7 @@ import { BuildingEditComponent } from './building-edit/building-edit.component';
 import { BatchDetailViewComponent } from './batch-detail-view/batch-detail-view.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
+// import { NgxMuiDatatablesModule } from 'ngx-mui-datatables/lib/ngx-mui-datatables.module';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule
+    // NgxMuiDatatablesModule
   ],
   exports: [ MaterialModule ],
   providers: [HttpClientModule],
