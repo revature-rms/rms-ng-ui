@@ -47,7 +47,7 @@ import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
     // NgxMuiDatatablesModule
   ],
   exports: [ MaterialModule ],

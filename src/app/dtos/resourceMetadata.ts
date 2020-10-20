@@ -3,9 +3,9 @@ import { Employee } from './employee';
 export class ResourceMetadata{
 
     resourceCreator:Employee;
-    resourceCreationDateTime:String;
+    resourceCreationDateTime:Date;
     lastModifier:Employee
-    lastModifiedDateTime:String;
+    lastModifiedDateTime:Date;
     resourceOwner:Employee;
     currentlyActive:Boolean;
 

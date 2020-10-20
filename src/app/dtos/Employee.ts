@@ -1,15 +1,15 @@
-import { ResourceMetadata } from "../dtos/resourceMetadata";
+import { ResourceMetadataDTO } from "../dtos/resourceMetadataDTO";
 
 export class Employee {
 
     
-    id:number;
+    id:Number;
     firstName:string;
     lastName:string;
     email:string;
     title:string;
     department:string;
-    resourceMetadata:ResourceMetadata;
+    resourceMetadata:ResourceMetadataDTO;
 
 
 

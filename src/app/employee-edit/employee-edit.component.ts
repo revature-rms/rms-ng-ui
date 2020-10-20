@@ -3,6 +3,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Batch } from '../dtos/batch';
 import { Employee } from '../dtos/employee';
+import { EmployeeDTO } from '../dtos/EmployeeDTO';
 import { Room } from '../dtos/room';
 import { RoomStatus } from '../dtos/roomStatus';
 import { EmployeeService } from '../services/employee.service';
@@ -42,8 +43,17 @@ async getEmployee(id) {
 
 
   updateEmployee() {
-    let updatedEmployee = new Employee();
+    let updatedEmployee = new EmployeeDTO();
+    updatedEmployee.id = this.employee.id;
+    updatedEmployee.firstName = this.employee.firstName;
+    updatedEmployee.lastName = this.employee.lastName;
+    updatedEmployee.email = this.employee.email;
+    updatedEmployee.title = this.employee.title;
+    updatedEmployee.department = this.employee.department;
+
     console.log(this.employee.department);
+
+
       this.employeeService.update(updatedEmployee, this.employee.id).then(
         res => {
           console.log('update-employee-successful');

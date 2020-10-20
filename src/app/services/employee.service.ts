@@ -21,6 +21,7 @@ export class EmployeeService {
   employee:Employee;
 
   private employeeUrl = 'http://localhost:10000/search/employees';
+  private employeeUpdateUrl = 'http://localhost:10002/employees';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
@@ -34,7 +35,8 @@ getEmployeeById(id): Promise<Employee>{
 }
 
 update(id, employee) {
-  return this.http.put(`${this.employeeUrl}/${id}`, employee).toPromise();
+  return this.http.put(`${this.employeeUpdateUrl}`, employee,  { headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `${employee.id}`})
+                                                                                          } ).toPromise();
 }
 
 // create(employee) {

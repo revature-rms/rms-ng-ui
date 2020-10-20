@@ -2,11 +2,15 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Batch } from '../dtos/batch';
+import { Employee } from '../dtos/employee';
+import { ResourceMetadataDTO } from '../dtos/resourceMetadataDTO';
 import { Room } from '../dtos/room';
+import { RoomDTO } from '../dtos/roomDTO';
 import { RoomStatus } from '../dtos/roomStatus';
 import { WorkOrder } from '../dtos/workOrder';
 import { RoomService } from '../services/room.service';
 import { WorkOrderService } from '../services/work-order.service';
+import { from } from 'rxjs';
 
 @Component({
   selector: 'app-room-edit',
@@ -62,12 +66,15 @@ async getRoom(id) {
 
 
   updateRoom() {
-    console.log(this.currentRoom.roomNumber);
-    console.log(this.currentRoom.maxOccupancy);
+    console.log(this.currentRoom.resourceMetadata);
 
-    let updatedRoom = new Room(this.currentRoom.id, this.currentRoom.roomNumber, this.currentRoom.maxOccupancy, this.currentRoom.currentStatus, this.currentRoom.batch);
+    // let CurrentResource = new ResourceMetadataDTO(this.currentRoom.resourceMetadata.resourceCreator.id, this.currentRoom.resourceMetadata.resourceCreationDateTime.toString(), this.currentRoom.resourceMetadata.lastModifier.id,
+    // new Date().toLocaleDateString(),  this.currentRoom.resourceMetadata.resourceOwner.id);
 
-      this.roomService.update(updatedRoom).then(
+    //needs to be a list of room statuses and include a list of work orders
+    let updatedRoom = new RoomDTO(this.currentRoom.id, this.currentRoom.roomNumber, this.currentRoom.maxOccupancy, this.currentRoom.currentStatus, this.currentRoom.batch.id);
+
+      this.roomService.update(updatedRoom).subscribe(
         res => {
           console.log('update-rooms-successful');
         },
