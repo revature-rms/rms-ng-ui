@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { Batch } from '../dtos/batch';
+import { Department } from '../dtos/Department';
 import { Employee } from '../dtos/employee';
 import { EmployeeDTO } from '../dtos/EmployeeDTO';
 import { Room } from '../dtos/room';
@@ -49,9 +50,9 @@ async getEmployee(id) {
     updatedEmployee.lastName = this.employee.lastName;
     updatedEmployee.email = this.employee.email;
     updatedEmployee.title = this.employee.title;
-    updatedEmployee.department = this.employee.department;
+    updatedEmployee.department =  this.employee.department.toUpperCase();
 
-    console.log(this.employee.department);
+    console.log(updatedEmployee);
 
 
       this.employeeService.update(updatedEmployee, this.employee.id).then(

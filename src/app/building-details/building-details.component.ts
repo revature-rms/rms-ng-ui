@@ -34,9 +34,9 @@ export class BuildingDetailsComponent implements OnInit {
   
 
   dataSource: any[] = [];
-  displayedColumns: string[] = ['roomNumber', 'maxOccupancy', 'currentStatus'];
+  displayedColumns: string[] = ['roomNumber', 'maxOccupancy', 'batch'];
   displayedColumnsAmenities: string[] = ['type', 'status'];
-  displayedColumnsMetaData: string[] = ['resourceCreator', 'resourceCreationDateTime' , 'lastModifier' , 'lastModifiedDateTime' , 'resourceOwner' , 'currentlyActive'];
+  displayedColumnsMetaData: string[] = ['resourceCreator', 'resourceCreationDateTime' , 'lastModifier' , 'lastModifiedDateTime' , 'resourceOwner'];
 
 
 
@@ -61,6 +61,7 @@ async getBuildingById(id: Number) {
       console.log(this.currentBuilding);
       console.log(this.currentBuilding.trainingLead.firstName);
       console.log(this.currentBuilding.address.unitStreet);
+      console.log(this.currentBuilding.resourceMetadata);
     },
     err => {
       console.log(err);

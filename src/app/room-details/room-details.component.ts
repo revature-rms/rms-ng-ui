@@ -25,15 +25,15 @@ export class RoomDetailsComponent implements OnInit {
   displayedColumnsA: string[] = ['id', 'whiteboardCleaned', 'chairsOrdered', 'submittedDateTime', 'submitter', 'otherNotes'];
 
 
-  constructor(private route: ActivatedRoute, private roomService: RoomService, private workOrderService: WorkOrderService) { 
-    this.route.params.subscribe(param => this.getRooms(param['id']));
+  constructor(private route: ActivatedRoute, private roomService: RoomService) { 
+    this.route.params.subscribe(param => this.getRoom(param['id']));
   }
 
   async ngOnInit() {
   
   }
 
-  async getRooms(id: Number) {
+  async getRoom(id: Number) {
     await this.roomService.getRoomsById(id).then(
       res => {
         console.log('get-rooms-successful');
