@@ -1,9 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
+import { Component,AfterViewInit,ViewChild} from '@angular/core';
 import {Employee} from '../dtos/employee';
 import {EmployeeService} from'../services/employee.service';
 import {Campus} from '../dtos/campus'
 import {CampusService} from '../services/campus.service';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import { OnInit } from '@angular/core';
+
+
 
 
 @Component({
@@ -11,22 +16,44 @@ import {CampusService} from '../services/campus.service';
   templateUrl: './tsm-dashboard.component.html',
   styleUrls: ['./tsm-dashboard.component.scss']
 })
-export class TsmDashboardComponent implements OnInit {
+export class TsmDashboardComponent implements OnInit, AfterViewInit {
+
+
 
   employees:Employee[]=[];
-  dataSource:any[]=[];
+  
   campuses:Campus[]=[];
   dataSource2:Campus[]=[];
 
-  constructor(private employeeService:EmployeeService, private campusService:CampusService) { }
+  @ViewChild(MatPaginator) paginator: MatPaginator;
+  @ViewChild(MatSort) sort: MatSort;
 
-  ngOnInit(): void {
+  constructor(private employeeService:EmployeeService, private campusService:CampusService) {
+   
 
-        this.getEmployees();
-        this.getCampus();
-        
+   }
+
+   ngOnInit() {
+
+    this.getEmployees();
+    this.getCampus();
+  
+
   }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator;
+    this.dataSource.sort = this.sort;
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 
 
 async getEmployees(){
@@ -35,9 +62,7 @@ async getEmployees(){
     (response)=>
     {
       this.employees = response as Employee[];
-      this.dataSource = this.employees;
-      console.log("this is dashboard")
-      console.log(this.employees);
+      this.dataSource = new MatTableDataSource(this.employees);
       console.log(this.dataSource);
     },
     (error) => console.log(error)
@@ -65,6 +90,7 @@ async getCampus(){
 
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'title'];
   displayedColumns2: string[] = ['id', 'name', 'abbrName'];
+  dataSource: MatTableDataSource<Employee>;
   
 
 
