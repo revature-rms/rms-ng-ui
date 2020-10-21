@@ -16,7 +16,7 @@ export class BuildingService {
 
   building:Building;
 
-  private buildingUrl='http://localhost:10000/search/buildings/';
+  private buildingUrl='http://34.235.133.222:8080/search/search/buildings/';
 
 
   constructor(private http: HttpClient , 
@@ -39,7 +39,7 @@ export class BuildingService {
   }
 
   update(building): Promise<Building> {
-    return this.http.put<Building>('http://localhost:10001/campuses/buildings', building).toPromise();
+    return this.http.put<Building>('http://34.235.133.222:8080/campuses/buildings/', building).toPromise();
   }
 
 
