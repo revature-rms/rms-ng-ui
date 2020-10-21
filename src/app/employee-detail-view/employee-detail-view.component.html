@@ -1,0 +1,98 @@
+
+<div id="wholeDiv" class="inner-content">
+    <button mat-icon-button>
+        <mat-icon><a routerLink="/employee-edit/{{this.currentEmployee.id}}" routerLinkActive="active">edit</a></mat-icon>
+    </button>
+    <div id="leftDiv">
+        <h2>First name</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        {{ this.currentEmployee.firstName }}
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Last name</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        {{ this.currentEmployee.lastName }}
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Email</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        {{ this.currentEmployee.email }}
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Title</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        {{ this.currentEmployee.title }}
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Department</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        {{ this.currentEmployee.department }}
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Additional Information</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        <div>
+                            <mat-card-title>Currently Active</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.currentlyActive}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Last Modified</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.lastModifiedDateTime | date }}</mat-card-content>
+                            <br>
+                            <mat-card-title>Last Modifier</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.lastModifier.username}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Created On</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.resourceCreationDateTime | date}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Resource Creator</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.resourceCreator.username}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Resource Owner</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.resourceOwner.username}}</mat-card-content>
+                            <br>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+    </div>
+</div>

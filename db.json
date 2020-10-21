@@ -1,0 +1,309 @@
+{
+  "address": [
+    {
+      "unitStreet": "3220 Banyan Circle",
+      "city": "Tampa",
+      "state": "Florida",
+      "zip": "33613",
+      "country": "United States"
+    },
+    {
+      "unitStreet": "999 Cowboy Ave",
+      "city": "San Angelo",
+      "state": "Texas",
+      "zip": "33222",
+      "country": "United States"
+    }
+  ],
+  "amenity": [
+    {
+      "type": "Coffee",
+      "status": "low"
+    },
+    {
+      "type": "Tea",
+      "status": "ok"
+    }
+  ],
+  "appUser": [
+    {
+      "id": 0,
+      "username": "wsingleton",
+      "password": "revature",
+      "employeeId": 32,
+      "roles": [
+        "Trainer",
+        "Building Manager"
+      ]
+    },
+    {
+      "id": 1,
+      "username": "dangertom",
+      "password": "password",
+      "employeeId": 31,
+      "roles": [
+        "Trainer",
+        "Building Manager"
+      ]
+    }
+  ],
+  "batch": [
+    {
+      "id": 703,
+      "name": "191216-java-usf",
+      "trainer": {
+        "username": "dangertom"
+      },
+      "coTrainer": {
+        "username": "alsodangertom"
+      },
+      "associates": [
+        {
+          "username": "dangertom"
+        },
+        {
+          "username": "dangertom2"
+        }
+      ],
+      "startDate": "2019-12-16",
+      "endDate": "2020-03-20",
+      "curriculum": "Java Microservices",
+      "resourceMetadata": {
+        "test": "test"
+      }
+    },
+    {
+      "id": 703,
+      "name": "191216-java-usf",
+      "trainer": {
+        "username": "dangertom"
+      },
+      "coTrainer": {
+        "username": "alsodangertom"
+      },
+      "associates": [
+        {
+          "username": "dangertom"
+        },
+        {
+          "username": "dangertom2"
+        }
+      ],
+      "startDate": "2019-12-16",
+      "endDate": "2020-03-20",
+      "curriculum": "Java Microservices",
+      "resourceMetadata": {
+        "test": "test"
+      }
+    }
+  ],
+  "building2": [
+    {
+      "id": 3,
+      "name": "Muma College of Business",
+      "abbrName": "BSN",
+      "physicalAddress": {
+        "address": "cowboy city"
+      },
+      "trainingLead": {
+        "username": "dangertom2"
+      },
+      "amenities": [
+        {
+          "test": "test"
+        }
+      ],
+      "rooms": [
+        {
+          "test": "test"
+        }
+      ],
+      "resourceMetadata": {
+        "test": "test"
+      }
+    }
+  ],
+  "campus": [
+    {
+      "id": 2,
+      "name": "Revature at University of South Florida",
+      "abbrName": "USF",
+      "shippingAddress": {
+        "test": "test"
+      },
+      "trainingManager": {
+        "test": "test"
+      },
+      "stagingManager": {
+        "test": "test"
+      },
+      "hrLead": {
+        "test": "test"
+      },
+      "buildings": [
+        {
+          "test": "test"
+        }
+      ],
+      "corporateEmployees": [
+        {
+          "test": "test"
+        }
+      ],
+      "resourceMetadata": {
+        "test": "test"
+      }
+    }
+  ],
+  "Credentials": [
+    {
+      "username": "test",
+      "password": "testpassword"
+    }
+  ],
+  "Employee": [
+    {
+      "id": 14,
+      "firstName": "Steven",
+      "lastName": "Kelsey",
+      "email": "steven.kelsey@revature.com",
+      "title": "Manager of Technology",
+      "department": "Training"
+ 
+    },
+    {
+      "id": 1,
+      "firstName": "mike",
+      "lastName": "Lee",
+      "email": "mike.Lee@revature.com",
+      "title": "Manager of Technology",
+      "department": "Training"
+    },
+    {
+      "id": 2,
+      "firstName": "linda",
+      "lastName": "Jackson",
+      "email": "linda.Jackson.Lee@revature.com",
+      "title": "Manager of Technology",
+      "department": "Training"
+    }
+  ],
+  "resourceMetadata": [
+    {
+      "resourceCreator": {
+        "test": "test"
+      },
+      "resourceCreationDateTime": "2020-03-03T13:22:31+00.00",
+      "lastModifier": {
+        "test": "test"
+      },
+      "lastModifiedDateTime": "2020-03-05T10:21:35+00.00",
+      "resourceOwner": {
+        "test": "test"
+      },
+      "currentlyActive": true
+    }
+  ],
+  "room": [
+    {
+      "id": 36,
+      "roomNumber": "2304",
+      "maxOccupancy": 30,
+      "currentStatus": {
+        "roomStatus": [
+          {
+            "id": 2734,
+            "whiteboardCleaned": true,
+            "chairsOrdered": true,
+            "desksCleaned": true,
+            "submittedDateTime": "2020-02-21T17:10:23+00.00",
+            "submitter": {
+              "test": "test"
+            },
+            "otherNotes": "An associate summoned the dark lords of programmers past. The desk is ruined."
+          }
+        ]
+      },
+      "batch": {
+        "test": "test"
+      },
+      "workOrders": [
+        {
+          "test": "test"
+        }
+      ],
+      "resourceMetadata": {
+        "test": "test value",
+        "test2": "test value"
+      }
+    }
+  ],
+  "roomStatus": [
+    {
+      "id": 2734,
+      "whiteboardCleaned": true,
+      "chairsOrdered": true,
+      "desksCleaned": true,
+      "submittedDateTime": "2020-02-21T17:10:23+00.00",
+      "submitter": {
+        "test": "test"
+      },
+      "otherNotes": "An associate summoned the dark lords of programmers past. The desk is ruined."
+    }
+  ],
+  "workOrder": [
+    {
+      "id": 234,
+      "createdDateTime": "2020-02-07T12:23:35+00.00",
+      "resolvedDateTime": "2020-02-15T16:30:22+00.00",
+      "category": "Lighting",
+      "description": "One of the overhead lights is out and creating an irritating buzzing noise.",
+      "contactEmail": "somewhere@usf.com",
+      "creator": {
+        "test": "test"
+      },
+      "resolver": {
+        "test": "test"
+      }
+    }
+  ],
+  "building": [
+    {
+      "id": 5,
+      "name": "Bama College of Business",
+      "abbrName": "RTR",
+      "physicalAddress": {
+        "unitStreet": "university",
+        "city": "tuscaloosa",
+        "state": "AL",
+        "zip": "35401",
+        "country": "US"
+      },
+      "trainingLead": {
+        "firstName": "eli",
+        "lastName": "paetow"
+      },
+      "amenities": [
+        {
+          "type": "coffee",
+          "status": "never enough"
+        }
+      ],
+      "rooms": [
+        {
+          "roomNumber": "2121",
+          "maxOccupancy": "2",
+          "currentStatus": "ok"
+        }
+      ],
+      "resourceMetadata": {
+        "resourceCreator": "2",
+        "resourceCreationDateTime": "9.18.2020 10:00 PM",
+        "lastModifier": "1",
+        "lastModifiedDateTime": "10.16.2020 10:00 PM",
+        "resourceOwner": "3",
+        "currentlyActive": "True"
+      }
+    }
+  ]
+}
