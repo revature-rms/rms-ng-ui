@@ -1,10 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Building } from '../dtos/building';
 import { Address } from '../dtos/address';
-<<<<<<< HEAD
-=======
 import { Employee } from '../dtos/employee';
->>>>>>> 99830b1c11fd7793b8bacdbb2b209e302f34f715
 import { BuildingService } from '../services/building.service';
 import { Room } from '../dtos/room';
 import { RoomStatus } from '../dtos/roomStatus';
