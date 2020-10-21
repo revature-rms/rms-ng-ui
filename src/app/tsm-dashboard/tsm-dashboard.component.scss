@@ -1,0 +1,30 @@
+table {
+    width: 100%;
+  }
+
+  :host {
+    .mat-icon {
+      vertical-align: middle;
+      margin-right: 20px;
+    }
+    .profile-card {
+      text-align: center;
+      padding: 0 20px 20px 20px;
+      img {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+  }
+
+  
+  .example-card {
+    max-width: 250px;
+  }
+  
+  .example-header-image {
+    background-image: url('https://200727-java-ng-usf-gu.s3.us-east-2.amazonaws.com/school.png');
+    background-size: cover;
+  }
