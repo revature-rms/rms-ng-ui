@@ -3,9 +3,14 @@
 
     <div class="sidebarCard" id="navLinks" >
         <!-- Debug links for development -->
+
+
         <nav>
             <!-- <ul class="navUL" > -->
+                
+                <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
                     <mat-nav-list matRipple *ngFor="let link of linksDebug">
+                        
                         <a href="#" class="navLink"  [routerLink]="link.fragment">
                             {{ link.linkName }}
                         </a>
