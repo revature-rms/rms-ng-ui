@@ -7,8 +7,9 @@
 
         <nav>
             <!-- <ul class="navUL" > -->
-                
-                <img src="https://material.angular.io/assets/img/examples/shiba2.jpg" alt="Soufiane FADIL">
+
+                <!-- TODO change image to match the icon of the specific user... icon may not be in database -->
+                <img class="sidebarIcon" src="https://material.angular.io/assets/img/examples/shiba2.jpg">
                     <mat-nav-list matRipple *ngFor="let link of linksDebug">
                         
                         <a href="#" class="navLink"  [routerLink]="link.fragment">
