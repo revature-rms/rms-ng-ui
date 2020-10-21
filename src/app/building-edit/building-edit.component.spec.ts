@@ -5,6 +5,9 @@ import { Room } from '../dtos/room';
 
 import { BuildingEditComponent } from './building-edit.component';
 
+
+//TODO: focus on testing. research testing with angular materials. 
+
 describe('BuildingEditComponent', () => {
   // let component: BuildingEditComponent;
   // let fixture: ComponentFixture<BuildingEditComponent>;

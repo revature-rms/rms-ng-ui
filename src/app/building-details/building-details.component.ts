@@ -35,7 +35,7 @@ export class BuildingDetailsComponent {
   
   
   
-
+// columns for amentites, meta Data and rooms
   dataSource: MatTableDataSource<Room>;
   displayedColumns: string[] = ['roomNumber', 'maxOccupancy', 'batch'];
   displayedColumnsAmenities: string[] = ['type', 'status'];
@@ -56,11 +56,15 @@ export class BuildingDetailsComponent {
 
   }
 
+  //filter functionality
+
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
     
 
+    //page navigation at the bottom of tables
+    
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
     }
