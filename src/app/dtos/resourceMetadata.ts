@@ -1,12 +1,13 @@
+import { AppUser } from './appUser';
 import { Employee } from './employee';
 
 export class ResourceMetadata{
 
-    resourceCreator:Employee;
-    resourceCreationDateTime:String;
-    lastModifier:Employee
-    lastModifiedDateTime:String;
-    resourceOwner:Employee;
+    resourceCreator:AppUser;
+    resourceCreationDateTime:Date;
+    lastModifier:AppUser
+    lastModifiedDateTime:Date;
+    resourceOwner:AppUser;
     currentlyActive:Boolean;
 
 }

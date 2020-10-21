@@ -22,6 +22,7 @@ import { RoomEditComponent } from './room-edit/room-edit.component';
 import { BuildingEditComponent } from './building-edit/building-edit.component';
 import { BatchDetailViewComponent } from './batch-detail-view/batch-detail-view.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 import {MatSortModule} from '@angular/material/sort';
 import {MatTableModule} from '@angular/material/table';
 
@@ -35,12 +36,13 @@ import {MatTableModule} from '@angular/material/table';
     LoginComponent,
     TsmDashboardComponent,
     RoomDetailsComponent,
-    BuildingDetailsComponent  ,
+    BuildingDetailsComponent,
     RoomEditComponent,
     NavbarComponent,
     CampusDetailViewComponent,
     BuildingEditComponent ,
-    BatchDetailViewComponent
+    BatchDetailViewComponent,
+    EmployeeEditComponent
   ],
   imports: [
     BrowserModule,
@@ -51,7 +53,7 @@ import {MatTableModule} from '@angular/material/table';
     FormsModule,
     HttpClientModule,
     MatTableModule,
-    MatSortModule
+
   ],
   exports: [ MaterialModule ],
   providers: [HttpClientModule],

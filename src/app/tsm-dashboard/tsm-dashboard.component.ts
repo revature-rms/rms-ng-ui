@@ -1,4 +1,5 @@
-import { Component,AfterViewInit,ViewChild} from '@angular/core';
+
+import { Component, OnInit,AfterViewInit,ViewChild} from '@angular/core';
 import {Employee} from '../dtos/employee';
 import {EmployeeService} from'../services/employee.service';
 import {Campus} from '../dtos/campus'
@@ -6,7 +7,6 @@ import {CampusService} from '../services/campus.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { OnInit } from '@angular/core';
 
 
 
@@ -16,34 +16,24 @@ import { OnInit } from '@angular/core';
   templateUrl: './tsm-dashboard.component.html',
   styleUrls: ['./tsm-dashboard.component.scss']
 })
-export class TsmDashboardComponent implements OnInit, AfterViewInit {
+export class TsmDashboardComponent implements OnInit {
 
 
 
   employees:Employee[]=[];
-  
   campuses:Campus[]=[];
   dataSource2:Campus[]=[];
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  dataSource: MatTableDataSource<Employee>;
 
   constructor(private employeeService:EmployeeService, private campusService:CampusService) {
-   
-
-   }
-
-   ngOnInit() {
-
-    this.getEmployees();
-    this.getCampus();
   
-
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  @ViewChild(MatSort) sort: MatSort;
+
+  ngOnInit(){
+    this.getEmployees();
+    this.getCampus();   
   }
 
   applyFilter(event: Event) {
@@ -63,7 +53,8 @@ async getEmployees(){
     {
       this.employees = response as Employee[];
       this.dataSource = new MatTableDataSource(this.employees);
-      console.log(this.dataSource);
+      this.dataSource.sort = this.sort;
+
     },
     (error) => console.log(error)
   )
@@ -71,7 +62,7 @@ async getEmployees(){
 }
 
 async getCampus(){
-  await this.campusService.getCampus().subscribe
+  await this.campusService.getCampus().then
   (
     (response)=>
     {
@@ -86,12 +77,7 @@ async getCampus(){
 
 }
 
-
-
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'title'];
   displayedColumns2: string[] = ['id', 'name', 'abbrName'];
-  dataSource: MatTableDataSource<Employee>;
-  
-
 
 }

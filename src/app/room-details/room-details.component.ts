@@ -1,5 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
+import { ActivatedRoute } from '@angular/router';
 import { Batch } from '../dtos/batch';
 import { Room } from '../dtos/room';
 import { RoomStatus } from '../dtos/roomStatus';
@@ -12,29 +15,46 @@ import { WorkOrderService } from '../services/work-order.service';
   templateUrl: './room-details.component.html',
   styleUrls: ['./room-details.component.scss']
 })
-export class RoomDetailsComponent implements OnInit {
+export class RoomDetailsComponent implements AfterViewInit {
 
-  rooms: Room[];
   currentRoom: Room;
   roomBatch: Batch = new Batch();
   currentRoomStatus: RoomStatus[];
   workOrders: WorkOrder[];
-  dataSource:any[]=[];
+  dataSource:MatTableDataSource<RoomStatus>;
   displayedColumns: string[] = ['id', 'createdDateTime', 'resolvedDateTime', 'category', 'contactEmail', 'creator', 'resolver'];
   displayedColumnsA: string[] = ['id', 'whiteboardCleaned', 'chairsOrdered', 'submittedDateTime', 'submitter', 'otherNotes'];
 
+  @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private roomService: RoomService, private workOrderService: WorkOrderService) { }
+  constructor(private route: ActivatedRoute, private roomService: RoomService) { 
+    this.route.params.subscribe(param => this.getRoom(param['id']));
+  }
 
-  async ngOnInit() {
+  ngAfterViewInit(): void {
+    this.dataSource.sort = this.sort;
+  }
 
-    await this.roomService.getRooms().then(
+  
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  async getRoom(id: Number) {
+    await this.roomService.getRoomsById(id).then(
       res => {
         console.log('get-rooms-successful');
-        this.rooms = <Room[]> res;
-        this.currentRoom = this.rooms[0];
+        this.currentRoom = <Room> res;
         console.log(this.currentRoom);
         this.currentRoomStatus = <RoomStatus[]> <unknown> this.currentRoom.currentStatus;
+        this.dataSource = new MatTableDataSource(this.currentRoomStatus);
         this.roomBatch = this.currentRoom.batch;
       },
       err => {
@@ -50,9 +70,7 @@ export class RoomDetailsComponent implements OnInit {
     //     err => {
     //       console.log(err);
     //     });
-  
   }
-
 
 
 

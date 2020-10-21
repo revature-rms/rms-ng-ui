@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { catchError, tap } from 'rxjs/operators';
 import { Room } from '../dtos/room';
+import { RoomDTO } from '../dtos/roomDTO';
 import { MessageService } from './message.service';
 
 const httpOptions = {
@@ -15,8 +16,9 @@ const httpOptions = {
 })
 export class RoomService {
 
-  private roomUrl = 'http://localhost:3000/Room';
-  // private roomUrl = 'http://localhost:10000/search/rooms';
+  // private roomUrl = 'http://localhost:3000/Room';
+  private roomUrl = 'http://localhost:10000/search/rooms';
+  private roomByCampusURL = 'http://localhost:100001/campuses/rooms'
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
@@ -25,12 +27,12 @@ export class RoomService {
       return this.http.get<Room[]>(this.roomUrl, httpOptions).toPromise();
     }
     
-    getRoomById(id) {
-      return this.http.get(`${this.roomUrl}/id/${id}`);
+    getRoomsById(id: Number): Promise<Room> {
+      return this.http.get<Room>(`${this.roomUrl}/id/${id}`).toPromise();
     }
 
-    update(room): Promise<Room> {
-      return this.http.put<Room>('http://localhost:100001/campuses/rooms', room).toPromise();
+    update(room: RoomDTO){
+      return this.http.put('http://localhost:10001/campuses/rooms', room);
     }
     
     //  this is not accurate to the MSA controllers, need more info

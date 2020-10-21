@@ -184,17 +184,19 @@ describe('RoomDetailsComponent', () => {
   function getRoomData(){
     let newrooms:Room[] = [{
       id:5,
-      roomNumber:'String',
+      roomNumber:1,
       maxOccupancy:25,
       currentStatus:null,
-      batch:null
+      batch:null,
+      resourceMetadata:null
     },
     {
       id:5,
-      roomNumber:'String',
+      roomNumber:1,
       maxOccupancy:25,
       currentStatus:null,
-      batch:null
+      batch:null,
+      resourceMetadata:null
     }];
         currentRoom = newrooms[0];
         currentRoomStatus = "Good"; //normally a room status object is returned
