@@ -61,7 +61,7 @@ describe('EmployeeService', () => {
       resourceMetadata:null
     }]
     httpClientSpy.get.and.returnValue(asyncData(expectedData)); //setup the server response
-    service.getemployees().then( 
+    service.getemployees().subscribe( 
       data => expect(data).toEqual(expectedData, 'expected all employees')
     );
 
@@ -146,7 +146,7 @@ describe('EmployeeService', () => {
   
     httpClientSpy.get.and.returnValue(asyncError(errorResponse));
   
-    service.getemployees().then(
+    service.getemployees().subscribe(
       data => fail('expected an error, not data'),
       error  => expect(error.message).toContain('404 Not Found')
     );

@@ -26,8 +26,8 @@ export class EmployeeService {
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
-getemployees(): Promise<Employee[]>{
-  return this.http.get<Employee[]>(this.employeeUrl).toPromise();
+getemployees(): Observable<Employee[]>{
+  return this.http.get<Employee[]>(this.employeeUrl);
 }
 
 getEmployeeById(id): Promise<Employee>{

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
 import { Building } from '../dtos/building';
 import { Address } from '../dtos/address';
 import { Employee } from '../dtos/employee';
@@ -10,6 +10,8 @@ import { RoomService } from '../services/room.service';
 import { Amenity } from '../dtos/amenity';
 import { AmenityService } from '../services/amenity.service';
 import { ActivatedRoute } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
+import { MatTableDataSource } from '@angular/material/table';
 
 
 
@@ -22,9 +24,8 @@ import { ActivatedRoute } from '@angular/router';
   templateUrl: './building-details.component.html',
   styleUrls: ['./building-details.component.scss']
 })
-export class BuildingDetailsComponent implements OnInit {
+export class BuildingDetailsComponent {
 
-  buildings: Building[] = [];
   currentBuilding: Building = new Building();
   buildingId: Number;
   rooms: Room[];
@@ -35,12 +36,12 @@ export class BuildingDetailsComponent implements OnInit {
   
   
 
-  dataSource: any[] = [];
+  dataSource: MatTableDataSource<Room>;
   displayedColumns: string[] = ['roomNumber', 'maxOccupancy', 'batch'];
   displayedColumnsAmenities: string[] = ['type', 'status'];
   displayedColumnsMetaData: string[] = ['resourceCreator', 'resourceCreationDateTime' , 'lastModifier' , 'lastModifiedDateTime' , 'resourceOwner'];
 
-
+  @ViewChild(MatSort) sort: MatSort;
 
 
 
@@ -50,8 +51,19 @@ export class BuildingDetailsComponent implements OnInit {
 
   }
 
-  async ngOnInit() {
 
+  ngOnInit() {
+
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+    
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
   }
 
 async getBuildingById(id: Number) {
@@ -60,10 +72,7 @@ async getBuildingById(id: Number) {
     res => {
       console.log('get-buildings-successful');
       this.currentBuilding = <Building>res;
-      console.log(this.currentBuilding);
-      console.log(this.currentBuilding.trainingLead.firstName);
-      console.log(this.currentBuilding.address.unitStreet);
-      console.log(this.currentBuilding.resourceMetadata);
+      
     },
     err => {
       console.log(err);
@@ -73,10 +82,10 @@ async getBuildingById(id: Number) {
   await this.roomService.getRooms().then(
     res => {
       console.log('get-rooms-successful');
-      console.log(this.currentBuilding.rooms);
       this.rooms = res;
       
-      this.dataSource = this.rooms;
+      this.dataSource = new MatTableDataSource(this.rooms);
+      this.dataSource.sort = this.sort;
     },
     err => {
       console.log(err);

@@ -49,33 +49,27 @@
 
 <mat-toolbar>All Employees </mat-toolbar>
 <mat-form-field>
-  <mat-label>Filter</mat-label>
+  <mat-label>Search</mat-label>
   <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
 </mat-form-field>
-<table mat-table [dataSource]="employees" class="mat-elevation-z8" matSort>
 
-    <!--- Note that these columns can be defined in any order.
-          The actual rendered columns are set as a property on the row definition" -->
-  
-    <!-- Position Column -->
+<table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" >
+
     <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef> No. </th>
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
       <td mat-cell *matCellDef="let element"> <button mat-raised-button  routerLink="/employee-details/{{element.id}}" routerLinkActive="active">{{element.id}} </button></td>
     </ng-container>
   
-    <!-- Name Column -->
     <ng-container matColumnDef="firstName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> firstName </th>
       <td mat-cell *matCellDef="let element"> {{element.firstName}} </td>
     </ng-container>
   
-    <!-- Weight Column -->
     <ng-container matColumnDef="lastName">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> lastName </th>
       <td mat-cell *matCellDef="let element"> {{element.lastName}} </td>
     </ng-container>
   
-    <!-- Symbol Column -->
     <ng-container matColumnDef="title">
       <th mat-header-cell *matHeaderCellDef mat-sort-header> title </th>
       <td mat-cell *matCellDef="let element"> {{element.title}} </td>
@@ -83,6 +77,10 @@
   
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+    <tr class="mat-row" *matNoDataRow>
+      <td class="mat-cell" colspan="4">No Data matching the the filter "{{input.value}}"</td>
+    </tr>
   </table>
 
 </div>
