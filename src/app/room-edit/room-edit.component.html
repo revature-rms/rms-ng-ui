@@ -1,11 +1,8 @@
 
-
-<div id="wholeDiv"  class="inner-content">
     <button mat-raised-button color="primary" (click)="updateRoom()">Update Room</button>
     <br>
     <br>
     <mat-divider></mat-divider>
-<div id="leftDiv">
     <form #roomForm="ngForm">
     <h2>Room Number</h2>
     <div>
@@ -17,8 +14,7 @@
                         <input matInput 
                         type="text" class="form-control" id="roomNumber"
                         required
-                        [(ngModel)]="this.currentRoom.roomNumber" name="roomNumber" [formControl]="roomNumber" required>
-                        <mat-error *ngIf="roomNumber.invalid">Please enter a valid number.</mat-error>
+                        [(ngModel)]="this.currentRoom.roomNumber" name="roomNumber" required>
                     </mat-form-field>
                     <!-- <button mat-icon-button>
                         <mat-icon>save</mat-icon>
@@ -56,10 +52,9 @@
                 <mat-card-content>
                     <mat-form-field appearance="fill">
                         <mat-label>Batch</mat-label>
-                        <mat-select class="form-control"  id="batchName"
-                        required
-                        [(ngModel)]="this.roomBatch.name" name="batchName">
-                            <mat-option *ngFor="let batch of this.allBatchNames" [value]="this.roomBatch.name">  <!-- *ngFor="let batch of batches" > -->
+                        <mat-select id="batchName"
+                        [(value)]="this.roomBatch.name" name="batchName">
+                            <mat-option *ngFor="let batch of this.allBatchNames" value="{{this.roomBatch.name}}">  <!-- *ngFor="let batch of batches" > -->
                                 {{ this.roomBatch.name }}
                             </mat-option>
                         </mat-select>
@@ -69,9 +64,6 @@
         </mat-card>
     </div>
     </form>
-</div>
-
-<div id="rightDiv">
         <h2> 
             Room Status History
         </h2> 
@@ -170,5 +162,3 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
-</div>
-</div>

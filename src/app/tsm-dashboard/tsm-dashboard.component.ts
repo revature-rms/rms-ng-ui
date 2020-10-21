@@ -1,10 +1,16 @@
-import { Component, OnInit } from '@angular/core';
-import { from } from 'rxjs';
+
+import { Component, OnInit,AfterViewInit,ViewChild} from '@angular/core';
 import {Employee} from '../dtos/employee';
 import {EmployeeService} from'../services/employee.service';
 import {Campus} from '../dtos/campus'
 import {CampusService} from '../services/campus.service';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
 
+
+//TODO: User profile editing 
+//TODO: Batch table and info access 
 
 @Component({
   selector: 'app-tsm-dashboard',
@@ -13,20 +19,32 @@ import {CampusService} from '../services/campus.service';
 })
 export class TsmDashboardComponent implements OnInit {
 
+
+
   employees:Employee[]=[];
-  dataSource:any[]=[];
   campuses:Campus[]=[];
   dataSource2:Campus[]=[];
+  dataSource: MatTableDataSource<Employee>;
 
-  constructor(private employeeService:EmployeeService, private campusService:CampusService) { }
-
-  ngOnInit(): void {
-
-        this.getEmployees();
-        this.getCampus();
-        
+  constructor(private employeeService:EmployeeService, private campusService:CampusService) {
+  
   }
 
+  @ViewChild(MatSort) sort: MatSort;
+
+  ngOnInit(){
+    this.getEmployees();
+    this.getCampus();   
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
 
 
 async getEmployees(){
@@ -35,10 +53,9 @@ async getEmployees(){
     (response)=>
     {
       this.employees = response as Employee[];
-      this.dataSource = this.employees;
-      console.log("this is dashboard")
-      console.log(this.employees);
-      console.log(this.dataSource);
+      this.dataSource = new MatTableDataSource(this.employees);
+      this.dataSource.sort = this.sort;
+
     },
     (error) => console.log(error)
   )
@@ -46,7 +63,7 @@ async getEmployees(){
 }
 
 async getCampus(){
-  await this.campusService.getCampus().subscribe
+  await this.campusService.getCampus().then
   (
     (response)=>
     {
@@ -61,11 +78,7 @@ async getCampus(){
 
 }
 
-
-
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'title'];
   displayedColumns2: string[] = ['id', 'name', 'abbrName'];
-  
-
 
 }

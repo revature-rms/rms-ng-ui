@@ -10,6 +10,7 @@ import { BuildingEditComponent } from './building-edit/building-edit.component';
 import {TsmDashboardComponent} from './tsm-dashboard/tsm-dashboard.component';
 
 import {CampusDetailViewComponent} from './campus-detail-view/campus-detail-view.component';
+import { EmployeeEditComponent } from './employee-edit/employee-edit.component';
 
 
 
@@ -17,13 +18,15 @@ import {CampusDetailViewComponent} from './campus-detail-view/campus-detail-view
 const routes: Routes = [
   {path: '', redirectTo: '/tsm-dashboard', pathMatch: 'full'},
   {path: 'tsm-dashboard', component: TsmDashboardComponent},
-  {path: 'building-details', component: BuildingDetailsComponent} ,
-  {path: 'building-edit', component: BuildingEditComponent},
+  {path: 'building-details/:id', component: BuildingDetailsComponent} ,
+  {path: 'building-edit/:id', component: BuildingEditComponent},
   {path: 'login', component: LoginComponent },
-  {path: 'room-details', component: RoomDetailsComponent},
-  {path: 'room-edit', component: RoomEditComponent},
-  {path: 'employee-details', component: EmployeeDetailViewComponent},
-  {path: 'campuses', component:CampusDetailViewComponent}
+  {path: 'room-details/:id', component: RoomDetailsComponent},
+  {path: 'room-edit/:id', component: RoomEditComponent},
+  {path: 'employee-details/:id', component: EmployeeDetailViewComponent},
+  {path: 'employee-edit/:id', component: EmployeeEditComponent},
+  {path: 'campus-details/:id', component:CampusDetailViewComponent},
+  {path: '**', redirectTo: '/tsm-dashboard', pathMatch: 'full'}
   // {path: 'admn-dashboard', component: AdmnDashboardComponent}, //admin dashboard
   // {path: 'bmngr-dashboard', component: BmngrDashboardComponent}, //building manager dashboard
   // {path: 'trnr-dashboard', component: TrnrDashboardComponent}, //trainer dashboard

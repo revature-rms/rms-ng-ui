@@ -168,12 +168,24 @@
       "lastName": "Kelsey",
       "email": "steven.kelsey@revature.com",
       "title": "Manager of Technology",
-      "department": "Training",
-      "resourceMetadata": {
-        "test": "test value",
-        "test2": "test value 2",
-        "text3": ""
-      }
+      "department": "Training"
+ 
+    },
+    {
+      "id": 1,
+      "firstName": "mike",
+      "lastName": "Lee",
+      "email": "mike.Lee@revature.com",
+      "title": "Manager of Technology",
+      "department": "Training"
+    },
+    {
+      "id": 2,
+      "firstName": "linda",
+      "lastName": "Jackson",
+      "email": "linda.Jackson.Lee@revature.com",
+      "title": "Manager of Technology",
+      "department": "Training"
     }
   ],
   "resourceMetadata": [
@@ -254,12 +266,8 @@
         "test": "test"
       }
     }
-  ] ,
-
-
-
-
-"building": [
+  ],
+  "building": [
     {
       "id": 5,
       "name": "Bama College of Business",
@@ -289,7 +297,12 @@
         }
       ],
       "resourceMetadata": {
-        "resourceCreationDateTime": "created on tuesday"
+        "resourceCreator": "2",
+        "resourceCreationDateTime": "9.18.2020 10:00 PM",
+        "lastModifier": "1",
+        "lastModifiedDateTime": "10.16.2020 10:00 PM",
+        "resourceOwner": "3",
+        "currentlyActive": "True"
       }
     }
   ]

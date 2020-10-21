@@ -1,9 +1,9 @@
 import { HttpClient } from '@angular/common/http';
 import { HttpTestingController, HttpClientTestingModule } from '@angular/common/http/testing';
 import { TestBed } from '@angular/core/testing';
-
 import { AuthService } from './auth.service';
 import { RoomService } from './room.service';
+
 
 describe('AuthService', () => {
   let service: AuthService;
@@ -25,4 +25,8 @@ describe('AuthService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  //current auth service incomplete
+
+
 });

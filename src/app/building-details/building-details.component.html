@@ -1,13 +1,8 @@
-<br>
-<br>
-<mat-toolbar>Building Details</mat-toolbar>
-
 <!-- this is the link for editing a building -->
 <button mat-icon-button>
-    <mat-icon><a routerLink="/building-edit" routerLinkActive="active">edit</a></mat-icon>
+    <mat-icon><a routerLink="/building-edit/{{this.currentBuilding.id}}" routerLinkActive="active">edit</a></mat-icon>
 </button>
-<mat-divider></mat-divider> 
-
+<mat-divider></mat-divider>
 <div id="wholeDiv">
     <div id="leftDiv">
 
@@ -17,7 +12,7 @@
             <mat-card>
                 <mat-card-content id="name">
                     {{ this.currentBuilding.name }}
-                    
+
                 </mat-card-content>
             </mat-card>
         </div>
@@ -38,13 +33,14 @@
         <div>
             <mat-card>
                 <mat-card-content id="Address">
-                    {{ this.currentBuilding.physicalAddress.unitStreet }}
-                    {{ this.currentBuilding.physicalAddress.city }}
-                    {{ this.currentBuilding.physicalAddress.state }}
-                    {{ this.currentBuilding.physicalAddress.zip }}
-                    {{ this.currentBuilding.physicalAddress.country }}
+                    {{ this.currentBuilding.address.unitStreet }}
+                    {{ this.currentBuilding.address.city }}
+                    {{ this.currentBuilding.address.state }}
+                    {{ this.currentBuilding.address.zip }}
+                    {{ this.currentBuilding.address.country }}
 
                     <!-- this will most likely change when we talk to the backend -->
+                    
                 </mat-card-content>
             </mat-card>
         </div>
@@ -61,50 +57,46 @@
                 </mat-card-content>
             </mat-card>
         </div>
-        <br>
-        <mat-divider></mat-divider>
-        <h2>Resource Meta data</h2>
-        <div>
-            <mat-card>
-                <mat-card-content id="metaData">
-                    {{ this.currentBuilding.resourceMetadata.resourceCreationDateTime }}
 
-                    <button mat-icon-button>
-                        <mat-icon>edit</mat-icon>
-                    </button>
-                </mat-card-content>
-            </mat-card>
-        </div>
 
     </div>
 
-    <div id="tables">
+    <!-- table for rooms. button to click on id to visit specific room -->
+    <div id="rightDiv">
 
+        <!-- search filter and sort all come from angular materials -->
         <h2>Rooms</h2>
-
-
-        <table mat-table [dataSource]="rooms" class="mat-elevation-z8">
+        <mat-form-field>
+            <mat-label>Search</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+        </mat-form-field>
+        <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8">
 
             <!-- column names here are irrelevant. they come from angular tutorial on material tables -->
             <!-- Position Column -->
             <ng-container matColumnDef="roomNumber">
-                <th mat-header-cell *matHeaderCellDef> No. </th>
-                <td mat-cell *matCellDef="let element"> <button mat-raised-button>{{element.id}} </button></td>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> No. </th>
+                <td mat-cell *matCellDef="let element"> <button mat-raised-button routerLink="/room-details/{{element.id}}" routerLinkActive="active">{{element.roomNumber}} </button></td>
             </ng-container>
             <!-- Name Column -->
             <ng-container matColumnDef="maxOccupancy">
-                <th mat-header-cell *matHeaderCellDef> max Occupancy </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> max Occupancy </th>
                 <td mat-cell *matCellDef="let element"> {{element.maxOccupancy}} </td>
             </ng-container>
 
             <!-- Weight Column -->
-            <ng-container matColumnDef="currentStatus">
-                <th mat-header-cell *matHeaderCellDef> Status </th>
-                <td mat-cell *matCellDef="let element"> {{element.currentStatus.test}} </td>
+            <ng-container matColumnDef="batch">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Batch </th>
+                <td mat-cell *matCellDef="let element"> {{element.batch.name}} </td>
             </ng-container>
 
+            <!-- displayed columns come from the building component.ts -->
             <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+            <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="3">No Data matching the the filter "{{input.value}}"</td>
+            </tr>
         </table>
 
 
@@ -113,6 +105,8 @@
         <h2>Amenities</h2>
 
         <table mat-table [dataSource]="amenities" class="mat-elevation-z8">
+
+                        <!-- column names here are irrelevant. they come from angular tutorial on material tables -->
 
             <!-- Position Column -->
             <ng-container matColumnDef="type">
@@ -126,9 +120,54 @@
             </ng-container>
 
 
+            <!-- displayed columns come from the building component.ts -->
 
             <tr mat-header-row *matHeaderRowDef="displayedColumnsAmenities"></tr>
             <tr mat-row *matRowDef="let row; columns: displayedColumnsAmenities;"></tr>
         </table>
+
+
+        <br>
+        
     </div>
+
+    <!-- resource meta data is here. todo use a ngfor to display data, need to figure ouot how to format key and value -->
+    <br>
+  <mat-divider></mat-divider>
+        <h2>Additional Information</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        <div>
+                            <!-- all components have the same meta data format -->
+                            <mat-card-title>Currently Active</mat-card-title>
+                            <mat-card-content>{{this.currentBuilding.resourceMetadata.currentlyActive}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Last Modified</mat-card-title>
+                            <mat-card-content>{{this.currentBuilding.resourceMetadata.lastModifiedDateTime | date }}</mat-card-content>
+                            <br>
+                            <mat-card-title>Last Modifier</mat-card-title>
+                            <mat-card-content>{{this.currentBuilding.resourceMetadata.lastModifier.username}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Created On</mat-card-title>
+                            <mat-card-content>{{this.currentBuilding.resourceMetadata.resourceCreationDateTime | date}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Resource Creator</mat-card-title>
+                            <mat-card-content>{{this.currentBuilding.resourceMetadata.resourceCreator.username}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Resource Owner</mat-card-title>
+                            <mat-card-content>{{this.currentBuilding.resourceMetadata.resourceOwner.username}}</mat-card-content>
+                            <br>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+
 </div>
+<br>
+
+
+    

@@ -8,6 +8,8 @@ import { MessageService } from './message.service';
 @Injectable({
   providedIn: 'root'
 })
+
+// TODO: implement open and resolve workorders
 export class WorkOrderService {
 
   workUrl = 'http://localhost:3000/workOrder';
@@ -22,7 +24,7 @@ export class WorkOrderService {
     //     catchError(this.handleError<WorkOrder[]>('getWorkOrder', []))).toPromise();
     // }
 
-    // TO BE IMPLEMENTED = OPEN + RESOLVE WORK ORDERS
+    
 
 
 
