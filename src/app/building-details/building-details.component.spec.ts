@@ -7,7 +7,7 @@ import { Room } from '../dtos/room';
 import { BuildingDetailsComponent } from './building-details.component';
 
 
-
+//TODO: continue working on testing and increase coverage.  
 //html and fields are untested
 describe('BuildingDetailsComponent', () => {
   // let component: BuildingDetailsComponent;

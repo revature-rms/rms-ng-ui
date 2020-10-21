@@ -14,6 +14,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { BuildingDTO } from '../dtos/buildingDTO';
 
 
+//TODO: get amenities working and displayed and the ability to add new ones or edit
+
 
 @Component({
   selector: 'app-building-edit',
