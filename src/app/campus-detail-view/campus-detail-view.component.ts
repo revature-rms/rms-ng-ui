@@ -8,6 +8,11 @@ import { switchMap } from 'rxjs/operators';
 import { MatTableDataSource } from '@angular/material/table';
 import { MatSort } from '@angular/material/sort';
 
+
+// TODO: Building table and access
+// TODO: Campus editing such as Adding and deleting 
+
+
 @Component({
   selector: 'app-campus-detail-view',
   templateUrl: './campus-detail-view.component.html',
