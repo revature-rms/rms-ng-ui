@@ -54,7 +54,7 @@ async getEmployee(id) {
 
     console.log(updatedEmployee);
 
-      this.employeeService.update(updatedEmployee, this.employee.id).then(
+      this.employeeService.update(updatedEmployee).then(
         res => {
           console.log('update-employee-successful');
           this.router.navigate([`/employee-details/${this.employee.id}`]);
