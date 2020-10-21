@@ -20,8 +20,8 @@ export class EmployeeService {
 
   employee:Employee;
 
-  private employeeUrl = 'http://localhost:10000/search/employees';
-  private employeeUpdateUrl = 'http://localhost:10002/employees';
+  private employeeUrl = 'http://34.235.133.222:8080/search/search/employees';
+  private employeeUpdateUrl = 'http://34.235.133.222:8080/employees';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }

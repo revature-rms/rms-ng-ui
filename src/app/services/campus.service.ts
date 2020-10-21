@@ -16,8 +16,8 @@ export class CampusService {
 
   campus:Campus;
 
-  private campusUrl = 'http://localhost:10000/search/campuses';
-  private campusByIdUrl = 'http://localhost:10000/search/campuses/id/';
+  private campusUrl = 'http://34.235.133.222:8080/search/search/campuses/';
+  private campusByIdUrl = 'http://34.235.133.222:8080/search/search/campuses/id/';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }

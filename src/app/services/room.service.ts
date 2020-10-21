@@ -17,8 +17,8 @@ const httpOptions = {
 export class RoomService {
 
   // private roomUrl = 'http://localhost:3000/Room';
-  private roomUrl = 'http://localhost:10000/search/rooms';
-  private roomByCampusURL = 'http://localhost:100001/campuses/rooms'
+  private roomUrl = 'http://34.235.133.222:8080/search/search/rooms';
+  private roomByCampusURL = 'http://34.235.133.222:8080/campuses/rooms'
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
@@ -32,7 +32,7 @@ export class RoomService {
     }
 
     update(room: RoomDTO){
-      return this.http.put('http://localhost:10001/campuses/rooms', room);
+      return this.http.put('http://34.235.133.222:8080/campuses/rooms', room);
     }
     
     //  this is not accurate to the MSA controllers, need more info
