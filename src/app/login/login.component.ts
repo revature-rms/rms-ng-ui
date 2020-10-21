@@ -8,6 +8,9 @@ import { Router } from '@angular/router';
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss']
 })
+
+//TODO: implement actually logging in.
+
 export class LoginComponent implements OnInit {
 
   loginForm: FormGroup;

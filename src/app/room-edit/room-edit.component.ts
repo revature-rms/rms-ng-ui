@@ -18,6 +18,10 @@ import { AppRoutingModule } from '../app-routing.module';
   templateUrl: './room-edit.component.html',
   styleUrls: ['./room-edit.component.scss']
 })
+
+
+//TODO: Make a separate page to update work orders.
+
 export class RoomEditComponent implements OnInit {
 
   rooms: Room[];
@@ -68,10 +72,6 @@ async getRoom(id) {
   updateRoom() {
     console.log(this.currentRoom.resourceMetadata);
 
-    // let CurrentResource = new ResourceMetadataDTO(this.currentRoom.resourceMetadata.resourceCreator.id, this.currentRoom.resourceMetadata.resourceCreationDateTime.toString(), this.currentRoom.resourceMetadata.lastModifier.id,
-    // new Date().toLocaleDateString(),  this.currentRoom.resourceMetadata.resourceOwner.id);
-
-    //needs to be a list of room statuses and include a list of work orders
     let updatedRoom = new RoomDTO(this.currentRoom.id, this.currentRoom.roomNumber, this.currentRoom.maxOccupancy, this.currentRoom.currentStatus, this.currentRoom.batch.id);
 
       this.roomService.update(updatedRoom).subscribe(

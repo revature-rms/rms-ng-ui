@@ -9,6 +9,8 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
+//TODO: ensure this works with future backend implementation
 export class AuthService {
 
   private currentUserSubject: BehaviorSubject<Principal>

@@ -15,6 +15,8 @@ const httpOptions = {
 @Injectable({
   providedIn: 'root'
 })
+
+//TODO: ensure this works with future backend implementation
 export class AmenityService {
   private amenityUrl = 'http://localhost:3000/amenity';
 

@@ -13,6 +13,7 @@ import { MatSort } from '@angular/material/sort';
   templateUrl: './campus-detail-view.component.html',
   styleUrls: ['./campus-detail-view.component.scss']
 })
+
 export class CampusDetailViewComponent implements OnInit, AfterViewInit{
 
   dataSource:MatTableDataSource<Building>;
