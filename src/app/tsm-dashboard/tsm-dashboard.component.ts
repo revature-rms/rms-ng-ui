@@ -1,6 +1,6 @@
 
 import { Component, OnInit,AfterViewInit,ViewChild} from '@angular/core';
-import {Employee} from '../dtos/employee';
+import {Employee} from '../dtos/Employee';
 import {EmployeeService} from'../services/employee.service';
 import {Campus} from '../dtos/campus'
 import {CampusService} from '../services/campus.service';
