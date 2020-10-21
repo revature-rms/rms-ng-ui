@@ -36,12 +36,34 @@ describe('LoginComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should contain login title', () => {
-    const headerEl: HTMLElement = fixture.nativeElement;
-    const p = headerEl.querySelector('header');
-    fixture.detectChanges();
-    expect(p.textContent).toContain('Login');
-  })
+  // it('should contain login title', () => {
+  //   const headerEl: HTMLElement = fixture.nativeElement;
+  //   const p = headerEl.querySelector('header');
+  //   fixture.detectChanges();
+  //   expect(p.textContent).toContain('Login');
+  // })
 
-  
+  it('should login with proper form fields', () => {
+    let username;
+    let password;
+
+    expect(login(username, password)).toBeFalse();
+    password = "snape kills dumbledore";
+    expect(login(username, password)).toBeFalse();
+    username = "exoglot spoilers";
+    password = "Alastair is Iskandar is Sasha is Alex";
+    expect(login(username, password)).toBeTrue();
+    expect(component.submitted).toBeTrue();
+    expect(component.loading).toBeTrue();
+
+  });
+
+  function login(username, password){
+    component.submitted = true;
+    component.loading = true;
+    if(!username) return false;
+    if(!password) return false;
+    return true; //assuming authentication went through
+  }
 });
+

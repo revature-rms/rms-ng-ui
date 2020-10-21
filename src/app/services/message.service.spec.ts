@@ -13,4 +13,15 @@ describe('MessageService', () => {
   it('should be created', () => {
     expect(service).toBeTruthy();
   });
+
+  it('should add message to array', () => {
+    let newMSG = 'test message';
+    service.add(newMSG);
+    expect(newMSG).toEqual(service.messages[0]);
+  });
+
+  it('should be clear message array', () => {
+    service.clear();
+    expect(service.messages).toEqual([]);
+  });
 });
