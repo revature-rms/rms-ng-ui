@@ -23,6 +23,8 @@ import { BuildingEditComponent } from './building-edit/building-edit.component';
 import { BatchDetailViewComponent } from './batch-detail-view/batch-detail-view.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
+
+
 @NgModule({
   declarations: [
     AppComponent,
