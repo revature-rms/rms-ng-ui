@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {Employee} from "../dtos/employee";
+import {Employee} from "../dtos/Employee";
 import { Observable, of } from 'rxjs';
 import {HttpClient, HttpHeaders, HttpParams} from '@angular/common/http';
 import {catchError, tap} from 'rxjs/operators';

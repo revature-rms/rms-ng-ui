@@ -1,6 +1,6 @@
 import { Address } from './address';
 import { Building } from './building';
-import { Employee } from './employee';
+import { Employee } from './Employee';
 import { ResourceMetadata } from './resourceMetadata';
 
 export class Campus{
