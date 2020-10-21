@@ -137,4 +137,35 @@
     <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 </table>
 </div>
+<mat-divider></mat-divider>
+        <h2>Additional Information</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        <div>
+                            <mat-card-title>Currently Active</mat-card-title>
+                            <mat-card-content>{{this.currentRoom.resourceMetadata.currentlyActive}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Last Modified</mat-card-title>
+                            <mat-card-content>{{this.currentRoom.resourceMetadata.lastModifiedDateTime | date }}</mat-card-content>
+                            <br>
+                            <mat-card-title>Last Modifier</mat-card-title>
+                            <mat-card-content>{{this.currentRoom.resourceMetadata.lastModifier.username}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Created On</mat-card-title>
+                            <mat-card-content>{{this.currentRoom.resourceMetadata.resourceCreationDateTime | date}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Resource Creator</mat-card-title>
+                            <mat-card-content>{{this.currentRoom.resourceMetadata.resourceCreator.username}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Resource Owner</mat-card-title>
+                            <mat-card-content>{{this.currentRoom.resourceMetadata.resourceOwner.username}}</mat-card-content>
+                            <br>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
 </div>

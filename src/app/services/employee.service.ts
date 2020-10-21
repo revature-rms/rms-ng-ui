@@ -35,7 +35,7 @@ getEmployeeById(id): Promise<Employee>{
 }
 
 update(id, employee) {
-  return this.http.put(`${this.employeeUpdateUrl}`, employee,  { headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `${employee.id}`})
+  return this.http.put(`${this.employeeUpdateUrl}`, JSON.stringify(employee),  { headers: new HttpHeaders({'Content-Type': 'application/json', 'Authorization': `${id}`})
                                                                                           } ).toPromise();
 }
 

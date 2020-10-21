@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Batch } from '../dtos/batch';
 import { Department } from '../dtos/Department';
 import { Employee } from '../dtos/employee';
@@ -16,7 +16,7 @@ import { EmployeeService } from '../services/employee.service';
 })
 export class EmployeeEditComponent implements OnInit {
 
-  constructor (private route: ActivatedRoute, private employeeService: EmployeeService) { 
+  constructor (private route: ActivatedRoute, private employeeService: EmployeeService, private router: Router) { 
     this.route.params.subscribe(param => this.getEmployee(param['id']));
   }
 
@@ -54,10 +54,10 @@ async getEmployee(id) {
 
     console.log(updatedEmployee);
 
-
       this.employeeService.update(updatedEmployee, this.employee.id).then(
         res => {
           console.log('update-employee-successful');
+          this.router.navigate([`/employee-details/${this.employee.id}`]);
         },
         err => {
           console.log(err);

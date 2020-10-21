@@ -118,20 +118,41 @@
         
     </div>
 
-    
+    <br>
+  <mat-divider></mat-divider>
+        <h2>Additional Information</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        <div>
+                            <mat-card-title>Currently Active</mat-card-title>
+                            <mat-card-content>{{this.currentBuilding.resourceMetadata.currentlyActive}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Last Modified</mat-card-title>
+                            <mat-card-content>{{this.currentBuilding.resourceMetadata.lastModifiedDateTime | date }}</mat-card-content>
+                            <br>
+                            <mat-card-title>Last Modifier</mat-card-title>
+                            <mat-card-content>{{this.currentBuilding.resourceMetadata.lastModifier.username}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Created On</mat-card-title>
+                            <mat-card-content>{{this.currentBuilding.resourceMetadata.resourceCreationDateTime | date}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Resource Creator</mat-card-title>
+                            <mat-card-content>{{this.currentBuilding.resourceMetadata.resourceCreator.username}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Resource Owner</mat-card-title>
+                            <mat-card-content>{{this.currentBuilding.resourceMetadata.resourceOwner.username}}</mat-card-content>
+                            <br>
+                        </div>
+
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+
 </div>
 <br>
-<div id="centerDiv">
-    <mat-card>
-        <mat-card-content>
-        <p><b>Resource Creator:</b> {{this.currentBuilding.resourceMetadata.resourceCreator}}</p>
-        <p><b>Resource Creation Date Time:</b> {{this.currentBuilding.resourceMetadata.resourceCreationDateTime}}</p>
-        <p><b>Last Modifier:</b> {{this.currentBuilding.resourceMetadata.lastModifier}}</p>
-        <p><b>Last Modified Date Time:</b> {{this.currentBuilding.resourceMetadata.lastModifiedDateTime}}</p>
-        <p><b>Resource Owner:</b> {{this.currentBuilding.resourceMetadata.resourceOwner}}</p>
-        <p><b>Currently Active:</b> {{this.currentBuilding.resourceMetadata.currentlyActive}}</p>
-        </mat-card-content>
-    </mat-card>
-</div>
+
 
     

@@ -1,4 +1,5 @@
 import { ResourceMetadataDTO } from "../dtos/resourceMetadataDTO";
+import { ResourceMetadata } from './resourceMetadata';
 
 export class Employee {
 
@@ -9,7 +10,7 @@ export class Employee {
     email:string;
     title:string;
     department:string;
-    resourceMetadata:ResourceMetadataDTO;
+    resourceMetadata:ResourceMetadata;
 
 
 

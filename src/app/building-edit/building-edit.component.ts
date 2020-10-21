@@ -9,7 +9,7 @@ import { FormControl, Validators } from '@angular/forms';
 import { RoomService } from '../services/room.service';
 import { Amenity } from '../dtos/amenity';
 import { AmenityService } from '../services/amenity.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 
@@ -39,7 +39,7 @@ export class BuildingEditComponent implements OnInit {
   trainingLead = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]);
 
 
-  constructor(private buildingService: BuildingService, private roomService: RoomService, private amenityService: AmenityService, private route: ActivatedRoute,) { 
+  constructor(private buildingService: BuildingService, private roomService: RoomService, private amenityService: AmenityService, private route: ActivatedRoute, private router: Router) { 
     this.route.params.subscribe(param => this.getBuilding(param['id']));
   }
 
@@ -52,8 +52,6 @@ export class BuildingEditComponent implements OnInit {
 
       res => {
         console.log('get-buildings-successful');
-        console.log(this.currentBuilding.trainingLead);
-        console.log(this.currentBuilding.address);
         this.currentBuilding = <Building>res;
 
       },
@@ -95,6 +93,7 @@ export class BuildingEditComponent implements OnInit {
     this.buildingService.update(updatedBuilding).then(
       res => {
         console.log('update building succesful');
+        this.router.navigate([`/employee-details/${this.currentBuilding.id}`]);
       }, 
       err => {
         console.log(err);

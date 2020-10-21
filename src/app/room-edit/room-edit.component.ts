@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Batch } from '../dtos/batch';
 import { Employee } from '../dtos/employee';
 import { ResourceMetadataDTO } from '../dtos/resourceMetadataDTO';
@@ -11,6 +11,7 @@ import { WorkOrder } from '../dtos/workOrder';
 import { RoomService } from '../services/room.service';
 import { WorkOrderService } from '../services/work-order.service';
 import { from } from 'rxjs';
+import { AppRoutingModule } from '../app-routing.module';
 
 @Component({
   selector: 'app-room-edit',
@@ -33,7 +34,7 @@ export class RoomEditComponent implements OnInit {
   occupancy = new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]);
   roomNumber = new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]);
 
-  constructor (private route: ActivatedRoute, private roomService: RoomService, private workOrderService: WorkOrderService) { 
+  constructor (private route: ActivatedRoute, private roomService: RoomService, private workOrderService: WorkOrderService, private router: Router) { 
     this.route.params.subscribe(param => this.getRoom(param['id']));
   }
 
@@ -77,6 +78,7 @@ async getRoom(id) {
       this.roomService.update(updatedRoom).subscribe(
         res => {
           console.log('update-rooms-successful');
+          this.router.navigate([`/room-details/${this.currentRoom.id}`]);
         },
         err => {
           console.log(err);

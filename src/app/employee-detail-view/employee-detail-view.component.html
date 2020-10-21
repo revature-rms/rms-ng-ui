@@ -69,9 +69,24 @@
             <mat-card>
                 <mat-card-header>
                     <mat-card-content>
-                        <div  *ngFor="let item of this.currentEmployee.resourceMetadata | keyvalue">
-                            <mat-card-title>{{item.key}}</mat-card-title>
-                            <mat-card-content>{{item.value}}</mat-card-content>
+                        <div>
+                            <mat-card-title>Currently Active</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.currentlyActive}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Last Modified</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.lastModifiedDateTime | date }}</mat-card-content>
+                            <br>
+                            <mat-card-title>Last Modifier</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.lastModifier.username}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Created On</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.resourceCreationDateTime | date}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Resource Creator</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.resourceCreator.username}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Resource Owner</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.resourceOwner.username}}</mat-card-content>
                             <br>
                         </div>
 
