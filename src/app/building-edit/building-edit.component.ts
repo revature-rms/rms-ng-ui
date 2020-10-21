@@ -10,6 +10,7 @@ import { RoomService } from '../services/room.service';
 import { Amenity } from '../dtos/amenity';
 import { AmenityService } from '../services/amenity.service';
 import { ActivatedRoute, Router } from '@angular/router';
+import { BuildingDTO } from '../dtos/buildingDTO';
 
 
 
@@ -88,12 +89,17 @@ export class BuildingEditComponent implements OnInit {
   updateBuilding(){
     console.log(this.currentBuilding.name);
 
-    let updatedBuilding = new Building();
+    let updatedBuilding = new BuildingDTO();
+    updatedBuilding.id = this.currentBuilding.id;
+    updatedBuilding.name = this.currentBuilding.name;
+    updatedBuilding.abbrName = this.currentBuilding.abbrName;
+    updatedBuilding.physicalAddress = this.currentBuilding.address;
+    updatedBuilding.trainingLead = this.currentBuilding.trainingLead.id;
 
     this.buildingService.update(updatedBuilding).then(
       res => {
         console.log('update building succesful');
-        this.router.navigate([`/employee-details/${this.currentBuilding.id}`]);
+        this.router.navigate([`/building-details/${this.currentBuilding.id}`]);
       }, 
       err => {
         console.log(err);

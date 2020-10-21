@@ -10,6 +10,6 @@ export class BuildingDTO{
     name:String;
     abbrName:String;
     physicalAddress:Address;
-    trainingLead:String; //string of id
+    trainingLead:Number; //string of id
 
 }
