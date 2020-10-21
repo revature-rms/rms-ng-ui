@@ -15,6 +15,16 @@
     height:100%;
 }
 
+//TODO change all px to rem to make it relative to the device
+img.sidebarIcon {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+
+
+  }
+
 .sidebarCard{
     //float:left;
     width:100%;
@@ -38,6 +48,9 @@ nav {
     //-webkit-tap-highlight-color: transparent;
 }
 
+.sidebarIcon {
+    padding: 20%;
+}
 
 
 
