@@ -1,5 +1,4 @@
 import { AppUser } from './appUser';
-import { Employee } from './employee';
 
 export class ResourceMetadata{
 

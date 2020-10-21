@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { Batch } from '../dtos/batch';
-import { Employee } from '../dtos/employee';
+import { Employee } from '../dtos/Employee';
 import { EmployeeDTO } from '../dtos/EmployeeDTO';
 import { Room } from '../dtos/room';
 import { RoomStatus } from '../dtos/roomStatus';
