@@ -36,17 +36,19 @@ describe('RoomService', () => {
     var expectedData: Room[] =
     [{
       id:1,
-      roomNumber:'String',
+      roomNumber:1,
       maxOccupancy:20,
       currentStatus:null,
-      batch:null
+      batch:null,
+      resourceMetadata:null
     },
     {
       id:2,
-      roomNumber:'String',
+      roomNumber:1,
       maxOccupancy:22,
       currentStatus:null,
-      batch:null
+      batch:null,
+      resourceMetadata:null
     }]
     httpClientSpy.get.and.returnValue(asyncData(expectedData)); //setup the server response
     service.getRooms().then( 
@@ -62,20 +64,22 @@ describe('RoomService', () => {
     var expectedData: Room[] =
     [{
       id:1,
-      roomNumber:'String',
+      roomNumber:1,
       maxOccupancy:20,
       currentStatus:null,
-      batch:null
+      batch:null,
+      resourceMetadata:null
     },
     {
       id:2,
-      roomNumber:'String',
+      roomNumber:1,
       maxOccupancy:22,
       currentStatus:null,
-      batch:null
+      batch:null,
+      resourceMetadata:null
     }]
     httpClientSpy.get.and.returnValue(asyncData(expectedData[0])); //setup the server response
-    service.getRoomById(1).subscribe( 
+    service.getRoomsById(1).then( 
       data => expect(data).toEqual(expectedData[0], 'expected target room by ID')
     );
 
@@ -106,10 +110,11 @@ describe('RoomService', () => {
   it('should update a room', () => {
     let newRoom:Room = {
       id:5,
-      roomNumber:'String',
+      roomNumber:1,
       maxOccupancy:25,
       currentStatus:null,
-      batch:null
+      batch:null,
+      resourceMetadata:null
     }
 
     let resp = roomPuttest(newRoom);
@@ -121,10 +126,11 @@ describe('RoomService', () => {
   it('should delete a room', () => {
     let newRoom:Room = {
       id:5,
-      roomNumber:'String',
+      roomNumber:1,
       maxOccupancy:25,
       currentStatus:null,
-      batch:null
+      batch:null,
+      resourceMetadata:null
     }
 
     let resp = roomDeletetest(newRoom);
@@ -136,17 +142,19 @@ describe('RoomService', () => {
   it('should delete a room', () => {
     let newRooms:Room[] = [{
       id:5,
-      roomNumber:'String',
+      roomNumber:1,
       maxOccupancy:25,
       currentStatus:null,
-      batch:null
+      batch:null,
+      resourceMetadata:null
     },
     {
       id:5,
-      roomNumber:'String',
+      roomNumber:1,
       maxOccupancy:25,
       currentStatus:null,
-      batch:null
+      batch:null,
+      resourceMetadata:null
     }]
 
     let resp = roomDeleteAlltest(newRooms);

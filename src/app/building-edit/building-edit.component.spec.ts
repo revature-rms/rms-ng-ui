@@ -37,7 +37,7 @@ describe('BuildingEditComponent', () => {
       id:null,
       name:'Building',
       abbrName:'String',
-      physicalAddress:null,
+      address:null,
       trainingLead:null,
       amenities:null,
       rooms:null,
@@ -58,7 +58,7 @@ describe('BuildingEditComponent', () => {
       id:1,
       name:'Building',
       abbrName:'String',
-      physicalAddress:null,
+      address:null,
       trainingLead:null,
       amenities:null,
       rooms:null,
@@ -68,7 +68,7 @@ describe('BuildingEditComponent', () => {
       id:2,
       name:'Building2',
       abbrName:'String',
-      physicalAddress:null,
+      address:null,
       trainingLead:null,
       amenities:null,
       rooms:null,
@@ -82,17 +82,20 @@ describe('BuildingEditComponent', () => {
   it('should get rooms data', () => {
     let newRooms:Room[] = [{
       id:5,
-      roomNumber:'String',
+      roomNumber:1,
       maxOccupancy:25,
       currentStatus:null,
-      batch:null
+      batch:null,
+      resourceMetadata: null
     },
     {
       id:5,
-      roomNumber:'String',
+      roomNumber:1,
       maxOccupancy:25,
       currentStatus:null,
-      batch:null
+      batch:null,
+      resourceMetadata: null
+
     }];
 
     expect(newRooms).toEqual(getRoomsData());
@@ -122,7 +125,7 @@ function getBuildingsData(){
     id:1,
     name:'Building',
     abbrName:'String',
-    physicalAddress:null,
+    address:null,
     trainingLead:null,
     amenities:null,
     rooms:null,
@@ -132,7 +135,7 @@ function getBuildingsData(){
     id:2,
     name:'Building2',
     abbrName:'String',
-    physicalAddress:null,
+    address:null,
     trainingLead:null,
     amenities:null,
     rooms:null,
@@ -145,17 +148,19 @@ function getBuildingsData(){
 function getRoomsData(){
   let newRooms:Room[] = [{
     id:5,
-    roomNumber:'String',
+    roomNumber:1,
     maxOccupancy:25,
     currentStatus:null,
-    batch:null
+    batch:null,
+    resourceMetadata:null
   },
   {
     id:5,
-    roomNumber:'String',
+    roomNumber:1,
     maxOccupancy:25,
     currentStatus:null,
-    batch:null
+    batch:null,
+    resourceMetadata:null
   }];
   return newRooms;
 }

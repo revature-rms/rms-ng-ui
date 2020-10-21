@@ -32,7 +32,6 @@ export class RoomEditComponent implements OnInit {
   displayedColumnsA: string[] = ['id', 'whiteboardCleaned', 'chairsOrdered', 'submittedDateTime', 'submitter', 'otherNotes'];
   
   occupancy = new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]);
-  roomNumber = new FormControl('', [Validators.required, Validators.pattern('^[0-9]*$')]);
 
   constructor (private route: ActivatedRoute, private roomService: RoomService, private workOrderService: WorkOrderService, private router: Router) { 
     this.route.params.subscribe(param => this.getRoom(param['id']));

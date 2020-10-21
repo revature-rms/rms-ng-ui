@@ -74,6 +74,14 @@ export class NavbarComponent implements OnDestroy {
     {
       linkName: 'Home',
       fragment: '/tsm-dashboard'
+    },
+    {
+      linkName: 'Campus Details',
+      fragment: '/campus-details/1'
+    },
+    {
+      linkName: 'Building Details',
+      fragment: '/building-details/1'
     }
   ];
 
@@ -82,6 +90,14 @@ export class NavbarComponent implements OnDestroy {
     {
       linkName: 'Home',
       fragment: '/tsm-dashboard'
+    },
+    {
+      linkName: 'Campus Details',
+      fragment: '/campus-details/1'
+    },
+    {
+      linkName: 'Building Details',
+      fragment: '/building-details/1'
     }
   ];
 

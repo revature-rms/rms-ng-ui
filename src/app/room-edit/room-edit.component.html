@@ -14,8 +14,7 @@
                         <input matInput 
                         type="text" class="form-control" id="roomNumber"
                         required
-                        [(ngModel)]="this.currentRoom.roomNumber" name="roomNumber" [formControl]="roomNumber" required>
-                        <mat-error *ngIf="roomNumber.invalid">Please enter a valid number.</mat-error>
+                        [(ngModel)]="this.currentRoom.roomNumber" name="roomNumber" required>
                     </mat-form-field>
                     <!-- <button mat-icon-button>
                         <mat-icon>save</mat-icon>
