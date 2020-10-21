@@ -1,5 +1,4 @@
-import { Component, OnInit,AfterViewInit,ViewChild} from '@angular/core';
-import { from } from 'rxjs';
+import { Component,AfterViewInit,ViewChild} from '@angular/core';
 import {Employee} from '../dtos/employee';
 import {EmployeeService} from'../services/employee.service';
 import {Campus} from '../dtos/campus'
@@ -7,6 +6,9 @@ import {CampusService} from '../services/campus.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { OnInit } from '@angular/core';
+
+
 
 
 @Component({
@@ -14,26 +16,29 @@ import {MatTableDataSource} from '@angular/material/table';
   templateUrl: './tsm-dashboard.component.html',
   styleUrls: ['./tsm-dashboard.component.scss']
 })
-export class TsmDashboardComponent implements OnInit {
+export class TsmDashboardComponent implements OnInit, AfterViewInit {
+
+
+
+  employees:Employee[]=[];
+  
+  campuses:Campus[]=[];
+  dataSource2:Campus[]=[];
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  employees:Employee[]=[];
-  dataSource: MatTableDataSource<Employee>;
-  campuses:Campus[]=[];
-  dataSource2:Campus[]=[];
-
   constructor(private employeeService:EmployeeService, private campusService:CampusService) {
    
+
    }
 
-  ngOnInit(): void {
+   ngOnInit() {
 
-        this.getEmployees();
-        this.getCampus();
-        this.dataSource = new MatTableDataSource(this.employees);
-        
+    this.getEmployees();
+    this.getCampus();
+  
+
   }
 
   ngAfterViewInit() {
@@ -57,8 +62,7 @@ async getEmployees(){
     (response)=>
     {
       this.employees = response as Employee[];
-      console.log("this is dashboard")
-      console.log(this.employees);
+      this.dataSource = new MatTableDataSource(this.employees);
       console.log(this.dataSource);
     },
     (error) => console.log(error)
@@ -86,6 +90,7 @@ async getCampus(){
 
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'title'];
   displayedColumns2: string[] = ['id', 'name', 'abbrName'];
+  dataSource: MatTableDataSource<Employee>;
   
 
 

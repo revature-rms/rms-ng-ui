@@ -22,6 +22,9 @@ import { RoomEditComponent } from './room-edit/room-edit.component';
 import { BuildingEditComponent } from './building-edit/building-edit.component';
 import { BatchDetailViewComponent } from './batch-detail-view/batch-detail-view.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import {MatSortModule} from '@angular/material/sort';
+import {MatTableModule} from '@angular/material/table';
+
 
 @NgModule({
   declarations: [
@@ -44,7 +47,9 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
     MaterialModule,
     ReactiveFormsModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    MatTableModule,
+    MatSortModule
   ],
   exports: [ MaterialModule ],
   providers: [HttpClientModule],
