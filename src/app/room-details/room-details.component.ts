@@ -15,6 +15,9 @@ import { WorkOrderService } from '../services/work-order.service';
   templateUrl: './room-details.component.html',
   styleUrls: ['./room-details.component.scss']
 })
+
+
+//TODO: implement work orders table
 export class RoomDetailsComponent implements AfterViewInit {
 
   currentRoom: Room;
