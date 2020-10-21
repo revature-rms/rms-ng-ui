@@ -7,7 +7,6 @@ import {CampusService} from '../services/campus.service';
 import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
-import { OnInit } from '@angular/core';
 
 
 
@@ -17,7 +16,7 @@ import { OnInit } from '@angular/core';
   templateUrl: './tsm-dashboard.component.html',
   styleUrls: ['./tsm-dashboard.component.scss']
 })
-export class TsmDashboardComponent implements OnInit, AfterViewInit {
+export class TsmDashboardComponent implements OnInit {
 
 
 
