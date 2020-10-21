@@ -1,10 +1,15 @@
+
 import { Component, OnInit,AfterViewInit,ViewChild} from '@angular/core';
 import {Employee} from '../dtos/employee';
 import {EmployeeService} from'../services/employee.service';
 import {Campus} from '../dtos/campus'
 import {CampusService} from '../services/campus.service';
+import {MatPaginator} from '@angular/material/paginator';
 import {MatSort} from '@angular/material/sort';
 import {MatTableDataSource} from '@angular/material/table';
+import { OnInit } from '@angular/core';
+
+
 
 
 @Component({
@@ -12,7 +17,9 @@ import {MatTableDataSource} from '@angular/material/table';
   templateUrl: './tsm-dashboard.component.html',
   styleUrls: ['./tsm-dashboard.component.scss']
 })
-export class TsmDashboardComponent implements OnInit {
+export class TsmDashboardComponent implements OnInit, AfterViewInit {
+
+
 
   employees:Employee[]=[];
   campuses:Campus[]=[];
@@ -33,7 +40,6 @@ export class TsmDashboardComponent implements OnInit {
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
-    
 
     if (this.dataSource.paginator) {
       this.dataSource.paginator.firstPage();
@@ -49,6 +55,7 @@ async getEmployees(){
       this.employees = response as Employee[];
       this.dataSource = new MatTableDataSource(this.employees);
       this.dataSource.sort = this.sort;
+
     },
     (error) => console.log(error)
   )
@@ -73,6 +80,5 @@ async getCampus(){
 
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'title'];
   displayedColumns2: string[] = ['id', 'name', 'abbrName'];
- 
 
 }
