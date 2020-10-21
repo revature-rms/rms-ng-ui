@@ -20,21 +20,22 @@ export class EmployeeService {
 
   employee:Employee;
 
-  private employeeUrl = 'http://localhost:3000/Employee';
+  private employeeUrl = 'http://localhost:10000/search/employees';
+  private employeeUpdateUrl = 'http://localhost:10002/employees';
 
   constructor(private http: HttpClient,
     private messageService: MessageService) { }
 
-getemployees(){
-  return this.http.get(this.employeeUrl);
+getemployees(): Observable<Employee[]>{
+  return this.http.get<Employee[]>(this.employeeUrl);
 }
 
-getEmployeeBy(id) {
-  return this.http.get(`${this.employeeUrl}/${id}`);
+getEmployeeById(id): Promise<Employee>{
+  return this.http.get<Employee>(`${this.employeeUrl}/id/${id}`).toPromise();
 }
 
-update(id, employee) {
-  return this.http.put(`${this.employeeUrl}/${id}`, employee);
+update(employee) {
+  return this.http.put(`${this.employeeUpdateUrl}`, JSON.stringify(employee), httpOptions).toPromise();
 }
 
 // create(employee) {

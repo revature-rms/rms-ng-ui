@@ -1,4 +1,5 @@
-import { Component,AfterViewInit,ViewChild} from '@angular/core';
+
+import { Component, OnInit,AfterViewInit,ViewChild} from '@angular/core';
 import {Employee} from '../dtos/employee';
 import {EmployeeService} from'../services/employee.service';
 import {Campus} from '../dtos/campus'
@@ -21,29 +22,19 @@ export class TsmDashboardComponent implements OnInit, AfterViewInit {
 
 
   employees:Employee[]=[];
-  
   campuses:Campus[]=[];
   dataSource2:Campus[]=[];
-
-  @ViewChild(MatPaginator) paginator: MatPaginator;
-  @ViewChild(MatSort) sort: MatSort;
+  dataSource: MatTableDataSource<Employee>;
 
   constructor(private employeeService:EmployeeService, private campusService:CampusService) {
-   
-
-   }
-
-   ngOnInit() {
-
-    this.getEmployees();
-    this.getCampus();
   
-
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+  @ViewChild(MatSort) sort: MatSort;
+
+  ngOnInit(){
+    this.getEmployees();
+    this.getCampus();   
   }
 
   applyFilter(event: Event) {
@@ -63,7 +54,8 @@ async getEmployees(){
     {
       this.employees = response as Employee[];
       this.dataSource = new MatTableDataSource(this.employees);
-      console.log(this.dataSource);
+      this.dataSource.sort = this.sort;
+
     },
     (error) => console.log(error)
   )
@@ -71,7 +63,7 @@ async getEmployees(){
 }
 
 async getCampus(){
-  await this.campusService.getCampus().subscribe
+  await this.campusService.getCampus().then
   (
     (response)=>
     {
@@ -86,12 +78,7 @@ async getCampus(){
 
 }
 
-
-
   displayedColumns: string[] = ['id', 'firstName', 'lastName', 'title'];
   displayedColumns2: string[] = ['id', 'name', 'abbrName'];
-  dataSource: MatTableDataSource<Employee>;
-  
-
 
 }

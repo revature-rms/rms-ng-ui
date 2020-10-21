@@ -1,6 +1,3 @@
-
-
-
 export class Address{
     unitStreet:String;
     city:String;

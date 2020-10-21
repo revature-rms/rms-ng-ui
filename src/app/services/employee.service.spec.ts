@@ -91,7 +91,7 @@ describe('EmployeeService', () => {
       resourceMetadata:null
     }]
     httpClientSpy.get.and.returnValue(asyncData(expectedData[0])); //setup the server response
-    service.getEmployeeBy(1).subscribe( 
+    service.getEmployeeById(1).then( 
       data => expect(data).toEqual(expectedData[0], 'expected target employee by ID')
     );
 

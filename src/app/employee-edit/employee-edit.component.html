@@ -1,0 +1,94 @@
+<div id="wholeDiv" class="inner-content">
+    <button mat-raised-button color="primary" (click)="updateEmployee()">Update Employee</button>
+    <div id="leftDiv">
+        <h2>First name</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        <mat-form-field>
+                            <input matInput 
+                            type="text" id="firstName"
+                            [(ngModel)]="this.employee.firstName" name="firstName">
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Last name</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        <mat-form-field>
+                            <input matInput 
+                            type="text" id="lastName"
+                            [(ngModel)]="this.employee.lastName" name="lastName">
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Email</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        <mat-form-field>
+                            <input matInput 
+                            type="text" id="email"
+                            [(ngModel)]="this.employee.email" name="email">
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Title</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        <mat-form-field>
+                            <input matInput 
+                            type="text" id="title"
+                            [(ngModel)]="this.employee.title" name="title">
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+        <h2>Department</h2>
+        <div>
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-content>
+                        <mat-form-field appearance="fill">
+                            <mat-label>Department</mat-label>
+                            <mat-select class="form-control"  id="department"
+                            required
+                            [(value)]="this.employee.department" name="department">
+                                <mat-option value ='TRAINING'>TRAINING</mat-option>
+                                <mat-option value ='STAGING'>STAGING</mat-option>
+                                <mat-option value ='QC'>QC</mat-option>
+                                <mat-option value ='RETENTION'>RETENTION</mat-option>
+                                <mat-option value ='HR'>HR</mat-option>
+                                <mat-option value ='RECRUITMENT'>RECRUITMENT</mat-option>
+                                <mat-option value ='DELIVERY'>DELIVERY</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                    </mat-card-content>
+                </mat-card-header>
+            </mat-card>
+        </div>
+        <br>
+        <mat-divider></mat-divider>
+    </div>
+</div>

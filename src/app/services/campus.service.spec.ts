@@ -63,7 +63,7 @@ describe('CampusService', () => {
 
     //setup the server response
     httpClientSpy.get.and.returnValue(asyncData(expectedCampus));
-    service.getCampus().subscribe( 
+    service.getCampus().then( 
       campuses => expect(campuses).toEqual(expectedCampus, 'expected campus data')
     ); //check to make sure they're the same
 
@@ -81,7 +81,7 @@ describe('CampusService', () => {
   
     httpClientSpy.get.and.returnValue(asyncError(errorResponse));
   
-    service.getCampus().subscribe(
+    service.getCampus().then(
       campuses => fail('expected an error, not campuses'),
       error  => expect(error.message).toContain('test 404 error')
     );

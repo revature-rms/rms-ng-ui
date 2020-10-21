@@ -10,6 +10,8 @@ import { FormControl, Validators } from '@angular/forms';
 import { RoomService } from '../services/room.service';
 import { Amenity } from '../dtos/amenity';
 import { AmenityService } from '../services/amenity.service';
+import { ActivatedRoute, Router } from '@angular/router';
+import { BuildingDTO } from '../dtos/buildingDTO';
 
 
 
@@ -39,18 +41,20 @@ export class BuildingEditComponent implements OnInit {
   trainingLead = new FormControl('', [Validators.required, Validators.pattern('^[a-zA-Z]+$')]);
 
 
-  constructor(private buildingService: BuildingService, private roomService: RoomService, private amenityService: AmenityService) { }
+  constructor(private buildingService: BuildingService, private roomService: RoomService, private amenityService: AmenityService, private route: ActivatedRoute, private router: Router) { 
+    this.route.params.subscribe(param => this.getBuilding(param['id']));
+  }
 
   async ngOnInit() {
 
-    await this.buildingService.getBuildings().then(
+  }
+
+  async getBuilding(id: Number) {
+    await this.buildingService.getBuildingById(id).then(
 
       res => {
         console.log('get-buildings-successful');
-        console.log(this.currentBuilding.trainingLead);
-        console.log(this.currentBuilding.physicalAddress);
-        this.buildings = <Building[]>res;
-        this.currentBuilding = this.buildings[0];
+        this.currentBuilding = <Building>res;
 
       },
       err => {
@@ -70,15 +74,15 @@ export class BuildingEditComponent implements OnInit {
         console.log(err);
       });
 
-      await this.amenityService.getAmenities().then(
-        res => {
-          console.log('get-amenities-successful');
-          this.amenities = res;
-          this.dataSource = this.amenities;
-        },
-        err => {
-          console.log(err);
-        });
+      // await this.amenityService.getAmenities().then(
+      //   res => {
+      //     console.log('get-amenities-successful');
+      //     this.amenities = res;
+      //     this.dataSource = this.amenities;
+      //   },
+      //   err => {
+      //     console.log(err);
+      //   });
 
   }
 
@@ -86,11 +90,17 @@ export class BuildingEditComponent implements OnInit {
   updateBuilding(){
     console.log(this.currentBuilding.name);
 
-    let updatedBuilding = new Building();
+    let updatedBuilding = new BuildingDTO();
+    updatedBuilding.id = this.currentBuilding.id;
+    updatedBuilding.name = this.currentBuilding.name;
+    updatedBuilding.abbrName = this.currentBuilding.abbrName;
+    updatedBuilding.physicalAddress = this.currentBuilding.address;
+    updatedBuilding.trainingLead = this.currentBuilding.trainingLead.id;
 
     this.buildingService.update(updatedBuilding).then(
       res => {
         console.log('update building succesful');
+        this.router.navigate([`/building-details/${this.currentBuilding.id}`]);
       }, 
       err => {
         console.log(err);

@@ -1,30 +1,15 @@
 
 <div id="wholeDiv" class="inner-content">
-    <h2>ID</h2>
+    <button mat-icon-button>
+        <mat-icon><a routerLink="/employee-edit/{{this.currentEmployee.id}}" routerLinkActive="active">edit</a></mat-icon>
+    </button>
     <div id="leftDiv">
-        <div>
-            <mat-card>
-                <mat-card-header>
-                    <mat-card-content id="number">
-                        {{ this.currentEmployee.id }}
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
-                    </mat-card-content>
-                </mat-card-header>
-            </mat-card>
-        </div>
-        <br>
-        <mat-divider></mat-divider>
         <h2>First name</h2>
         <div>
             <mat-card>
                 <mat-card-header>
                     <mat-card-content>
                         {{ this.currentEmployee.firstName }}
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
                     </mat-card-content>
                 </mat-card-header>
             </mat-card>
@@ -37,9 +22,6 @@
                 <mat-card-header>
                     <mat-card-content>
                         {{ this.currentEmployee.lastName }}
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
                     </mat-card-content>
                 </mat-card-header>
             </mat-card>
@@ -52,9 +34,6 @@
                 <mat-card-header>
                     <mat-card-content>
                         {{ this.currentEmployee.email }}
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
                     </mat-card-content>
                 </mat-card-header>
             </mat-card>
@@ -67,9 +46,6 @@
                 <mat-card-header>
                     <mat-card-content>
                         {{ this.currentEmployee.title }}
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
                     </mat-card-content>
                 </mat-card-header>
             </mat-card>
@@ -82,9 +58,6 @@
                 <mat-card-header>
                     <mat-card-content>
                         {{ this.currentEmployee.department }}
-                        <button mat-icon-button>
-                            <mat-icon>edit</mat-icon>
-                        </button>
                     </mat-card-content>
                 </mat-card-header>
             </mat-card>
@@ -96,9 +69,24 @@
             <mat-card>
                 <mat-card-header>
                     <mat-card-content>
-                        <div  *ngFor="let item of this.currentEmployee.resourceMetadata | keyvalue">
-                            <mat-card-title>{{item.key}}</mat-card-title>
-                            <mat-card-content>{{item.value}}</mat-card-content>
+                        <div>
+                            <mat-card-title>Currently Active</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.currentlyActive}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Last Modified</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.lastModifiedDateTime | date }}</mat-card-content>
+                            <br>
+                            <mat-card-title>Last Modifier</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.lastModifier.username}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Created On</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.resourceCreationDateTime | date}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Resource Creator</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.resourceCreator.username}}</mat-card-content>
+                            <br>
+                            <mat-card-title>Resource Owner</mat-card-title>
+                            <mat-card-content>{{this.currentEmployee.resourceMetadata.resourceOwner.username}}</mat-card-content>
                             <br>
                         </div>
 
